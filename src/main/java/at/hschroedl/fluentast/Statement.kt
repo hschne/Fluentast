@@ -45,20 +45,6 @@ class FluentBreakStatement : FluentStatement() {
     }
 }
 
-class FluentVariableDeclarationStatement : FluentStatement() {
-    override fun build(ast: AST): ASTNode {
-        val fragment = ast.newVariableDeclarationFragment()
-        val ret = ast.newVariableDeclarationStatement(fragment)
-        val type = ast.newPrimitiveType(PrimitiveType.INT)
-        val name = ast.newSimpleName("a")
-        val lit = ast.newNumberLiteral("15")
-        fragment.name = name
-        fragment.initializer = lit
-        ret.type = type
-        return ret
-    }
-}
-
 
 fun br(): FluentStatement {
     return FluentBreakStatement()
@@ -76,7 +62,5 @@ fun empty(): FluentStatement {
     return FluentEmptyStatement()
 }
 
-fun variable(): FluentStatement {
-    return FluentVariableDeclarationStatement()
-}
+
 

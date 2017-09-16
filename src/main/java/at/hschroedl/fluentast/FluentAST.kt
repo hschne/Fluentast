@@ -11,7 +11,7 @@ interface FluentRootNode {
 
 interface FluentChildNode {
 
-    fun build(ast: AST): ASTNode
+    fun build(ast: AST): ASTNode?
 }
 
 abstract class FluentASTNode

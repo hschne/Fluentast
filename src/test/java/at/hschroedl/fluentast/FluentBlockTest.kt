@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast
 
-import at.hschroedl.fluentast.test.clean
+import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.Block
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -43,6 +43,6 @@ internal class FluentBlockTest {
         val block = body(block(block())).build() as Block
 
         val expected = "{{{}}}"
-        assertEquals(expected, block.toString().clean())
+        assertEquals(expected, block.toInlineString())
     }
 }
