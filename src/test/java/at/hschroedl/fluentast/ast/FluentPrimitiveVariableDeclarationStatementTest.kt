@@ -1,4 +1,4 @@
-package at.hschroedl.fluentast
+package at.hschroedl.fluentast.ast
 
 import at.hschroedl.fluentast.ast.*
 import at.hschroedl.fluentast.test.toInlineString

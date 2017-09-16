@@ -1,15 +1,11 @@
 package at.hschroedl.fluentast.ast
 
 import at.hschroedl.fluentast.FluentParseException
-import jdk.nashorn.internal.runtime.regexp.joni.constants.NodeType
-import org.eclipse.jdt.core.Flags
+import at.hschroedl.fluentast.FluentParsedNode
 import org.eclipse.jdt.core.dom.*
 
 
-abstract class FluentBlock : FluentStatement() {
-
-
-}
+abstract class FluentBlock : FluentStatement()
 
 class FluentStatementBlock() : FluentBlock() {
 
@@ -29,15 +25,12 @@ class FluentStatementBlock() : FluentBlock() {
     }
 }
 
-class FluentStringBlock(private val content: String) : FluentBlock() {
+class FluentParsedBlock(private val content: String) : FluentBlock() {
 
     override fun build(): ASTNode {
-        val parser = ASTParser.newParser(AST.JLS8)
-        parser.setSource(content.toCharArray())
-        parser.setResolveBindings(false)
-        parser.setKind(ASTParser.K_STATEMENTS)
-        val block = parser.createAST(null) as Block
-        if (block.flags == ASTNode.MALFORMED) {
+
+        val block = FluentParsedNode(content, ASTParser.K_STATEMENTS).build() as Block
+        if (block.statements().isEmpty()) {
             throw FluentParseException(
                     "Failed to parse statements: '$content'. To create an empty block use 'block()'")
         }
@@ -59,7 +52,7 @@ fun body(vararg statements: FluentStatement): FluentBlock {
 }
 
 fun body(content: String): FluentBlock {
-    return FluentStringBlock(content)
+    return FluentParsedBlock(content)
 }
 
 fun block(): FluentBlock {

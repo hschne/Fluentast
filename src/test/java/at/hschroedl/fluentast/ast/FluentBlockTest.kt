@@ -1,8 +1,6 @@
-package at.hschroedl.fluentast
+package at.hschroedl.fluentast.ast
 
-import at.hschroedl.fluentast.ast.block
-import at.hschroedl.fluentast.ast.body
-import at.hschroedl.fluentast.ast.empty
+import at.hschroedl.fluentast.FluentParseException
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.Block
 import org.junit.jupiter.api.Assertions.*

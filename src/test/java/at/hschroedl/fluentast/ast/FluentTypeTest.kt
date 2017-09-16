@@ -1,4 +1,4 @@
-package at.hschroedl.fluentast
+package at.hschroedl.fluentast.ast
 
 import at.hschroedl.fluentast.ast.FluentPrimitive
 import at.hschroedl.fluentast.ast.FluentPrimitiveType

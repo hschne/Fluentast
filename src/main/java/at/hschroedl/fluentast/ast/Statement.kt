@@ -1,13 +1,10 @@
 package at.hschroedl.fluentast.ast
 
-import at.hschroedl.fluentast.FluentASTNode
-import at.hschroedl.fluentast.FluentChildNode
-import at.hschroedl.fluentast.FluentParseException
-import at.hschroedl.fluentast.FluentRootNode
+import at.hschroedl.fluentast.*
 import org.eclipse.jdt.core.dom.*
 
 
-abstract class FluentStatement : FluentASTNode(), FluentRootNode, FluentChildNode {
+abstract class FluentStatement : FluentASTNode(), FluentStandaloneNode, FluentChildNode {
 
     abstract override fun build(ast: AST): ASTNode
 
@@ -20,11 +17,7 @@ abstract class FluentStatement : FluentASTNode(), FluentRootNode, FluentChildNod
 class FluentParsedStatement(private val content: String) : FluentStatement() {
 
     override fun build(): ASTNode {
-        val parser = ASTParser.newParser(AST.JLS8)
-        parser.setSource(content.toCharArray())
-        parser.setResolveBindings(false)
-        parser.setKind(ASTParser.K_STATEMENTS)
-        val block = parser.createAST(null) as Block
+        val block = FluentParsedNode(content, ASTParser.K_STATEMENTS).build() as Block
         if (block.statements().size != 1) {
             throw FluentParseException(
                     "Failed to parse statement: '$content'. Use 'block(..) to create multiple statements.'")
@@ -43,21 +36,11 @@ class FluentEmptyStatement : FluentStatement() {
     }
 }
 
-class FluentReturnStatement : FluentStatement {
-
-    private var expression: FluentExpression? = null
-
-    constructor()
-
-    constructor(expression: FluentExpression) : this() {
-        this.expression = expression
-    }
+class FluentReturnStatement(private val expression: FluentExpression) : FluentStatement() {
 
     override fun build(ast: AST): ASTNode {
         val ret = ast.newReturnStatement()
-        if (expression != null) {
-            ret.expression = expression?.build(ast) as Expression?
-        }
+        ret.expression = expression.build(ast) as Expression?
         return ret
     }
 }
@@ -77,7 +60,7 @@ fun br(): FluentStatement {
 }
 
 fun ret(): FluentStatement {
-    return FluentReturnStatement()
+    return FluentReturnStatement(FluentEmptyExpression())
 }
 
 fun ret(expression: FluentExpression): FluentReturnStatement {
