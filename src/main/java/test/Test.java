@@ -5,7 +5,7 @@ import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.Block;
 
 import static at.hschroedl.fluentast.BlockKt.body;
-import static at.hschroedl.fluentast.ExpressionKt.ex;
+import static at.hschroedl.fluentast.ExpressionKt.exp;
 import static at.hschroedl.fluentast.StatementKt.*;
 
 public class Test {
@@ -31,7 +31,14 @@ public class Test {
         System.out.println(body(
                 empty(),
                 br(),
-                ret(ex()))
+                variable(),
+                ret(exp()))
                 .build().toString());
+    }
+
+
+    public static void bals(){
+
+        int i = 15;
     }
 }

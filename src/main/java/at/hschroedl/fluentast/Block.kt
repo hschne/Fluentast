@@ -5,34 +5,32 @@ import org.eclipse.jdt.core.dom.ASTNode
 import org.eclipse.jdt.core.dom.ASTParser
 import org.eclipse.jdt.core.dom.Block
 
-interface FluentASTNode {
 
-    fun build(): ASTNode
+abstract class FluentBlock : FluentStatement() {
+
+
 }
 
-abstract class AbstractFluentBlock : FluentASTNode
+class FluentStatementBlock() : FluentBlock() {
 
-class FluentBlock() : AbstractFluentBlock() {
-
-    var ast = AST.newAST(AST.JLS8)
-
-    val statements: MutableCollection<FluentStatement> = mutableListOf()
+    private val statements: MutableCollection<FluentStatement> = mutableListOf()
 
     constructor(statements: Array<FluentStatement>) : this() {
         this.statements.addAll(statements)
     }
 
 
-    override fun build(): ASTNode {
+    override fun build(ast: AST): ASTNode {
         val block: Block = ast.newBlock()
         statements
-                .map { it.build(this) }
+                .map { it.build(ast) }
                 .forEach { block.statements().add(it) }
         return block
     }
 }
 
-class FluentStringBlock() : AbstractFluentBlock() {
+class FluentStringBlock() : FluentBlock() {
+
 
     var content = ""
 
@@ -47,16 +45,25 @@ class FluentStringBlock() : AbstractFluentBlock() {
         parser.setKind(ASTParser.K_STATEMENTS)
         return parser.createAST(null) as Block
     }
+
+    override fun build(ast: AST): ASTNode {
+        val convertedAstNodeWithMethodBody = ASTNode.copySubtree(ast, build())
+        return convertedAstNodeWithMethodBody as Block
+    }
 }
 
-fun body(): AbstractFluentBlock {
-    return FluentBlock()
+fun body(): FluentBlock {
+    return FluentStatementBlock()
 }
 
-fun body(vararg statements: FluentStatement): AbstractFluentBlock {
-    return FluentBlock(arrayOf(*statements))
+fun body(vararg statements: FluentStatement): FluentBlock {
+    return FluentStatementBlock(arrayOf(*statements))
 }
 
-fun body(content: String): AbstractFluentBlock {
+fun body(content: String): FluentBlock {
     return FluentStringBlock(content)
+}
+
+fun block(vararg statements: FluentStatement): FluentBlock {
+    return FluentStatementBlock(arrayOf(*statements))
 }
