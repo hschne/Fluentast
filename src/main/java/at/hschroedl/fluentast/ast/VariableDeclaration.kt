@@ -1,4 +1,4 @@
-package at.hschroedl.fluentast
+package at.hschroedl.fluentast.ast
 
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ASTNode
@@ -8,7 +8,8 @@ import org.eclipse.jdt.core.dom.Type
 open class FluentVariableDeclaration(private val type: FluentType, private val name: String,
                                      private val expression: FluentExpression) : FluentStatement() {
 
-    constructor(type: String, name: String, expression: FluentExpression) : this(FluentStringType(type), name,
+    constructor(type: String, name: String, expression: FluentExpression) : this(
+            FluentStringType(type), name,
             expression)
 
     override fun build(ast: AST): ASTNode {
@@ -36,7 +37,8 @@ class FluentBoolDeclarationStatement(name: String, expression: FluentExpression)
         FluentVariableDeclaration(
                 type = FluentPrimitiveType(FluentPrimitive.BOOL), name = name, expression = expression) {
     constructor(name: String) : this(name, expression = FluentEmptyExpression())
-    constructor(name: String, initializer: Boolean) : this(name, expression = FluentBooleanLiteral(initializer))
+    constructor(name: String, initializer: Boolean) : this(name, expression = FluentBooleanLiteral(
+            initializer))
 
 
 }
@@ -46,7 +48,8 @@ class FluentCharDeclarationStatement(name: String, expression: FluentExpression)
         FluentVariableDeclaration(
                 type = FluentPrimitiveType(FluentPrimitive.CHAR), name = name, expression = expression) {
     constructor(name: String) : this(name, expression = FluentEmptyExpression())
-    constructor(name: String, initializer: Char) : this(name, expression = FluentCharLiteral(initializer))
+    constructor(name: String, initializer: Char) : this(name, expression = FluentCharLiteral(
+            initializer))
 
 }
 
@@ -88,7 +91,8 @@ fun charVar(name: String, expression: FluentExpression): FluentStatement {
 }
 
 fun `var`(type: String, name: String): FluentStatement {
-    return FluentVariableDeclaration(type, name, FluentEmptyExpression())
+    return FluentVariableDeclaration(type, name,
+            FluentEmptyExpression())
 }
 
 fun `var`(type: String, name: String, expression: FluentExpression): FluentStatement {

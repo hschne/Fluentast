@@ -1,5 +1,6 @@
 package at.hschroedl.fluentast
 
+import at.hschroedl.fluentast.ast.*
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement
 import org.junit.jupiter.api.Assertions.assertEquals

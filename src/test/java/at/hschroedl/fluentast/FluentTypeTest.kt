@@ -1,5 +1,7 @@
 package at.hschroedl.fluentast
 
+import at.hschroedl.fluentast.ast.FluentPrimitive
+import at.hschroedl.fluentast.ast.FluentPrimitiveType
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.PrimitiveType
 import org.junit.jupiter.api.Assertions.*

@@ -1,7 +1,8 @@
 package at.hschroedl.fluentast
 
+import at.hschroedl.fluentast.ast.body
+import at.hschroedl.fluentast.ast.s
 import at.hschroedl.fluentast.test.toInlineString
-import org.eclipse.jdt.core.dom.Block
 import org.eclipse.jdt.core.dom.Statement
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -11,9 +12,16 @@ internal class FluentStatementTest {
 
     @Test
     fun statement_withString_shouldReturnStatement() {
-        val statement = body("int i;int j;int k;").build() as Statement
+        val statement = body("Integer i = 15;").build() as Statement
 
-        Assertions.assertEquals("{int i;int j;int k;}", statement.toInlineString())
+        Assertions.assertEquals("{Integer i = 15;}", statement.toInlineString())
+    }
+
+        @Test
+    fun statement_withMultipleLines_shouldThrowException() {
+         assertFailsWith(FluentParseException::class) {
+            s("int i;int j; int k;").build()
+        }
     }
 
     @Test

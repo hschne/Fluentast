@@ -1,17 +1,22 @@
 package at.hschroedl.fluentast;
 
-import static at.hschroedl.fluentast.BlockKt.block;
-import static at.hschroedl.fluentast.VariableDeclarationKt.var;
+import org.eclipse.jdt.core.dom.ASTNode;
+
+import static at.hschroedl.fluentast.ast.BlockKt.block;
+import static at.hschroedl.fluentast.ast.ExpressionKt.exp;
+import static at.hschroedl.fluentast.ast.StatementKt.s;
+import static at.hschroedl.fluentast.ast.VariableDeclarationKt.var;
 
 public class asdf {
 
     public static void main(String[] args) {
-        int i;
+        ASTNode node = block(s("int i = 3;"),
+                s("List<String> myStrings = new ArrayList<>();"),
+                var("Integer", "iins"),
+                block(var("myInt", 3),
+                        var("myBool", false),
+                        var("Integer", "mydudu", exp()))).build();
 
-        boolean test;
-
-        char a;
-
-
+        System.out.println(node.toString());
     }
 }

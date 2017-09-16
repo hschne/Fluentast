@@ -1,5 +1,8 @@
 package at.hschroedl.fluentast
 
+import at.hschroedl.fluentast.ast.block
+import at.hschroedl.fluentast.ast.body
+import at.hschroedl.fluentast.ast.empty
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.Block
 import org.junit.jupiter.api.Assertions.*
@@ -18,7 +21,8 @@ internal class FluentBlockTest {
 
     @Test
     fun body_withStatements_shouldReturnBlockWithStatements() {
-        val block = body(empty(), empty(), empty())
+        val block = body(empty(),
+                empty(), empty())
                 .build() as Block
 
         assertEquals(3, block.statements().size)
@@ -47,7 +51,8 @@ internal class FluentBlockTest {
 
     @Test
     fun block_nestedBlocks_shouldReturnNestedBlocks() {
-        val block = body(block(block())).build() as Block
+        val block = body(
+                block(block())).build() as Block
 
         val expected = "{{{}}}"
         assertEquals(expected, block.toInlineString())

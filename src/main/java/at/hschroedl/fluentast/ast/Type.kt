@@ -1,5 +1,7 @@
-package at.hschroedl.fluentast
+package at.hschroedl.fluentast.ast
 
+import at.hschroedl.fluentast.FluentASTNode
+import at.hschroedl.fluentast.FluentChildNode
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ASTNode
 import org.eclipse.jdt.core.dom.PrimitiveType

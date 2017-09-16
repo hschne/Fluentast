@@ -1,5 +1,5 @@
 package at.hschroedl.fluentast
 
-class FluentCastException(s: String) : Throwable()
+class FluentCastException(message: String) : Throwable(message)
 
-class FluentParseException(message: String) : Throwable()
+class FluentParseException(message: String) : Throwable(message)

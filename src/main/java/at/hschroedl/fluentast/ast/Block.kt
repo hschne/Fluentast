@@ -1,5 +1,8 @@
-package at.hschroedl.fluentast
+package at.hschroedl.fluentast.ast
 
+import at.hschroedl.fluentast.FluentParseException
+import jdk.nashorn.internal.runtime.regexp.joni.constants.NodeType
+import org.eclipse.jdt.core.Flags
 import org.eclipse.jdt.core.dom.*
 
 
@@ -34,8 +37,9 @@ class FluentStringBlock(private val content: String) : FluentBlock() {
         parser.setResolveBindings(false)
         parser.setKind(ASTParser.K_STATEMENTS)
         val block = parser.createAST(null) as Block
-        if (block.statements().isEmpty()) {
-            throw FluentParseException("Failed to parse statements: $content. To create an empty block use 'block()'")
+        if (block.flags == ASTNode.MALFORMED) {
+            throw FluentParseException(
+                    "Failed to parse statements: '$content'. To create an empty block use 'block()'")
         }
         return block
     }

@@ -1,5 +1,9 @@
-package at.hschroedl.fluentast
+package at.hschroedl.fluentast.ast
 
+import at.hschroedl.fluentast.FluentASTNode
+import at.hschroedl.fluentast.FluentChildNode
+import at.hschroedl.fluentast.FluentParseException
+import at.hschroedl.fluentast.FluentRootNode
 import org.eclipse.jdt.core.dom.*
 
 
@@ -21,16 +25,15 @@ class FluentParsedStatement(private val content: String) : FluentStatement() {
         parser.setResolveBindings(false)
         parser.setKind(ASTParser.K_STATEMENTS)
         val block = parser.createAST(null) as Block
-        if (block.statements().isEmpty()) {
+        if (block.statements().size != 1) {
             throw FluentParseException(
-                    "Failed to parse statements: $content. To create an empty statement use 'empty()'")
+                    "Failed to parse statement: '$content'. Use 'block(..) to create multiple statements.'")
         }
-        return block
+        return block.statements()[0] as Statement
     }
 
     override fun build(ast: AST): ASTNode {
-        val copyTree = ASTNode.copySubtree(ast, build())
-        return copyTree as Block
+        return ASTNode.copySubtree(ast, build())
     }
 }
 
