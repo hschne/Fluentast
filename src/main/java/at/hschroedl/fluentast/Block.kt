@@ -1,9 +1,6 @@
 package at.hschroedl.fluentast
 
-import org.eclipse.jdt.core.dom.AST
-import org.eclipse.jdt.core.dom.ASTNode
-import org.eclipse.jdt.core.dom.ASTParser
-import org.eclipse.jdt.core.dom.Block
+import org.eclipse.jdt.core.dom.*
 
 
 abstract class FluentBlock : FluentStatement() {
@@ -29,21 +26,18 @@ class FluentStatementBlock() : FluentBlock() {
     }
 }
 
-class FluentStringBlock() : FluentBlock() {
-
-
-    var content = ""
-
-    constructor(content: String) : this() {
-        this.content = content
-    }
+class FluentStringBlock(private val content: String) : FluentBlock() {
 
     override fun build(): ASTNode {
         val parser = ASTParser.newParser(AST.JLS8)
         parser.setSource(content.toCharArray())
         parser.setResolveBindings(false)
         parser.setKind(ASTParser.K_STATEMENTS)
-        return parser.createAST(null) as Block
+        val block = parser.createAST(null) as Block
+        if (block.statements().isEmpty()) {
+            throw FluentParseException("Failed to parse statements: $content. To create an empty block use 'block()'")
+        }
+        return block
     }
 
     override fun build(ast: AST): ASTNode {
@@ -62,6 +56,10 @@ fun body(vararg statements: FluentStatement): FluentBlock {
 
 fun body(content: String): FluentBlock {
     return FluentStringBlock(content)
+}
+
+fun block(): FluentBlock {
+    return FluentStatementBlock()
 }
 
 fun block(vararg statements: FluentStatement): FluentBlock {
