@@ -1,10 +1,11 @@
-package at.hschroedl.fluentast;
+package test;
 
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.Block;
 
 import static at.hschroedl.fluentast.BlockKt.body;
+import static at.hschroedl.fluentast.ExpressionKt.ex;
 import static at.hschroedl.fluentast.StatementKt.*;
 
 public class Test {
@@ -25,10 +26,12 @@ public class Test {
     }
 
     public static void ThingTest() {
+
+        System.out.println(body("int a = 1; return a;").build());
         System.out.println(body(
-                e(),
-                b(),
-                r())
+                empty(),
+                br(),
+                ret(ex()))
                 .build().toString());
     }
 }
