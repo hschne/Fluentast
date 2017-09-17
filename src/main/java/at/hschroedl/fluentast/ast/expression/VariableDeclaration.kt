@@ -102,8 +102,7 @@ fun charVar(name: String, expression: FluentExpression): FluentStatement {
 }
 
 fun `var`(type: String, name: String): FluentStatement {
-    return FluentVariableDeclaration(type, name,
-            FluentEmptyExpression())
+    return FluentVariableDeclaration(type, name, null)
 }
 
 fun `var`(type: String, name: String, expression: FluentExpression): FluentStatement {

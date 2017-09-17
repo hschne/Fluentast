@@ -15,7 +15,7 @@ abstract class FluentExpression : FluentASTNode(), FluentChildNode<Expression>, 
     }
 }
 
-class FluentParsedExpression(private val content: String) : FluentExpression() {
+internal class FluentParsedExpression(private val content: String) : FluentExpression() {
 
     override fun build(): Expression {
         val result = FluentParsedNode(content, ASTParser.K_EXPRESSION).build()
@@ -66,16 +66,34 @@ class FluentArrayInitializer(private vararg val expressions: FluentExpression) :
     }
 }
 
+class FluentAssignment(private val left: FluentExpression, private val operator: String,
+                       private val right: FluentExpression) : FluentExpression() {
 
-class FluentEmptyExpression : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
+
+    override fun build(ast: AST): Assignment {
+        val exp = ast.newAssignment()
+        exp.leftHandSide = left.build(ast)
+        exp.operator = assignmentOperator(operator)
+        exp.rightHandSide = right.build(ast)
+        return exp
     }
-}
 
-class FluentAssignment() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
+    private fun assignmentOperator(operator: String): Assignment.Operator {
+        when (operator) {
+            "=" -> return Assignment.Operator.ASSIGN
+            "+=" -> return Assignment.Operator.PLUS_ASSIGN
+            "-=" -> return Assignment.Operator.MINUS_ASSIGN
+            "*=" -> return Assignment.Operator.TIMES_ASSIGN
+            "/=" -> return Assignment.Operator.DIVIDE_ASSIGN
+            "&=" -> return Assignment.Operator.BIT_AND_ASSIGN
+            "|=" -> return Assignment.Operator.BIT_OR_ASSIGN
+            "^=" -> return Assignment.Operator.BIT_XOR_ASSIGN
+            "%=" -> return Assignment.Operator.REMAINDER_ASSIGN
+            "<<=" -> return Assignment.Operator.LEFT_SHIFT_ASSIGN
+            ">>=" -> return Assignment.Operator.RIGHT_SHIFT_SIGNED_ASSIGN
+            ">>>=" -> return Assignment.Operator.RIGHT_SHIFT_UNSIGNED_ASSIGN
+            else -> throw FluentArgumentException("Invalid assignment operator '$operator.'")
+        }
     }
 }
 
