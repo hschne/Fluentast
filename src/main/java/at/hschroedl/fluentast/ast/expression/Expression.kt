@@ -3,7 +3,6 @@ package at.hschroedl.fluentast.ast.expression
 import at.hschroedl.fluentast.*
 import at.hschroedl.fluentast.ast.type.FluentArrayType
 import at.hschroedl.fluentast.ast.type.FluentType
-
 import org.eclipse.jdt.core.dom.*
 
 abstract class FluentExpression : FluentASTNode(), FluentChildNode<Expression>, FluentStandaloneNode<Expression> {
@@ -16,7 +15,7 @@ abstract class FluentExpression : FluentASTNode(), FluentChildNode<Expression>, 
     }
 }
 
-internal class FluentParsedExpression(private val content: String) : FluentExpression() {
+internal class FluentParsedExpression internal constructor(private val content: String) : FluentExpression() {
 
     override fun build(): Expression {
         val result = FluentParsedNode(content, ASTParser.K_EXPRESSION).build()
@@ -34,6 +33,11 @@ internal class FluentParsedExpression(private val content: String) : FluentExpre
         return ASTNode.copySubtree(ast, build()) as Expression
     }
 }
+
+fun exp(content: String): FluentExpression {
+    return FluentParsedExpression(content)
+}
+
 
 class FluentArrayAccess internal constructor(private val array: FluentExpression,
                                              private val index: FluentExpression) : FluentExpression() {
@@ -96,19 +100,19 @@ class FluentAssignment internal constructor(private val left: FluentExpression, 
     }
 
     private fun assignmentOperator(operator: String): Assignment.Operator {
-        when (operator) {
-            "=" -> return Assignment.Operator.ASSIGN
-            "+=" -> return Assignment.Operator.PLUS_ASSIGN
-            "-=" -> return Assignment.Operator.MINUS_ASSIGN
-            "*=" -> return Assignment.Operator.TIMES_ASSIGN
-            "/=" -> return Assignment.Operator.DIVIDE_ASSIGN
-            "&=" -> return Assignment.Operator.BIT_AND_ASSIGN
-            "|=" -> return Assignment.Operator.BIT_OR_ASSIGN
-            "^=" -> return Assignment.Operator.BIT_XOR_ASSIGN
-            "%=" -> return Assignment.Operator.REMAINDER_ASSIGN
-            "<<=" -> return Assignment.Operator.LEFT_SHIFT_ASSIGN
-            ">>=" -> return Assignment.Operator.RIGHT_SHIFT_SIGNED_ASSIGN
-            ">>>=" -> return Assignment.Operator.RIGHT_SHIFT_UNSIGNED_ASSIGN
+        return when (operator) {
+            "=" -> Assignment.Operator.ASSIGN
+            "+=" -> Assignment.Operator.PLUS_ASSIGN
+            "-=" -> Assignment.Operator.MINUS_ASSIGN
+            "*=" -> Assignment.Operator.TIMES_ASSIGN
+            "/=" -> Assignment.Operator.DIVIDE_ASSIGN
+            "&=" -> Assignment.Operator.BIT_AND_ASSIGN
+            "|=" -> Assignment.Operator.BIT_OR_ASSIGN
+            "^=" -> Assignment.Operator.BIT_XOR_ASSIGN
+            "%=" -> Assignment.Operator.REMAINDER_ASSIGN
+            "<<=" -> Assignment.Operator.LEFT_SHIFT_ASSIGN
+            ">>=" -> Assignment.Operator.RIGHT_SHIFT_SIGNED_ASSIGN
+            ">>>=" -> Assignment.Operator.RIGHT_SHIFT_UNSIGNED_ASSIGN
             else -> throw FluentArgumentException("Invalid assignment operator '$operator.'")
         }
     }
@@ -121,8 +125,6 @@ fun assignment(left: FluentExpression, operator: String, right: FluentExpression
 
 class FluentCastExpression internal constructor(private val type: FluentType?,
                                                 private val expression: FluentExpression) : FluentExpression() {
-
-    internal constructor(type: FluentExpression) : this(null, type)
 
     override fun build(ast: AST): CastExpression {
         val exp = ast.newCastExpression()
@@ -142,10 +144,10 @@ class FluentClassInstanceCreation() : FluentExpression() {
     }
 }
 
-
-class FluentConditionalExpression(private val condition: FluentExpression, private val then: FluentExpression,
-                                  private val `else`: FluentExpression) : FluentExpression() {
-    override fun build(ast: AST): Expression? {
+class FluentConditionalExpression internal constructor(private val condition: FluentExpression,
+                                                       private val then: FluentExpression,
+                                                       private val `else`: FluentExpression) : FluentExpression() {
+    override fun build(ast: AST): ConditionalExpression {
         val exp = ast.newConditionalExpression()
         exp.expression = condition.build(ast)
         exp.thenExpression = then.build(ast)
@@ -154,22 +156,75 @@ class FluentConditionalExpression(private val condition: FluentExpression, priva
     }
 }
 
-fun tern(condition: FluentExpression, then: FluentExpression, `else`: FluentExpression): FluentConditionalExpression {
+fun ternary(condition: FluentExpression, then: FluentExpression,
+            `else`: FluentExpression): FluentConditionalExpression {
     return FluentConditionalExpression(condition, then, `else`)
 }
 
-class FluentFieldAccess() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
+class FluentFieldAccess internal constructor(private val expression: FluentExpression,
+                                             private val fieldName: String) : FluentExpression() {
+    override fun build(ast: AST): FieldAccess {
+        val exp = ast.newFieldAccess()
+        exp.expression = expression.build(ast)
+        exp.name = ast.newSimpleName(fieldName)
+        return exp
     }
 }
 
+fun fieldAccess(expression: FluentExpression, fieldName: String): FluentFieldAccess {
+    return FluentFieldAccess(expression, fieldName)
+}
 
-class FluentInfixExpression() : FluentExpression() {
+
+class FluentInfixExpression internal constructor(private val left: FluentExpression, private val operator: String,
+                                                 private vararg val right: FluentExpression) : FluentExpression() {
     override fun build(ast: AST): Expression? {
-        return null
+        val exp = ast.newInfixExpression()
+        exp.leftOperand = left.build(ast)
+        exp.operator = infixOperator(operator)
+        if (right.isEmpty()) {
+            throw FluentArgumentException("Infix must have at least one right-hand-side expression.")
+        }
+        exp.rightOperand = right[0].build(ast)
+        // TODO: fix this hot garbage
+        if (right.size > 1) {
+            for (i in 2 until right.size) {
+                exp.extendedOperands().add(right[i])
+            }
+        }
+        return exp
+    }
+
+    private fun infixOperator(operator: String): InfixExpression.Operator {
+        return when (operator) {
+            "*" -> InfixExpression.Operator.TIMES
+            "/" -> InfixExpression.Operator.DIVIDE
+            "%" -> InfixExpression.Operator.REMAINDER
+            "+" -> InfixExpression.Operator.PLUS
+            "-" -> InfixExpression.Operator.MINUS
+            "<<" -> InfixExpression.Operator.LEFT_SHIFT
+            ">>" -> InfixExpression.Operator.RIGHT_SHIFT_SIGNED
+            ">>>" -> InfixExpression.Operator.RIGHT_SHIFT_UNSIGNED
+            "<" -> InfixExpression.Operator.LESS
+            ">" -> InfixExpression.Operator.GREATER
+            "<=" -> InfixExpression.Operator.LESS_EQUALS
+            ">=" -> InfixExpression.Operator.GREATER_EQUALS
+            "==" -> InfixExpression.Operator.EQUALS
+            "!=" -> InfixExpression.Operator.NOT_EQUALS
+            "^" -> InfixExpression.Operator.XOR
+            "&" -> InfixExpression.Operator.AND
+            "|" -> InfixExpression.Operator.OR
+            "&&" -> InfixExpression.Operator.CONDITIONAL_AND
+            "||" -> InfixExpression.Operator.CONDITIONAL_OR
+            else -> throw FluentArgumentException("Invalid infix operator '$operator.'")
+        }
     }
 }
+
+fun infix(left: FluentExpression, operator: String, vararg right: FluentExpression): FluentInfixExpression {
+    return FluentInfixExpression(left, operator, *right)
+}
+
 
 class FluentInstanceOfExpression() : FluentExpression() {
     override fun build(ast: AST): Expression? {
@@ -229,17 +284,13 @@ class FluentAnnotationExpression() : FluentExpression() {
 }
 
 class FluentThisExpression : FluentExpression() {
-    override fun build(ast: AST): Expression {
+    override fun build(ast: AST): ThisExpression {
         return ast.newThisExpression()
     }
 }
 
-
-fun exp(): FluentExpression {
+fun thiss(): FluentThisExpression {
     return FluentThisExpression()
 }
 
-fun exp(content: String): FluentExpression {
-    return FluentParsedExpression(content)
-}
 

@@ -62,6 +62,14 @@ internal class FluentExpressionTest {
         assertEquals("new Integer[][][]", expression.toInlineString())
     }
 
+
+    @Test
+    internal fun arrayCreation_withInitializer_returnsArrayCreation() {
+        val expression = newArray(FluentArrayType(type("Integer"), 3), arrayInit(n(1), n(2))).build() as ArrayCreation
+
+        assertEquals("new Integer[][][]{1,2}", expression.toInlineString())
+    }
+
     @Test
     internal fun assignment_withDefaultAssignment_returnsAssignment() {
         val expression = assignment(exp("a"), "=", n(1)).build() as Assignment
@@ -161,4 +169,26 @@ internal class FluentExpressionTest {
         assertEquals("(Integer)1", expression.toInlineString())
     }
 
+    @Test
+    internal fun conditionalExpression_withTypes_returnsConditionalExpression() {
+        val expression = ternary(b(true), n(1), n(2)).build() as ConditionalExpression
+
+        assertEquals("true ? 1 : 2", expression.toInlineString())
+    }
+
+    @Test
+    internal fun fieldAccess_withExpression_returnsConditionalExpression() {
+        val expression = fieldAccess(exp("Integer"), "myField").build() as FieldAccess
+
+        assertEquals("Integer.myField", expression.toInlineString())
+    }
+
+    @Test
+    internal fun infixExpression_withExpression_returnsConditionalExpression() {
+        val expression = infix(exp("i"), "==", thiss()).build() as InfixExpression
+
+        assertEquals("i == this", expression.toInlineString())
+    }
+
+    //TODO: Add rest of infix tests
 }

@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 import static at.hschroedl.fluentast.ast.BlockKt.block;
 import static at.hschroedl.fluentast.ast.expression.ExpressionKt.exp;
 import static at.hschroedl.fluentast.ast.StatementKt.s;
+import static at.hschroedl.fluentast.ast.expression.ExpressionKt.thiss;
 import static at.hschroedl.fluentast.ast.expression.VariableDeclarationKt.var;
 
 public class asdf {
@@ -17,7 +18,7 @@ public class asdf {
                 var("Integer", "iins"),
                 block(var("myInt", 3),
                         var("myBool", false),
-                        var("Integer", "mydudu", exp()))).build();
+                        var("Integer", "mydudu", thiss()))).build();
 
         try {
             System.out.println(node.toString());

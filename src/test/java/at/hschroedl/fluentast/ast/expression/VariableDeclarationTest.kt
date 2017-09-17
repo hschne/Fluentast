@@ -24,7 +24,7 @@ internal class VariableDeclarationTest {
 
     @Test
     internal fun intVar_withExpression_shouldReturnIntDeclaration() {
-        val varDecl = intVar("a", exp()).build() as VariableDeclarationStatement
+        val varDecl = intVar("a", thiss()).build() as VariableDeclarationStatement
 
         assertEquals("int a=this;", varDecl.toInlineString())
     }
@@ -45,7 +45,7 @@ internal class VariableDeclarationTest {
 
     @Test
     internal fun boolVar_withExpression_shouldReturnBooleanDeclaration() {
-        val varDecl = boolVar("a", exp()).build() as VariableDeclarationStatement
+        val varDecl = boolVar("a", thiss()).build() as VariableDeclarationStatement
 
         assertEquals("boolean a=this;", varDecl.toInlineString())
     }
@@ -66,7 +66,7 @@ internal class VariableDeclarationTest {
 
     @Test
     internal fun charVar_withExpression_shouldReturnCharDeclaration() {
-        val varDecl = charVar("a", exp()).build() as VariableDeclarationStatement
+        val varDecl = charVar("a", thiss()).build() as VariableDeclarationStatement
 
         assertEquals("char a=this;", varDecl.toInlineString())
     }
@@ -80,7 +80,7 @@ internal class VariableDeclarationTest {
 
     @Test
     internal fun variable_withTypeAndExpression_shouldReturnVariableDeclaration() {
-        val varDecl = `var`("Integer", "a", exp()).build() as VariableDeclarationStatement
+        val varDecl = `var`("Integer", "a", thiss()).build() as VariableDeclarationStatement
 
         assertEquals("Integer a=this;", varDecl.toInlineString())
     }
