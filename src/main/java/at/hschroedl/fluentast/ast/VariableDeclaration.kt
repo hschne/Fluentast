@@ -56,7 +56,7 @@ class FluentCharDeclarationStatement(name: String, expression: FluentExpression)
 }
 
 
-// TODO: Clean up public methods,
+// TODO: Clean up public methods, possibly most of them not needed
 fun intVar(name: String): FluentStatement {
     return FluentIntDeclarationStatement(name)
 }

@@ -7,6 +7,7 @@ import org.eclipse.jdt.core.dom.ASTNode
 import org.eclipse.jdt.core.dom.PrimitiveType
 import org.eclipse.jdt.core.dom.QualifiedType
 
+
 abstract class FluentType : FluentASTNode(), FluentChildNode {
 
     abstract override fun build(ast: AST): ASTNode
