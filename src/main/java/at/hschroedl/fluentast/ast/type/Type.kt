@@ -1,8 +1,12 @@
 package at.hschroedl.fluentast.ast.type
 
 import at.hschroedl.fluentast.FluentASTNode
+import at.hschroedl.fluentast.FluentArgumentException
 import at.hschroedl.fluentast.FluentChildNode
-import org.eclipse.jdt.core.dom.*
+import org.eclipse.jdt.core.dom.AST
+import org.eclipse.jdt.core.dom.ArrayType
+import org.eclipse.jdt.core.dom.PrimitiveType
+import org.eclipse.jdt.core.dom.Type
 
 abstract class FluentType : FluentASTNode(), FluentChildNode<Type> {
 
@@ -16,7 +20,7 @@ class FluentParsedType(private val name: String) : FluentType() {
 }
 
 class FluentPrimitiveType(private val primitiveType: FluentPrimitive) : FluentType() {
-    override fun build(ast: AST): Type {
+    override fun build(ast: AST): PrimitiveType {
         return when (primitiveType) {
             FluentPrimitive.INT -> ast.newPrimitiveType(PrimitiveType.INT)
             FluentPrimitive.CHAR -> ast.newPrimitiveType(PrimitiveType.CHAR)
@@ -26,12 +30,19 @@ class FluentPrimitiveType(private val primitiveType: FluentPrimitive) : FluentTy
 }
 
 class FluentArrayType(private val type: FluentType,
-                      private vararg val dimensions: NumberLiteral) : FluentType() {
+                      private val dimensions: Int) : FluentType() {
 
-    override fun build(ast: AST): Type {
+    constructor(type: FluentType) : this(type, 1)
+
+    override fun build(ast: AST): ArrayType {
         val type = ast.newArrayType(type.build(ast))
-        dimensions
-                .forEach { type.dimensions().add(it) }
+        if (dimensions < 1) {
+            throw FluentArgumentException(
+                    "Can not create an array type with $dimensions dimensions. Number must be greater than 0.")
+        }
+        for (i in 1 until dimensions) {
+            type.dimensions().add(ast.newDimension())
+        }
         return type as ArrayType
     }
 }

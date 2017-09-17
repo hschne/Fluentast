@@ -1,6 +1,8 @@
 package at.hschroedl.fluentast;
 
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.jetbrains.annotations.NonNls;
+import org.jetbrains.annotations.Nullable;
 
 import static at.hschroedl.fluentast.ast.BlockKt.block;
 import static at.hschroedl.fluentast.ast.expression.ExpressionKt.exp;
@@ -23,5 +25,8 @@ public class asdf {
         catch(final ExceptionInInitializerError e){
 
         }
+        int[] a = new int[5];
+
+        int[][] aasd = new int[][] {{1,2,3}};
     }
 }

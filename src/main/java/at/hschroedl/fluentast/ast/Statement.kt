@@ -1,7 +1,6 @@
 package at.hschroedl.fluentast.ast
 
 import at.hschroedl.fluentast.*
-import at.hschroedl.fluentast.ast.expression.FluentEmptyExpression
 import at.hschroedl.fluentast.ast.expression.FluentExpression
 import org.eclipse.jdt.core.dom.*
 
@@ -21,7 +20,7 @@ class FluentParsedStatement(private val content: String) : FluentStatement() {
     override fun build(): Statement {
         val block = FluentParsedNode(content, ASTParser.K_STATEMENTS).build() as Block
         if (block.statements().size != 1) {
-            throw FluentParseException(
+            throw FluentArgumentException(
                     "Failed to parse statement: '$content'. Use 'block(..) to create multiple statements.'")
         }
         return block.statements()[0] as Statement
@@ -99,11 +98,11 @@ class FluentLabeledStatement : FluentStatement() {
     }
 }
 
-class FluentReturnStatement(private val expression: FluentExpression) : FluentStatement() {
+class FluentReturnStatement(private val expression: FluentExpression?) : FluentStatement() {
 
     override fun build(ast: AST): Statement {
         val ret = ast.newReturnStatement()
-        ret.expression = expression.build(ast) as Expression?
+        ret.expression = expression?.build(ast)
         return ret
     }
 }
@@ -171,7 +170,7 @@ fun br(): FluentStatement {
 }
 
 fun ret(): FluentStatement {
-    return FluentReturnStatement(FluentEmptyExpression())
+    return FluentReturnStatement(null)
 }
 
 fun ret(expression: FluentExpression): FluentReturnStatement {

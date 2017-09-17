@@ -12,9 +12,9 @@ import org.eclipse.jdt.core.dom.Type
 
 //TODO: Type hierarchy is possibly wrong, VarDecl are not statements! Use VaribleDeclarationStatement!
 open class FluentVariableDeclaration(private val type: FluentType, private val name: String,
-                                     private val expression: FluentExpression) : FluentStatement() {
+                                     private val expression: FluentExpression?) : FluentStatement() {
 
-    constructor(type: String, name: String, expression: FluentExpression) : this(
+    constructor(type: String, name: String, expression: FluentExpression?) : this(
             FluentParsedType(type), name,
             expression)
 
@@ -23,29 +23,29 @@ open class FluentVariableDeclaration(private val type: FluentType, private val n
         val fragment = ast.newVariableDeclarationFragment()
         val ret = ast.newVariableDeclarationStatement(fragment)
         fragment.name = ast.newSimpleName(name)
-        fragment.initializer = expression.build(ast) as? Expression
+        fragment.initializer = expression?.build(ast) as? Expression
         ret.type = type.build(ast) as? Type
         return ret
     }
 }
 
 
-class FluentIntDeclarationStatement(name: String, expression: FluentExpression) :
+class FluentIntDeclarationStatement(name: String, expression: FluentExpression?) :
         FluentVariableDeclaration(
                 type = FluentPrimitiveType(
                         FluentPrimitive.INT), name = name, expression = expression) {
 
-    constructor(name: String) : this(name = name, expression = FluentEmptyExpression())
+    constructor(name: String) : this(name = name, expression = null)
     constructor(name: String, initializer: Int) : this(name = name,
             expression = FluentNumberLiteral(initializer))
 }
 
 
-class FluentBoolDeclarationStatement(name: String, expression: FluentExpression) :
+class FluentBoolDeclarationStatement(name: String, expression: FluentExpression?) :
         FluentVariableDeclaration(
                 type = FluentPrimitiveType(
                         FluentPrimitive.BOOL), name = name, expression = expression) {
-    constructor(name: String) : this(name, expression = FluentEmptyExpression())
+    constructor(name: String) : this(name, expression = null)
     constructor(name: String, initializer: Boolean) : this(name, expression = FluentBooleanLiteral(
             initializer))
 
@@ -53,11 +53,11 @@ class FluentBoolDeclarationStatement(name: String, expression: FluentExpression)
 }
 
 
-class FluentCharDeclarationStatement(name: String, expression: FluentExpression) :
+class FluentCharDeclarationStatement(name: String, expression: FluentExpression?) :
         FluentVariableDeclaration(
                 type = FluentPrimitiveType(
                         FluentPrimitive.CHAR), name = name, expression = expression) {
-    constructor(name: String) : this(name, expression = FluentEmptyExpression())
+    constructor(name: String) : this(name, expression = null)
     constructor(name: String, initializer: Char) : this(name, expression = FluentCharLiteral(
             initializer))
 

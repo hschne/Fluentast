@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast
 
-import at.hschroedl.fluentast.FluentParseException
+import at.hschroedl.fluentast.FluentArgumentException
 import at.hschroedl.fluentast.FluentParsedNode
 import org.eclipse.jdt.core.dom.*
 
@@ -31,7 +31,7 @@ class FluentParsedBlock(private val content: String) : FluentBlock() {
 
         val block = FluentParsedNode(content, ASTParser.K_STATEMENTS).build() as Block
         if (block.statements().isEmpty()) {
-            throw FluentParseException(
+            throw FluentArgumentException(
                     "Failed to parse statements: '$content'. To create an empty block use 'block()'")
         }
         return block

@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast
 
-import at.hschroedl.fluentast.FluentParseException
+import at.hschroedl.fluentast.FluentArgumentException
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.Statement
 import org.junit.jupiter.api.Assertions
@@ -18,14 +18,14 @@ internal class FluentStatementTest {
 
         @Test
     fun statement_withMultipleLines_shouldThrowException() {
-         assertFailsWith(FluentParseException::class) {
+         assertFailsWith(FluentArgumentException::class) {
             s("int i;int j; int k;").build()
         }
     }
 
     @Test
     internal fun statement_withInvalidString_shouldThrowException() {
-        assertFailsWith(FluentParseException::class) {
+        assertFailsWith(FluentArgumentException::class) {
             s("vargl di bargle!").build()
         }
     }

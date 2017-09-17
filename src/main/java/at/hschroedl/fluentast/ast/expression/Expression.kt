@@ -22,7 +22,7 @@ class FluentParsedExpression(private val content: String) : FluentExpression() {
         if (result is CompilationUnit) {
             // If we get a compilation unit as result that means parsing failed
             val error = result.problems[0]
-            throw FluentParseException(
+            throw FluentArgumentException(
                     "Failed to parse expression '$content'. $error")
         }
         return result as Expression
@@ -44,17 +44,20 @@ class FluentArrayAccess(private val array: FluentExpression,
     }
 }
 
-class FluentArrayCreation(private val initializer: FluentArrayInitializer, private val type: FluentArrayType,
-                          private vararg val dimensions: FluentASTNode) : FluentExpression() {
-    override fun build(ast: AST): Expression? {
+class FluentArrayCreation(private val type: FluentArrayType,
+                          private val initializer: FluentArrayInitializer?) : FluentExpression() {
+    override fun build(ast: AST): ArrayCreation {
         val exp = ast.newArrayCreation()
+        exp.type = type.build(ast)
+        exp.initializer = initializer?.build(ast)
         return exp
     }
 
+    constructor(type: FluentArrayType) : this(type, null)
 }
 
 class FluentArrayInitializer(private vararg val expressions: FluentExpression) : FluentExpression() {
-    override fun build(ast: AST): Expression? {
+    override fun build(ast: AST): ArrayInitializer {
         val exp = ast.newArrayInitializer()
         expressions
                 .map { it.build(ast) }

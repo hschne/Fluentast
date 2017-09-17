@@ -26,7 +26,7 @@ class FluentParsedNode(private val content: String, private val kind: Int) : Flu
         parser.setKind(kind)
         val result = parser.createAST(null)
         if (result.flags == ASTNode.MALFORMED) {
-            throw FluentParseException(
+            throw FluentArgumentException(
                     "Failed to parse statement '$content'. Use 's(..) to create a statement.'")
         }
         return result

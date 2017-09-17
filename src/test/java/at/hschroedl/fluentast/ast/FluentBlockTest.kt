@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast
 
-import at.hschroedl.fluentast.FluentParseException
+import at.hschroedl.fluentast.FluentArgumentException
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.Block
 import org.junit.jupiter.api.Assertions.*
@@ -35,7 +35,7 @@ internal class FluentBlockTest {
 
     @Test
     fun body_withInvalidString_shouldThrowException() {
-        assertFailsWith(FluentParseException::class) {
+        assertFailsWith(FluentArgumentException::class) {
             body("vargl di bargle!").build()
         }
     }
