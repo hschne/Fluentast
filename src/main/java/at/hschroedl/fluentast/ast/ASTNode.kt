@@ -6,7 +6,7 @@ import at.hschroedl.fluentast.FluentStandaloneNode
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ASTNode
 
-abstract class FluentASTNodeImpl : FluentASTNode(), FluentStandaloneNode, FluentChildNode {
+abstract class FluentASTNodeImpl : FluentASTNode(), FluentStandaloneNode<ASTNode>, FluentChildNode<ASTNode> {
 
     abstract override fun build(ast: AST): ASTNode
 

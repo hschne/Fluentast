@@ -26,6 +26,25 @@ internal class FluentCharLiteral(private val literal: Char) : FluentLiteral() {
     }
 }
 
+class FluentNullLiteral() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentStringLiteral() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentTypeLiteral() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+
 fun n(number: Int): FluentLiteral {
     return FluentNumberLiteral(number)
 }

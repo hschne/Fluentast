@@ -5,7 +5,7 @@ import org.eclipse.jdt.core.dom.ASTNode;
 import static at.hschroedl.fluentast.ast.BlockKt.block;
 import static at.hschroedl.fluentast.ast.expression.ExpressionKt.exp;
 import static at.hschroedl.fluentast.ast.StatementKt.s;
-import static at.hschroedl.fluentast.ast.VariableDeclarationKt.var;
+import static at.hschroedl.fluentast.ast.expression.VariableDeclarationKt.var;
 
 public class asdf {
 

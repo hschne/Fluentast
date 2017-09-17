@@ -36,7 +36,7 @@ internal class FluentExpressionTest {
 
     @Test
     internal fun arrayAccess_withExpressions_returnsArrayAccessWithExpressions() {
-        val expression = FluentArrayAccessExpression(exp("test"), n(1)).build() as ArrayAccess
+        val expression = FluentArrayAccess(exp("test"), n(1)).build() as ArrayAccess
 
         assertEquals("test[1]", expression.toInlineString())
     }

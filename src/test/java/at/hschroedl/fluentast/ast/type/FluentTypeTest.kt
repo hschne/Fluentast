@@ -1,9 +1,11 @@
 package at.hschroedl.fluentast.ast.type
 
+import at.hschroedl.fluentast.ast.expression.exp
 import at.hschroedl.fluentast.ast.expression.n
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ArrayType
+import org.eclipse.jdt.core.dom.NumberLiteral
 import org.eclipse.jdt.core.dom.PrimitiveType
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
@@ -44,7 +46,7 @@ internal class FluentTypeTest {
 
     @Test
     internal fun arrayType_withParameters_returnsArrayType() {
-        val result = FluentArrayType(type("MyType"),1,2,3).build(ast) as ArrayType
+        val result = FluentArrayType(type("MyType"),exp("1").build() as NumberLiteral).build(ast) as ArrayType
 
         assertEquals("test[1][2][3]", result.toInlineString())
     }

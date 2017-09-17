@@ -36,6 +36,19 @@ class FluentArrayType(private val type: FluentType,
     }
 }
 
+class FluentQualifiedType() : FluentType() {
+    override fun build(ast: AST): Type {
+        throw NotImplementedError()
+    }
+}
+
+class FluentWildcardType() : FluentType() {
+    override fun build(ast: AST): Type {
+        throw NotImplementedError()
+    }
+}
+
+
 fun type(name: String): FluentType {
     return FluentParsedType(name)
 }
