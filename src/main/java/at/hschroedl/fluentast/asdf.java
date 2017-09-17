@@ -17,6 +17,11 @@ public class asdf {
                         var("myBool", false),
                         var("Integer", "mydudu", exp()))).build();
 
-        System.out.println(node.toString());
+        try {
+            System.out.println(node.toString());
+        }
+        catch(final ExceptionInInitializerError e){
+
+        }
     }
 }

@@ -7,6 +7,7 @@ import at.hschroedl.fluentast.ast.type.FluentPrimitiveType
 import at.hschroedl.fluentast.ast.type.FluentType
 import org.eclipse.jdt.core.dom.*
 
+//TODO: Type hierarchy is possibly wrong, VarDecl are not statements! Use VaribleDeclarationStatement!
 open class FluentVariableDeclaration(private val type: FluentType, private val name: String,
                                      private val expression: FluentExpression) : FluentStatement() {
 
@@ -14,7 +15,8 @@ open class FluentVariableDeclaration(private val type: FluentType, private val n
             FluentParsedType(type), name,
             expression)
 
-    override fun build(ast: AST): Statement {
+    override fun build(ast: AST): ASTNode {
+        // TODO: Multiple varible fragments, e.g. int a = 3, b =4, c=5;
         val fragment = ast.newVariableDeclarationFragment()
         val ret = ast.newVariableDeclarationStatement(fragment)
         fragment.name = ast.newSimpleName(name)
@@ -59,6 +61,7 @@ class FluentCharDeclarationStatement(name: String, expression: FluentExpression)
 }
 
 
+// TODO: Clean up public methods, possibly most of them not needed
 fun intVar(name: String): FluentStatement {
     return FluentIntDeclarationStatement(name)
 }
