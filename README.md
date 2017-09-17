@@ -4,8 +4,8 @@ A fluent API to create abstract syntax trees using JDT
 ## Todo: 
 
 - Implement simple method body stuff: 
+    - Important (!) Expressions, 
     - Statements including Lambdas
-    - Variable Assignments, including array types and access modifiers
     - Catch clauses
     
 - Implement unit und integration tests

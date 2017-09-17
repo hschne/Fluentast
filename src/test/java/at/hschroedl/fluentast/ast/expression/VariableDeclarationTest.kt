@@ -1,12 +1,11 @@
-package at.hschroedl.fluentast.ast
+package at.hschroedl.fluentast.ast.expression
 
-import at.hschroedl.fluentast.ast.expression.*
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class FluentPrimitiveVariableDeclarationTest {
+internal class VariableDeclarationTest {
 
     @Test
     internal fun intVar_withInitializer_shouldReturnIntDeclaration() {

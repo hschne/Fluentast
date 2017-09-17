@@ -22,7 +22,7 @@ internal class FluentExpressionTest {
 
     @Test
     internal fun parse_withString_shouldReturnExpression() {
-        var expression = exp("new Integer()").build()
+        val expression = exp("new Integer()").build()
 
         assertEquals("new Integer()", expression.toInlineString())
     }
@@ -36,112 +36,112 @@ internal class FluentExpressionTest {
 
     @Test
     internal fun arrayAccess_withExpressions_returnsArrayAccessWithExpressions() {
-        val expression = FluentArrayAccess(exp("test"), n(1)).build() as ArrayAccess
+        val expression = arrayIndex(exp("test"), n(1)).build() as ArrayAccess
 
         assertEquals("test[1]", expression.toInlineString())
     }
 
     @Test
     internal fun arrayInitializer_withNumbers_returnsArrayInitializerWithNumbers() {
-        val expression = FluentArrayInitializer(n(1), n(2), n(3)).build() as ArrayInitializer
+        val expression = arrayInit(n(1), n(2), n(3)).build() as ArrayInitializer
 
         assertEquals("{1,2,3}", expression.toInlineString())
     }
 
     @Test
     internal fun arrayInitializer_withNestedInitializers_returnsArrayInitializerWithNumbers() {
-        val expression = FluentArrayInitializer(n(1), FluentArrayInitializer(n(2), n(3))).build() as ArrayInitializer
+        val expression = arrayInit(n(1), FluentArrayInitializer(n(2), n(3))).build() as ArrayInitializer
 
         assertEquals("{1,{2,3}}", expression.toInlineString())
     }
 
     @Test
     internal fun arrayCreation_withType_returnsArrayCreation() {
-        val expression = FluentArrayCreation(FluentArrayType(type("Integer"), 3)).build() as ArrayCreation
+        val expression = newArray(FluentArrayType(type("Integer"), 3)).build() as ArrayCreation
 
         assertEquals("new Integer[][][]", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withDefaultAssignment_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "=", n(1)).build() as Assignment
 
         assertEquals("a=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withPlus_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "+=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "+=", n(1)).build() as Assignment
 
         assertEquals("a+=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withMinus_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "-=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "-=", n(1)).build() as Assignment
 
         assertEquals("a-=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withTimes_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "*=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "*=", n(1)).build() as Assignment
 
         assertEquals("a*=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withDivide_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "/=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "/=", n(1)).build() as Assignment
 
         assertEquals("a/=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withBitAnd_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "&=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "&=", n(1)).build() as Assignment
 
         assertEquals("a&=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withBitOr_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "|=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "|=", n(1)).build() as Assignment
 
         assertEquals("a|=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withBitXOR_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "^=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "^=", n(1)).build() as Assignment
 
         assertEquals("a^=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withRemainder_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "%=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "%=", n(1)).build() as Assignment
 
         assertEquals("a%=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withLeftShift_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), "<<=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), "<<=", n(1)).build() as Assignment
 
         assertEquals("a<<=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withRightShiftSigned_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), ">>=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), ">>=", n(1)).build() as Assignment
 
         assertEquals("a>>=1", expression.toInlineString())
     }
 
     @Test
     internal fun assignment_withRightShiftUnsigned_returnsAssignment() {
-        val expression = FluentAssignment(exp("a"), ">>>=", n(1)).build() as Assignment
+        val expression = assignment(exp("a"), ">>>=", n(1)).build() as Assignment
 
         assertEquals("a>>>=1", expression.toInlineString())
     }
@@ -149,9 +149,16 @@ internal class FluentExpressionTest {
     @Test
     internal fun assignment_invalidOperator_returnsAssignment() {
         assertFailsWith(FluentArgumentException::class) {
-            FluentAssignment(exp("a"), "test", n(1)).build() as Assignment
+            assignment(exp("a"), "test", n(1)).build() as Assignment
         }
 
+    }
+
+    @Test
+    internal fun cast_withType_returnsTypeCast() {
+        val expression = cast(type("Integer"), n(1)).build() as CastExpression
+
+        assertEquals("(Integer)1", expression.toInlineString())
     }
 
 }
