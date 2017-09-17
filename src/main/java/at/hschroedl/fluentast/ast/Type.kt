@@ -5,6 +5,7 @@ import at.hschroedl.fluentast.FluentChildNode
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ASTNode
 import org.eclipse.jdt.core.dom.PrimitiveType
+import org.eclipse.jdt.core.dom.QualifiedType
 
 abstract class FluentType : FluentASTNode(), FluentChildNode {
 
@@ -24,6 +25,18 @@ class FluentPrimitiveType(private val primitiveType: FluentPrimitive) : FluentTy
             FluentPrimitive.CHAR -> ast.newPrimitiveType(PrimitiveType.CHAR)
             FluentPrimitive.BOOL -> ast.newPrimitiveType(PrimitiveType.BOOLEAN)
         }
+    }
+}
+
+class FluentQualifiedType() : FluentType() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newSimpleName("");
+    }
+}
+
+class FluentWildcardType() : FluentType() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newSimpleName("");
     }
 }
 

@@ -30,9 +30,70 @@ class FluentParsedStatement(private val content: String) : FluentStatement() {
     }
 }
 
+class FluentAssertStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newAssertStatement()
+    }
+}
+
+class FluentBreakStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newBreakStatement()
+    }
+}
+
+class FluentConstructorInvocation : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newBreakStatement()
+    }
+}
+
+class FluentContinueStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newBreakStatement()
+    }
+}
+
+class FluentDoStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newBreakStatement()
+    }
+}
+
 class FluentEmptyStatement : FluentStatement() {
     override fun build(ast: AST): ASTNode {
         return ast.newEmptyStatement()
+    }
+}
+
+
+class FluentEnhancedForStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentExpressionStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentForStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentIfStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentLabeledStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
     }
 }
 
@@ -45,9 +106,57 @@ class FluentReturnStatement(private val expression: FluentExpression) : FluentSt
     }
 }
 
-class FluentBreakStatement : FluentStatement() {
+class FluentSuperConstructorInvocation : FluentStatement() {
     override fun build(ast: AST): ASTNode {
-        return ast.newBreakStatement()
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentSwitchCase : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentSwitchStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentSynchronizedStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentThrowStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentTryStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentTypeDeclarationStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluenVariableDeclarationStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
+    }
+}
+
+class FluentWhileStatement : FluentStatement() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newEnhancedForStatement()
     }
 }
 

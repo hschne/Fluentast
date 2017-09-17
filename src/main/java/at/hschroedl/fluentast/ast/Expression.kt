@@ -13,13 +13,6 @@ abstract class FluentExpression : FluentASTNode(), FluentChildNode, FluentStanda
     }
 }
 
-class FluentThisExpression : FluentExpression() {
-
-    override fun build(ast: AST): ASTNode {
-        return ast.newThisExpression()
-    }
-}
-
 
 class FluentParsedExpression(private val content: String) : FluentExpression() {
 
@@ -48,17 +41,28 @@ class FluentEmptyExpression : FluentExpression() {
     }
 }
 
-
-class FluentNumberLiteral(private val literal: Int) : FluentExpression() {
-    override fun build(ast: AST): ASTNode {
-        return ast.newNumberLiteral(literal.toString())
+class FluentAssignmentExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
     }
 }
-
 
 class FluentBooleanLiteral(private val literal: Boolean) : FluentExpression() {
     override fun build(ast: AST): ASTNode {
         return ast.newBooleanLiteral(literal)
+    }
+}
+
+
+class FluentCastExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentClassInstanceCreationExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
     }
 }
 
@@ -67,6 +71,111 @@ class FluentCharLiteral(private val literal: Char) : FluentExpression() {
         val charLiteral = ast.newCharacterLiteral()
         charLiteral.setCharValue(literal)
         return charLiteral
+    }
+}
+
+class FluentConditionalExpressione() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentFieldAccessExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+
+class FluentInfixExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentInstanceOfExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentMethodInvocationExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentNameExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+
+class FluentNullLiteral() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentNumberLiteral(private val literal: Int) : FluentExpression() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newNumberLiteral(literal.toString())
+    }
+}
+
+class FluentParanethesizedExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentPostfixExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentPrefixExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentStringLiteral() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+
+class FluentSuperFieldAccessExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentSuperMethodInvocationExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentThisExpression : FluentExpression() {
+    override fun build(ast: AST): ASTNode {
+        return ast.newThisExpression()
+    }
+}
+
+class FluentTypeLiteral() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
+    }
+}
+
+class FluentAnnotationExpression() : FluentExpression() {
+    override fun build(ast: AST): Expression? {
+        return null
     }
 }
 
