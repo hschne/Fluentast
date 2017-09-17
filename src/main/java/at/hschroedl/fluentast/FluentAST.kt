@@ -5,21 +5,21 @@ import org.eclipse.jdt.core.dom.ASTNode
 import org.eclipse.jdt.core.dom.ASTParser
 
 
-interface FluentStandaloneNode {
+interface FluentStandaloneNode<out T : ASTNode> {
 
-    fun build(): ASTNode?
+    fun build(): T
 }
 
-interface FluentChildNode {
+interface FluentChildNode<out T : ASTNode> {
 
-    fun build(ast: AST): ASTNode?
+    fun build(ast: AST): T?
 }
 
 abstract class FluentASTNode
 
-class FluentParsedNode(private val content: String, private val kind: Int) : FluentStandaloneNode {
+class FluentParsedNode(private val content: String, private val kind: Int) : FluentStandaloneNode<ASTNode> {
 
-    override fun build(): ASTNode? {
+    override fun build(): ASTNode {
         val parser = ASTParser.newParser(AST.JLS8)
         parser.setSource(content.toCharArray())
         parser.setResolveBindings(false)

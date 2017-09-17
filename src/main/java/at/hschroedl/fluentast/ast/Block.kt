@@ -16,7 +16,7 @@ class FluentStatementBlock() : FluentBlock() {
     }
 
 
-    override fun build(ast: AST): ASTNode {
+    override fun build(ast: AST): Statement {
         val block: Block = ast.newBlock()
         statements
                 .map { it.build(ast) }
@@ -27,7 +27,7 @@ class FluentStatementBlock() : FluentBlock() {
 
 class FluentParsedBlock(private val content: String) : FluentBlock() {
 
-    override fun build(): ASTNode {
+    override fun build(): Statement {
 
         val block = FluentParsedNode(content, ASTParser.K_STATEMENTS).build() as Block
         if (block.statements().isEmpty()) {
@@ -37,7 +37,7 @@ class FluentParsedBlock(private val content: String) : FluentBlock() {
         return block
     }
 
-    override fun build(ast: AST): ASTNode {
+    override fun build(ast: AST): Statement {
         val convertedAstNodeWithMethodBody = ASTNode.copySubtree(ast, build())
         return convertedAstNodeWithMethodBody as Block
     }

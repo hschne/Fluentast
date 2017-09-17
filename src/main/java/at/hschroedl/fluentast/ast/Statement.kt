@@ -1,14 +1,16 @@
 package at.hschroedl.fluentast.ast
 
 import at.hschroedl.fluentast.*
+import at.hschroedl.fluentast.ast.expression.FluentEmptyExpression
+import at.hschroedl.fluentast.ast.expression.FluentExpression
 import org.eclipse.jdt.core.dom.*
 
 
-abstract class FluentStatement : FluentASTNode(), FluentStandaloneNode, FluentChildNode {
+abstract class FluentStatement : FluentASTNode(), FluentStandaloneNode<Statement>, FluentChildNode<Statement> {
 
-    abstract override fun build(ast: AST): ASTNode
+    abstract override fun build(ast: AST): Statement
 
-    override fun build(): ASTNode {
+    override fun build(): Statement {
         val ast: AST = AST.newAST(AST.JLS8)
         return build(ast)
     }
@@ -16,7 +18,7 @@ abstract class FluentStatement : FluentASTNode(), FluentStandaloneNode, FluentCh
 
 class FluentParsedStatement(private val content: String) : FluentStatement() {
 
-    override fun build(): ASTNode {
+    override fun build(): Statement {
         val block = FluentParsedNode(content, ASTParser.K_STATEMENTS).build() as Block
         if (block.statements().size != 1) {
             throw FluentParseException(
@@ -25,20 +27,20 @@ class FluentParsedStatement(private val content: String) : FluentStatement() {
         return block.statements()[0] as Statement
     }
 
-    override fun build(ast: AST): ASTNode {
-        return ASTNode.copySubtree(ast, build())
+    override fun build(ast: AST): Statement {
+        return ASTNode.copySubtree(ast, build()) as Statement
     }
 }
 
 class FluentEmptyStatement : FluentStatement() {
-    override fun build(ast: AST): ASTNode {
+    override fun build(ast: AST): Statement {
         return ast.newEmptyStatement()
     }
 }
 
 class FluentReturnStatement(private val expression: FluentExpression) : FluentStatement() {
 
-    override fun build(ast: AST): ASTNode {
+    override fun build(ast: AST): Statement {
         val ret = ast.newReturnStatement()
         ret.expression = expression.build(ast) as Expression?
         return ret
@@ -46,7 +48,7 @@ class FluentReturnStatement(private val expression: FluentExpression) : FluentSt
 }
 
 class FluentBreakStatement : FluentStatement() {
-    override fun build(ast: AST): ASTNode {
+    override fun build(ast: AST): Statement {
         return ast.newBreakStatement()
     }
 }

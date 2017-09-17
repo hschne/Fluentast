@@ -1,18 +1,20 @@
 package at.hschroedl.fluentast.ast
 
-import org.eclipse.jdt.core.dom.AST
-import org.eclipse.jdt.core.dom.ASTNode
-import org.eclipse.jdt.core.dom.Expression
-import org.eclipse.jdt.core.dom.Type
+import at.hschroedl.fluentast.ast.expression.*
+import at.hschroedl.fluentast.ast.type.FluentParsedType
+import at.hschroedl.fluentast.ast.type.FluentPrimitive
+import at.hschroedl.fluentast.ast.type.FluentPrimitiveType
+import at.hschroedl.fluentast.ast.type.FluentType
+import org.eclipse.jdt.core.dom.*
 
 open class FluentVariableDeclaration(private val type: FluentType, private val name: String,
                                      private val expression: FluentExpression) : FluentStatement() {
 
     constructor(type: String, name: String, expression: FluentExpression) : this(
-            FluentStringType(type), name,
+            FluentParsedType(type), name,
             expression)
 
-    override fun build(ast: AST): ASTNode {
+    override fun build(ast: AST): Statement {
         val fragment = ast.newVariableDeclarationFragment()
         val ret = ast.newVariableDeclarationStatement(fragment)
         fragment.name = ast.newSimpleName(name)
@@ -25,7 +27,8 @@ open class FluentVariableDeclaration(private val type: FluentType, private val n
 
 class FluentIntDeclarationStatement(name: String, expression: FluentExpression) :
         FluentVariableDeclaration(
-                type = FluentPrimitiveType(FluentPrimitive.INT), name = name, expression = expression) {
+                type = FluentPrimitiveType(
+                        FluentPrimitive.INT), name = name, expression = expression) {
 
     constructor(name: String) : this(name = name, expression = FluentEmptyExpression())
     constructor(name: String, initializer: Int) : this(name = name,
@@ -35,7 +38,8 @@ class FluentIntDeclarationStatement(name: String, expression: FluentExpression) 
 
 class FluentBoolDeclarationStatement(name: String, expression: FluentExpression) :
         FluentVariableDeclaration(
-                type = FluentPrimitiveType(FluentPrimitive.BOOL), name = name, expression = expression) {
+                type = FluentPrimitiveType(
+                        FluentPrimitive.BOOL), name = name, expression = expression) {
     constructor(name: String) : this(name, expression = FluentEmptyExpression())
     constructor(name: String, initializer: Boolean) : this(name, expression = FluentBooleanLiteral(
             initializer))
@@ -46,7 +50,8 @@ class FluentBoolDeclarationStatement(name: String, expression: FluentExpression)
 
 class FluentCharDeclarationStatement(name: String, expression: FluentExpression) :
         FluentVariableDeclaration(
-                type = FluentPrimitiveType(FluentPrimitive.CHAR), name = name, expression = expression) {
+                type = FluentPrimitiveType(
+                        FluentPrimitive.CHAR), name = name, expression = expression) {
     constructor(name: String) : this(name, expression = FluentEmptyExpression())
     constructor(name: String, initializer: Char) : this(name, expression = FluentCharLiteral(
             initializer))

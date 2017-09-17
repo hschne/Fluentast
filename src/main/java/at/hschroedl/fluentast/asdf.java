@@ -3,7 +3,7 @@ package at.hschroedl.fluentast;
 import org.eclipse.jdt.core.dom.ASTNode;
 
 import static at.hschroedl.fluentast.ast.BlockKt.block;
-import static at.hschroedl.fluentast.ast.ExpressionKt.exp;
+import static at.hschroedl.fluentast.ast.expression.ExpressionKt.exp;
 import static at.hschroedl.fluentast.ast.StatementKt.s;
 import static at.hschroedl.fluentast.ast.VariableDeclarationKt.var;
 
