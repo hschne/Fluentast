@@ -2,12 +2,11 @@ package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
-import org.eclipse.jdt.core.dom.Expression
 import org.eclipse.jdt.core.dom.InfixExpression
 
 class FluentInfixExpression internal constructor(private val left: FluentExpression, private val operator: String,
                                                  private vararg val right: FluentExpression) : FluentExpression() {
-    override fun build(ast: AST): Expression? {
+    override fun build(ast: AST): InfixExpression {
         val exp = ast.newInfixExpression()
         exp.leftOperand = left.build(ast)
         exp.operator = infixOperator(operator)

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import kotlin.test.assertFailsWith
 
-internal class FluentInfixExpressionTest {
+internal class InfixExpressionTest {
 
 
     @Test

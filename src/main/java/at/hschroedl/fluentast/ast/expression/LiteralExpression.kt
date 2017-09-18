@@ -44,7 +44,6 @@ class FluentTypeLiteral() : FluentExpression() {
     }
 }
 
-
 fun n(number: Int): FluentLiteral {
     return FluentNumberLiteral(number)
 }

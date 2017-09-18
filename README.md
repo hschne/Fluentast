@@ -11,6 +11,8 @@ A fluent API to create abstract syntax trees using JDT
 - Implement unit und integration tests
     - Idea for integration tests: Build known algorithms, build sample methods from spring and whatnot
     
+- Also: Adding existing ast elements into the builder structure
+
 - Website: Compare with normal jdt interface
 
 - After that: Compilation unit, reading from files

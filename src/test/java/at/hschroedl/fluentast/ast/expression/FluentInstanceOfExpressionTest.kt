@@ -2,9 +2,8 @@ package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.ast.type.type
 import at.hschroedl.fluentast.test.toInlineString
-import org.eclipse.jdt.core.dom.InfixExpression
 import org.eclipse.jdt.core.dom.InstanceofExpression
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 internal class FluentInstanceOfExpressionTest {

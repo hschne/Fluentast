@@ -1,7 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.*
-import at.hschroedl.fluentast.ast.type.FluentArrayType
 import at.hschroedl.fluentast.ast.type.FluentType
 import org.eclipse.jdt.core.dom.*
 
@@ -39,150 +38,14 @@ fun exp(content: String): FluentExpression {
 }
 
 
-class FluentArrayAccess internal constructor(private val array: FluentExpression,
-                                             private val index: FluentExpression) : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        val exp = ast.newArrayAccess()
-        exp.array = array.build(ast)
-        exp.index = index.build(ast)
-        return exp
-    }
-}
-
-fun arrayIndex(array: FluentExpression, index: FluentExpression): FluentArrayAccess {
-    return FluentArrayAccess(array, index)
-}
-
-class FluentArrayCreation internal constructor(private val type: FluentArrayType,
-                                               private val initializer: FluentArrayInitializer?) : FluentExpression() {
-    override fun build(ast: AST): ArrayCreation {
-        val exp = ast.newArrayCreation()
-        exp.type = type.build(ast)
-        exp.initializer = initializer?.build(ast)
-        return exp
-    }
-
-}
-
-fun newArray(type: FluentArrayType, initializer: FluentArrayInitializer?): FluentArrayCreation {
-    return FluentArrayCreation(type, initializer)
-}
-
-fun newArray(type: FluentArrayType): FluentArrayCreation {
-    return FluentArrayCreation(type, null)
-}
-
-class FluentArrayInitializer internal constructor(
-        private vararg val expressions: FluentExpression) : FluentExpression() {
-    override fun build(ast: AST): ArrayInitializer {
-        val exp = ast.newArrayInitializer()
-        expressions
-                .map { it.build(ast) }
-                .forEach { exp.expressions().add(it) }
-        return exp
-    }
-}
-
-fun arrayInit(vararg expression: FluentExpression): FluentArrayInitializer {
-    return FluentArrayInitializer(*expression)
-}
-
-class FluentAssignment internal constructor(private val left: FluentExpression, private val operator: String,
-                                            private val right: FluentExpression) : FluentExpression() {
-
-
-    override fun build(ast: AST): Assignment {
-        val exp = ast.newAssignment()
-        exp.leftHandSide = left.build(ast)
-        exp.operator = assignmentOperator(operator)
-        exp.rightHandSide = right.build(ast)
-        return exp
-    }
-
-    private fun assignmentOperator(operator: String): Assignment.Operator {
-        return when (operator) {
-            "=" -> Assignment.Operator.ASSIGN
-            "+=" -> Assignment.Operator.PLUS_ASSIGN
-            "-=" -> Assignment.Operator.MINUS_ASSIGN
-            "*=" -> Assignment.Operator.TIMES_ASSIGN
-            "/=" -> Assignment.Operator.DIVIDE_ASSIGN
-            "&=" -> Assignment.Operator.BIT_AND_ASSIGN
-            "|=" -> Assignment.Operator.BIT_OR_ASSIGN
-            "^=" -> Assignment.Operator.BIT_XOR_ASSIGN
-            "%=" -> Assignment.Operator.REMAINDER_ASSIGN
-            "<<=" -> Assignment.Operator.LEFT_SHIFT_ASSIGN
-            ">>=" -> Assignment.Operator.RIGHT_SHIFT_SIGNED_ASSIGN
-            ">>>=" -> Assignment.Operator.RIGHT_SHIFT_UNSIGNED_ASSIGN
-            else -> throw FluentArgumentException("Invalid assignment operator '$operator.'")
-        }
-    }
-}
-
-
-fun assignment(left: FluentExpression, operator: String, right: FluentExpression): FluentAssignment {
-    return FluentAssignment(left, operator, right)
-}
-
-class FluentCastExpression internal constructor(private val type: FluentType?,
-                                                private val expression: FluentExpression) : FluentExpression() {
-
-    override fun build(ast: AST): CastExpression {
-        val exp = ast.newCastExpression()
-        exp.type = type?.build(ast)
-        exp.expression = expression.build(ast)
-        return exp
-    }
-}
-
-fun cast(type: FluentType, expression: FluentExpression): FluentCastExpression {
-    return FluentCastExpression(type, expression)
-}
-
 class FluentClassInstanceCreation() : FluentExpression() {
     override fun build(ast: AST): Expression? {
         throw NotImplementedError()
     }
 }
 
-class FluentConditionalExpression internal constructor(private val condition: FluentExpression,
-                                                       private val then: FluentExpression,
-                                                       private val `else`: FluentExpression) : FluentExpression() {
-    override fun build(ast: AST): ConditionalExpression {
-        val exp = ast.newConditionalExpression()
-        exp.expression = condition.build(ast)
-        exp.thenExpression = then.build(ast)
-        exp.elseExpression = `else`.build(ast)
-        return exp
-    }
-}
-
-fun ternary(condition: FluentExpression, then: FluentExpression,
-            `else`: FluentExpression): FluentConditionalExpression {
-    return FluentConditionalExpression(condition, then, `else`)
-}
-
-class FluentFieldAccess internal constructor(private val expression: FluentExpression,
-                                             private val fieldName: String) : FluentExpression() {
-    override fun build(ast: AST): FieldAccess {
-        val exp = ast.newFieldAccess()
-        exp.expression = expression.build(ast)
-        exp.name = ast.newSimpleName(fieldName)
-        return exp
-    }
-}
-
-fun fieldAccess(expression: FluentExpression, fieldName: String): FluentFieldAccess {
-    return FluentFieldAccess(expression, fieldName)
-}
 
 
-
-
-class FluentMethodInvocation() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
-    }
-}
 
 class FluentName() : FluentExpression() {
     override fun build(ast: AST): Expression? {
