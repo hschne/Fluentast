@@ -14,21 +14,6 @@ internal class VariableDeclarationTest {
         assertEquals("int a=1;", varDecl.toInlineString())
     }
 
-
-    @Test
-    internal fun intVar_withoutInitializer_shouldReturnIntDeclaration() {
-        val varDecl = intVar("a").build() as VariableDeclarationStatement
-
-        assertEquals("int a;", varDecl.toInlineString())
-    }
-
-    @Test
-    internal fun intVar_withExpression_shouldReturnIntDeclaration() {
-        val varDecl = intVar("a", thiss()).build() as VariableDeclarationStatement
-
-        assertEquals("int a=this;", varDecl.toInlineString())
-    }
-
     @Test
     internal fun boolVar_withInitializer_shouldReturnBooleanDeclaration() {
         val varDecl = `var`("a", true).build() as VariableDeclarationStatement
@@ -37,38 +22,10 @@ internal class VariableDeclarationTest {
     }
 
     @Test
-    internal fun boolVar_withoutInitializer_shouldReturnBooleanDeclaration() {
-        val varDecl = boolVar("a").build() as VariableDeclarationStatement
-
-        assertEquals("boolean a;", varDecl.toInlineString())
-    }
-
-    @Test
-    internal fun boolVar_withExpression_shouldReturnBooleanDeclaration() {
-        val varDecl = boolVar("a", thiss()).build() as VariableDeclarationStatement
-
-        assertEquals("boolean a=this;", varDecl.toInlineString())
-    }
-
-    @Test
     internal fun charVar_withInitializer_shouldReturnCharDeclaration() {
         val varDecl = `var`("a", 'c').build() as VariableDeclarationStatement
 
         assertEquals("char a='c';", varDecl.toInlineString())
-    }
-
-    @Test
-    internal fun charVar_withoutInitializer_shouldReturnCharDeclaration() {
-        val varDecl = charVar("a").build() as VariableDeclarationStatement
-
-        assertEquals("char a;", varDecl.toInlineString())
-    }
-
-    @Test
-    internal fun charVar_withExpression_shouldReturnCharDeclaration() {
-        val varDecl = charVar("a", thiss()).build() as VariableDeclarationStatement
-
-        assertEquals("char a=this;", varDecl.toInlineString())
     }
 
     @Test

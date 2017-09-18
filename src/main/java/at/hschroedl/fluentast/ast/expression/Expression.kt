@@ -5,11 +5,11 @@ import org.eclipse.jdt.core.dom.*
 
 abstract class FluentExpression : FluentASTNode(), FluentChildNode<Expression>, FluentStandaloneNode<Expression> {
 
-    abstract override fun build(ast: AST): Expression?
+    abstract override fun build(ast: AST): Expression
 
     override fun build(): Expression {
         val ast: AST = AST.newAST(AST.JLS8)
-        return build(ast)!!
+        return build(ast)
     }
 }
 
@@ -38,7 +38,7 @@ fun exp(content: String): FluentExpression {
 
 // TODO: Implement class instance creation when method stuff is done
 class FluentClassInstanceCreation() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
+    override fun build(ast: AST): Expression {
         throw NotImplementedError()
     }
 }

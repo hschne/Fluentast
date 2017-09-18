@@ -161,7 +161,7 @@ class FluentWhileStatement : FluentStatement() {
     }
 }
 
-fun s(content: String): FluentStatement {
+fun stmnt(content: String): FluentStatement {
     return FluentParsedStatement(content)
 }
 

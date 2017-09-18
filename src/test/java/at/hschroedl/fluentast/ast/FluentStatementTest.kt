@@ -19,14 +19,14 @@ internal class FluentStatementTest {
         @Test
     fun statement_withMultipleLines_shouldThrowException() {
          assertFailsWith(FluentArgumentException::class) {
-            s("int i;int j; int k;").build()
+            stmnt("int i;int j; int k;").build()
         }
     }
 
     @Test
     internal fun statement_withInvalidString_shouldThrowException() {
         assertFailsWith(FluentArgumentException::class) {
-            s("vargl di bargle!").build()
+            stmnt("vargl di bargle!").build()
         }
     }
 
