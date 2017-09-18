@@ -9,9 +9,9 @@ internal class ConditionalExpressionTest {
 
     @Test
     internal fun conditionalExpression_withTypes_returnsConditionalExpression() {
-        val expression = ternary(b(true),
-                n(1), n(2)).build() as ConditionalExpression
+        val expression = ternary(dummyExpression("dummy"),
+                dummyLiteral(1), dummyLiteral(2)).build() as ConditionalExpression
 
-        assertEquals("true ? 1 : 2", expression.toInlineString())
+        assertEquals("dummy ? 1 : 2", expression.toInlineString())
     }
 }

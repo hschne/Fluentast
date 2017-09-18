@@ -9,7 +9,7 @@ internal class ParenthesizedExpressionTest {
 
     @Test
     internal fun parenthesizedExpression_withExpression_returnsParenthesizedExpression() {
-        val expression = paranthesis(name("expression")).build() as ParenthesizedExpression
+        val expression = paranthesis(dummyExpression("expression")).build() as ParenthesizedExpression
 
         assertEquals("(expression)", expression.toInlineString())
     }

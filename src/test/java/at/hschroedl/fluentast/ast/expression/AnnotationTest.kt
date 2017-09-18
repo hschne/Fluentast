@@ -21,7 +21,7 @@ internal class AnnotationTest {
 
     @Test
     internal fun annotation_withParameter_returnsAnnotation() {
-        val expression = annotation("Test", n(1)).build() as SingleMemberAnnotation
+        val expression = annotation("Test", dummyLiteral(1)).build() as SingleMemberAnnotation
 
         assertEquals("@Test(1)", expression.toInlineString())
     }

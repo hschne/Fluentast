@@ -13,4 +13,11 @@ internal class ThisExpressionTest {
 
         assertEquals("item.this", expression.toInlineString())
     }
+
+       @Test
+    internal fun thisExpression_withOutName_returnsThis() {
+        val expression = thiss().build() as ThisExpression
+
+        assertEquals("this", expression.toInlineString())
+    }
 }

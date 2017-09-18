@@ -14,7 +14,7 @@ internal class PostfixExpressionTest {
     @ParameterizedTest(name = "Create postfix with {arguments}")
     @ValueSource(strings = arrayOf("++", "--"))
     internal fun postFixExpression_withOperator_returnsPrefixExpression(operator: String) {
-        val expression = postfix(name("expression"), operator).build() as PostfixExpression
+        val expression = postfix(dummyExpression("expression"), operator).build() as PostfixExpression
 
         assertEquals("expression$operator", expression.toInlineString())
     }
@@ -23,7 +23,7 @@ internal class PostfixExpressionTest {
     @Test
     internal fun postfixExpression_withInvalidPostFix_throwsException() {
         assertFailsWith(FluentArgumentException::class) {
-            postfix(name("expression"), "invalid").build()
+            postfix(dummyExpression("expression"), "invalid").build()
         }
     }
 

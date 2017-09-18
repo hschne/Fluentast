@@ -37,8 +37,8 @@ internal class VariableDeclarationTest {
 
     @Test
     internal fun variable_withTypeAndExpression_shouldReturnVariableDeclaration() {
-        val varDecl = `var`("Integer", "a", thiss()).build() as VariableDeclarationStatement
+        val varDecl = `var`("Integer", "a", dummyExpression("expression")).build() as VariableDeclarationStatement
 
-        assertEquals("Integer a=this;", varDecl.toInlineString())
+        assertEquals("Integer a=expression;", varDecl.toInlineString())
     }
 }
