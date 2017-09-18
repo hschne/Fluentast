@@ -3,8 +3,10 @@ package at.hschroedl.fluentast.ast
 import at.hschroedl.fluentast.FluentASTNode
 import at.hschroedl.fluentast.FluentChildNode
 import at.hschroedl.fluentast.FluentStandaloneNode
+import at.hschroedl.fluentast.ast.expression.FluentExpression
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ASTNode
+import org.eclipse.jdt.core.dom.MemberValuePair
 
 abstract class FluentASTNodeImpl : FluentASTNode(), FluentStandaloneNode<ASTNode>, FluentChildNode<ASTNode> {
 
@@ -59,10 +61,17 @@ class FluentMemberRef : FluentASTNodeImpl() {
     }
 }
 
-class FluentMemberValuePair : FluentASTNodeImpl() {
-    override fun build(ast: AST): ASTNode {
-        throw NotImplementedError()
+class FluentMemberValuePair(private val name: String, private val value: FluentExpression) : FluentASTNodeImpl() {
+    override fun build(ast: AST): MemberValuePair {
+        val memberPair = ast.newMemberValuePair()
+        memberPair.name = ast.newSimpleName(name)
+        memberPair.value = value.build(ast)
+        return memberPair
     }
+}
+
+fun pair(name: String, value: FluentExpression): FluentMemberValuePair {
+    return FluentMemberValuePair(name, value)
 }
 
 class FluentMethodRef : FluentASTNodeImpl() {

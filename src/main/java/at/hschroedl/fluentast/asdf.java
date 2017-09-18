@@ -1,15 +1,12 @@
 package at.hschroedl.fluentast;
 
 import org.eclipse.jdt.core.dom.ASTNode;
-import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.Nullable;
 
 import static at.hschroedl.fluentast.ast.BlockKt.block;
 import static at.hschroedl.fluentast.ast.StatementKt.ret;
-import static at.hschroedl.fluentast.ast.expression.ExpressionKt.exp;
 import static at.hschroedl.fluentast.ast.StatementKt.s;
-import static at.hschroedl.fluentast.ast.expression.ExpressionKt.thiss;
 import static at.hschroedl.fluentast.ast.expression.MethodInvocationKt.invocation;
+import static at.hschroedl.fluentast.ast.expression.ThisExpressionKt.thiss;
 import static at.hschroedl.fluentast.ast.expression.VariableDeclarationKt.var;
 
 public class asdf {

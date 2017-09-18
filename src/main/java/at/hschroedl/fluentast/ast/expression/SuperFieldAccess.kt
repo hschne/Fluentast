@@ -16,10 +16,10 @@ class FluentSuperFieldAccess(private val className: String?, private val field: 
     }
 }
 
-fun superr(field: String): FluentSuperFieldAccess {
+fun superField(field: String): FluentSuperFieldAccess {
     return FluentSuperFieldAccess(null, field)
 }
 
-fun superr(className: String, field: String): FluentSuperFieldAccess {
+fun superField(className: String, field: String): FluentSuperFieldAccess {
     return FluentSuperFieldAccess(className, field)
 }

@@ -1,7 +1,7 @@
 package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.ast.FluentStatement
-import at.hschroedl.fluentast.ast.type.FluentParsedType
+import at.hschroedl.fluentast.ast.type.FluentSimpleType
 import at.hschroedl.fluentast.ast.type.FluentPrimitive
 import at.hschroedl.fluentast.ast.type.FluentPrimitiveType
 import at.hschroedl.fluentast.ast.type.FluentType
@@ -15,7 +15,7 @@ open class FluentVariableDeclaration(private val type: FluentType, private val n
                                      private val expression: FluentExpression?) : FluentStatement() {
 
     constructor(type: String, name: String, expression: FluentExpression?) : this(
-            FluentParsedType(type), name,
+            FluentSimpleType(type), name,
             expression)
 
     override fun build(ast: AST): Statement {

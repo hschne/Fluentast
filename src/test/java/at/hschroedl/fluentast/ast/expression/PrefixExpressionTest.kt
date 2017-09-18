@@ -5,52 +5,19 @@ import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.PrefixExpression
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 import kotlin.test.assertFailsWith
 
 internal class PrefixExpressionTest {
 
-    @Test
-    internal fun prefixExpression_withIncrement_returnsPrefixExpression() {
-        val expression = prefix("++", name("expression")).build() as PrefixExpression
+    @ParameterizedTest(name = "Create prefix with {arguments}")
+    @ValueSource(strings = arrayOf("++", "--", "+", "-", "~", "!"))
+    internal fun prefixExpression_withOperator_returnsPrefixExpression(operator: String) {
+        val expression = prefix(operator, name("expression")).build() as PrefixExpression
 
-        assertEquals("++expression", expression.toInlineString())
+        assertEquals("${operator}expression", expression.toInlineString())
     }
-
-    @Test
-    internal fun prefixExpression_withDecrement_returnsPrefixExpression() {
-        val expression = prefix("--", name("expression")).build() as PrefixExpression
-
-        assertEquals("--expression", expression.toInlineString())
-    }
-
-    @Test
-    internal fun prefixExpression_withPlus_returnsPrefixExpression() {
-        val expression = prefix("+", name("expression")).build() as PrefixExpression
-
-        assertEquals("+expression", expression.toInlineString())
-    }
-
-    @Test
-    internal fun prefixExpression_withMinus_returnsPrefixExpression() {
-        val expression = prefix("-", name("expression")).build() as PrefixExpression
-
-        assertEquals("-expression", expression.toInlineString())
-    }
-
-    @Test
-    internal fun prefixExpression_withComplement_returnsPrefixExpression() {
-        val expression = prefix("~", name("expression")).build() as PrefixExpression
-
-        assertEquals("~expression", expression.toInlineString())
-    }
-
-    @Test
-    internal fun prefixExpression_withNot_returnsPrefixExpression() {
-        val expression = prefix("!", name("expression")).build() as PrefixExpression
-
-        assertEquals("!expression", expression.toInlineString())
-    }
-
 
     @Test
     internal fun prefixExpression_withInvalidPostFix_throwsException() {

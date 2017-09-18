@@ -36,28 +36,11 @@ fun exp(content: String): FluentExpression {
     return FluentParsedExpression(content)
 }
 
-
 class FluentClassInstanceCreation() : FluentExpression() {
     override fun build(ast: AST): Expression? {
         throw NotImplementedError()
     }
 }
 
-
-class FluentAnnotationExpression() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
-    }
-}
-
-class FluentThisExpression : FluentExpression() {
-    override fun build(ast: AST): ThisExpression {
-        return ast.newThisExpression()
-    }
-}
-
-fun thiss(): FluentThisExpression {
-    return FluentThisExpression()
-}
 
 

@@ -1,8 +1,7 @@
 package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.FluentArgumentException
-import at.hschroedl.fluentast.ast.type.FluentArrayType
-import at.hschroedl.fluentast.ast.type.type
+import at.hschroedl.fluentast.ast.type.t
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.*
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -37,7 +36,7 @@ internal class ExpressionTest {
 
     @Test
     internal fun cast_withType_returnsTypeCast() {
-        val expression = cast(type("Integer"), n(1)).build() as CastExpression
+        val expression = cast(t("Integer"), n(1)).build() as CastExpression
 
         assertEquals("(Integer)1", expression.toInlineString())
     }
