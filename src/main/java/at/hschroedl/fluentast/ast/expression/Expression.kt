@@ -177,11 +177,6 @@ fun fieldAccess(expression: FluentExpression, fieldName: String): FluentFieldAcc
 
 
 
-class FluentInstanceOfExpression() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
-    }
-}
 
 class FluentMethodInvocation() : FluentExpression() {
     override fun build(ast: AST): Expression? {

@@ -1,0 +1,19 @@
+package at.hschroedl.fluentast.ast.expression
+
+import at.hschroedl.fluentast.ast.type.type
+import at.hschroedl.fluentast.test.toInlineString
+import org.eclipse.jdt.core.dom.InfixExpression
+import org.eclipse.jdt.core.dom.InstanceofExpression
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
+
+internal class FluentInstanceOfExpressionTest {
+
+    @Test
+    internal fun instanceOfExpression_withExpressionsAndTypes_returnInstanceOfExpression() {
+        val expression = instanceof(exp("a"), type("Integer")).build() as InstanceofExpression
+
+        assertEquals("a instanceof Integer", expression.toInlineString())
+    }
+
+}
