@@ -44,19 +44,6 @@ class FluentClassInstanceCreation() : FluentExpression() {
 }
 
 
-class FluentSuperFieldAccess() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
-    }
-}
-
-class FluentSuperMethodInvocation() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
-    }
-}
-
-
 class FluentAnnotationExpression() : FluentExpression() {
     override fun build(ast: AST): Expression? {
         return null

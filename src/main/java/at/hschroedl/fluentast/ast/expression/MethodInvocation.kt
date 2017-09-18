@@ -22,6 +22,8 @@ class FluentMethodInvocation(private val expression: FluentExpression? = null,
     }
 }
 
+
+
 fun invocation(name: String): FluentMethodInvocation {
     return FluentMethodInvocation(name = name)
 }
