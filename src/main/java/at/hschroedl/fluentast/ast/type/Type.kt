@@ -20,12 +20,6 @@ fun t(name: String): FluentType {
     return FluentSimpleType(name)
 }
 
-class FluentUnionType() : FluentType() {
-    override fun build(ast: AST): Type {
-        throw NotImplementedError()
-    }
-
-}
 
 class FluentQualifiedType() : FluentType() {
     override fun build(ast: AST): QualifiedType {
@@ -33,8 +27,36 @@ class FluentQualifiedType() : FluentType() {
     }
 }
 
+class FluentNameQualifiedType() : FluentType() {
+    override fun build(ast: AST): NameQualifiedType {
+        throw NotImplementedError()
+    }
+}
+
+
 class FluentWildcardType() : FluentType() {
     override fun build(ast: AST): WildcardType {
         throw NotImplementedError()
     }
 }
+
+class FluentParameterizedType() : FluentType() {
+    override fun build(ast: AST): ParameterizedType {
+        throw NotImplementedError()
+    }
+}
+
+
+class FluentUnionType() : FluentType() {
+    override fun build(ast: AST): Type {
+        throw NotImplementedError()
+    }
+}
+
+class FluentIntersectionType() : FluentType() {
+    override fun build(ast: AST): Type {
+        throw NotImplementedError()
+    }
+}
+
+

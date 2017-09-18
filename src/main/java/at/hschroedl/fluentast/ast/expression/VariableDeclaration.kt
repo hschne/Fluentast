@@ -1,14 +1,12 @@
 package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.ast.FluentStatement
-import at.hschroedl.fluentast.ast.type.FluentSimpleType
 import at.hschroedl.fluentast.ast.type.FluentPrimitive
 import at.hschroedl.fluentast.ast.type.FluentPrimitiveType
+import at.hschroedl.fluentast.ast.type.FluentSimpleType
 import at.hschroedl.fluentast.ast.type.FluentType
 import org.eclipse.jdt.core.dom.AST
-import org.eclipse.jdt.core.dom.Expression
 import org.eclipse.jdt.core.dom.Statement
-import org.eclipse.jdt.core.dom.Type
 
 //TODO: Type hierarchy is possibly wrong, VarDecl are not statements! Use VaribleDeclarationStatement!
 open class FluentVariableDeclaration(private val type: FluentType, private val name: String,
@@ -23,8 +21,8 @@ open class FluentVariableDeclaration(private val type: FluentType, private val n
         val fragment = ast.newVariableDeclarationFragment()
         val ret = ast.newVariableDeclarationStatement(fragment)
         fragment.name = ast.newSimpleName(name)
-        fragment.initializer = expression?.build(ast) as? Expression
-        ret.type = type.build(ast) as? Type
+        fragment.initializer = expression?.build(ast)
+        ret.type = type.build(ast)
         return ret
     }
 }
