@@ -5,9 +5,8 @@ import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ArrayType
 
 class FluentArrayType(private val type: FluentType,
-                      private val dimensions: Int) : FluentType() {
+                      private val dimensions: Int = 1) : FluentType() {
 
-    constructor(type: FluentType) : this(type, 1)
 
     override fun build(ast: AST): ArrayType {
         val type = ast.newArrayType(type.build(ast))
@@ -22,3 +21,10 @@ class FluentArrayType(private val type: FluentType,
     }
 }
 
+fun arr(type: FluentType): FluentArrayType {
+    return FluentArrayType(type)
+}
+
+fun arr(type: FluentType, dimensions: Int): FluentArrayType {
+    return FluentArrayType(type, dimensions)
+}

@@ -35,10 +35,10 @@ internal class InfixExpressionTest {
 
     @Test
     internal fun infixExpression_withExtendedOperands_returnInfixExpression() {
-        val expression = infix(exp("a"), "||", n(1), n(2), n(3)).build() as InfixExpression
+        val expression = infix(exp("a"), "||", n(1),
+                n(2), n(3)).build() as InfixExpression
 
         assertEquals("a || 1 || 2|| 3", expression.toInlineString())
     }
-
 
 }

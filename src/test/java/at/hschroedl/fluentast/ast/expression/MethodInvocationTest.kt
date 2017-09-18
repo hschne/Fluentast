@@ -18,7 +18,8 @@ internal class MethodInvocationTest {
 
     @Test
     internal fun methodInvocation_withAllParameters_returnsMethodInvocation() {
-        val expression = invocation(exp("expression"), listOf(t("Type")), "method", n(1),
+        val expression = invocation(exp("expression"), listOf(t("Type")), "method",
+                n(1),
                 n(2)).build() as MethodInvocation
 
         assertEquals("expression.<Type>method(1,2)", expression.toInlineString())

@@ -6,7 +6,7 @@ import org.eclipse.jdt.core.dom.InstanceofExpression
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class FluentInstanceOfExpressionTest {
+internal class InstanceOfExpressionTest {
 
     @Test
     internal fun instanceOfExpression_withExpressionsAndTypes_returnInstanceOfExpression() {
