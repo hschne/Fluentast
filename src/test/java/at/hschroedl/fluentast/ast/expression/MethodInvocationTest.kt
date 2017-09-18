@@ -9,11 +9,19 @@ import org.junit.jupiter.api.Test
 internal class MethodInvocationTest {
 
     @Test
+    internal fun methodInvocation_withName_returnsMethodInvocation() {
+        val expression = invocation("method").build() as MethodInvocation
+
+        assertEquals("method()", expression.toInlineString())
+    }
+
+
+    @Test
     internal fun methodInvocation_withAllParameters_returnsMethodInvocation() {
         val expression = invocation(exp("expression"), listOf(type("Type")), "method", n(1),
                 n(2)).build() as MethodInvocation
 
-        assertEquals("expression.<Integer>method(1,2)", expression.toInlineString())
+        assertEquals("expression.<Type>method(1,2)", expression.toInlineString())
     }
 
 

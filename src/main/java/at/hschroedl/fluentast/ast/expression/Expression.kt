@@ -1,7 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.*
-import at.hschroedl.fluentast.ast.type.FluentType
 import org.eclipse.jdt.core.dom.*
 
 abstract class FluentExpression : FluentASTNode(), FluentChildNode<Expression>, FluentStandaloneNode<Expression> {
@@ -41,34 +40,6 @@ fun exp(content: String): FluentExpression {
 class FluentClassInstanceCreation() : FluentExpression() {
     override fun build(ast: AST): Expression? {
         throw NotImplementedError()
-    }
-}
-
-
-
-
-class FluentName() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
-    }
-}
-
-
-class FluentParanethesizedExpression() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
-    }
-}
-
-class FluentPostfixExpression() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
-    }
-}
-
-class FluentPrefixExpression() : FluentExpression() {
-    override fun build(ast: AST): Expression? {
-        return null
     }
 }
 

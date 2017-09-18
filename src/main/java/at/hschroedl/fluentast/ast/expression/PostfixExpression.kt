@@ -1,0 +1,28 @@
+package at.hschroedl.fluentast.ast.expression
+
+import at.hschroedl.fluentast.FluentArgumentException
+import org.eclipse.jdt.core.dom.AST
+import org.eclipse.jdt.core.dom.Expression
+import org.eclipse.jdt.core.dom.PostfixExpression
+
+class FluentPostfixExpression(private val expression: FluentExpression,
+                              private val operator: String) : FluentExpression() {
+    override fun build(ast: AST): PostfixExpression {
+        val exp = ast.newPostfixExpression()
+        exp.operand = expression.build(ast)
+        exp.operator = postfixOperator(operator)
+        return exp
+    }
+
+    private fun postfixOperator(operator: String): PostfixExpression.Operator {
+        return when (operator) {
+            "++" -> PostfixExpression.Operator.INCREMENT
+            "--" -> PostfixExpression.Operator.DECREMENT
+            else -> throw FluentArgumentException("Invalid postfix operator '$operator.'")
+        }
+    }
+}
+
+fun postfix(expression: FluentExpression, operator: String): FluentPostfixExpression {
+    return FluentPostfixExpression(expression, operator)
+}
