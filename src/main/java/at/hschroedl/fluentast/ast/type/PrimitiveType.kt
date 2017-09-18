@@ -24,5 +24,3 @@ class FluentPrimitiveType(private val primitiveType: String) : FluentType() {
 fun p(type: String): FluentPrimitiveType {
     return FluentPrimitiveType(type)
 }
-
-//TODO: Add proper accessor here, possibly use string instead of some enum

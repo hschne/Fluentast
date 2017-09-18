@@ -2,6 +2,7 @@ package at.hschroedl.fluentast.ast.expression
 
 
 import at.hschroedl.fluentast.ast.pair
+import at.hschroedl.fluentast.test.dummyLiteral
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.MarkerAnnotation
 import org.eclipse.jdt.core.dom.NormalAnnotation

@@ -2,6 +2,9 @@ package at.hschroedl.fluentast.ast.expression
 
 
 import at.hschroedl.fluentast.ast.type.FluentArrayType
+import at.hschroedl.fluentast.test.dummyExpression
+import at.hschroedl.fluentast.test.dummyLiteral
+import at.hschroedl.fluentast.test.dummyType
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.ArrayAccess
 import org.eclipse.jdt.core.dom.ArrayCreation

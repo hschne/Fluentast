@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
-import at.hschroedl.fluentast.ast.FluentStatement
+import at.hschroedl.fluentast.ast.statement.FluentStatement
 import at.hschroedl.fluentast.ast.type.FluentType
 import at.hschroedl.fluentast.ast.type.p
 import at.hschroedl.fluentast.ast.type.t
@@ -8,8 +8,8 @@ import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.Statement
 
 //TODO: Type hierarchy is possibly wrong, VarDecl are not statements! Use VaribleDeclarationStatement!
-open class FluentVariableDeclaration(private val type: FluentType, private val name: String,
-                                     private val expression: FluentExpression?) : FluentStatement() {
+open class FluentVariableDeclarationExpression(private val type: FluentType, private val name: String,
+                                               private val expression: FluentExpression?) : FluentStatement() {
 
 
     override fun build(ast: AST): Statement {
@@ -25,23 +25,23 @@ open class FluentVariableDeclaration(private val type: FluentType, private val n
 
 
 fun `var`(name: String, initializer: Int): FluentStatement {
-    return FluentVariableDeclaration(p("int"), name, n(initializer))
+    return FluentVariableDeclarationExpression(p("int"), name, n(initializer))
 }
 
 fun `var`(name: String, initializer: Boolean): FluentStatement {
-    return FluentVariableDeclaration(p("boolean"), name, b(initializer))
+    return FluentVariableDeclarationExpression(p("boolean"), name, b(initializer))
 }
 
 fun `var`(name: String, initializer: Char): FluentStatement {
-    return FluentVariableDeclaration(p("char"), name, c(initializer))
+    return FluentVariableDeclarationExpression(p("char"), name, c(initializer))
 }
 
 fun `var`(type: String, name: String): FluentStatement {
-    return FluentVariableDeclaration(t(type), name, null)
+    return FluentVariableDeclarationExpression(t(type), name, null)
 }
 
 fun `var`(type: String, name: String, expression: FluentExpression): FluentStatement {
-    return FluentVariableDeclaration(t(type), name, expression)
+    return FluentVariableDeclarationExpression(t(type), name, expression)
 }
 
 

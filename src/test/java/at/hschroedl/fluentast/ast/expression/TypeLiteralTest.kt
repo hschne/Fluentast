@@ -1,5 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
+import at.hschroedl.fluentast.test.dummyType
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.TypeLiteral
 import org.junit.jupiter.api.Assertions

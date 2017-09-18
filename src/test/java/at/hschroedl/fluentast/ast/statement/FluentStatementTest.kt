@@ -1,4 +1,4 @@
-package at.hschroedl.fluentast.ast
+package at.hschroedl.fluentast.ast.statement
 
 import at.hschroedl.fluentast.FluentArgumentException
 import at.hschroedl.fluentast.test.toInlineString
@@ -16,9 +16,9 @@ internal class FluentStatementTest {
         Assertions.assertEquals("{Integer i=15;}", statement.toInlineString())
     }
 
-        @Test
+    @Test
     fun statement_withMultipleLines_shouldThrowException() {
-         assertFailsWith(FluentArgumentException::class) {
+        assertFailsWith(FluentArgumentException::class) {
             stmnt("int i;int j; int k;").build()
         }
     }

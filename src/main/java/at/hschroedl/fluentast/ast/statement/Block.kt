@@ -1,4 +1,4 @@
-package at.hschroedl.fluentast.ast
+package at.hschroedl.fluentast.ast.statement
 
 import at.hschroedl.fluentast.FluentArgumentException
 import at.hschroedl.fluentast.FluentParsedNode

@@ -1,4 +1,4 @@
-package at.hschroedl.fluentast.ast
+package at.hschroedl.fluentast.ast.statement
 
 import at.hschroedl.fluentast.*
 import at.hschroedl.fluentast.ast.expression.FluentExpression
@@ -28,12 +28,6 @@ class FluentParsedStatement(private val content: String) : FluentStatement() {
 
     override fun build(ast: AST): Statement {
         return ASTNode.copySubtree(ast, build()) as Statement
-    }
-}
-
-class FluentAssertStatement : FluentStatement() {
-    override fun build(ast: AST): Statement {
-        return ast.newAssertStatement()
     }
 }
 
@@ -144,12 +138,6 @@ class FluentTryStatement : FluentStatement() {
 }
 
 class FluentTypeDeclarationStatement : FluentStatement() {
-    override fun build(ast: AST): Statement {
-        return ast.newEnhancedForStatement()
-    }
-}
-
-class FluenVariableDeclarationStatement : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }

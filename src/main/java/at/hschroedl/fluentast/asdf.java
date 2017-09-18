@@ -2,9 +2,9 @@ package at.hschroedl.fluentast;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 
-import static at.hschroedl.fluentast.ast.BlockKt.block;
-import static at.hschroedl.fluentast.ast.StatementKt.ret;
-import static at.hschroedl.fluentast.ast.StatementKt.stmnt;
+import static at.hschroedl.fluentast.ast.statement.BlockKt.block;
+import static at.hschroedl.fluentast.ast.statement.StatementKt.ret;
+import static at.hschroedl.fluentast.ast.statement.StatementKt.stmnt;
 import static at.hschroedl.fluentast.ast.expression.MethodInvocationKt.invocation;
 import static at.hschroedl.fluentast.ast.expression.ThisExpressionKt.thiss;
 import static at.hschroedl.fluentast.ast.expression.VariableDeclarationKt.var;
@@ -28,6 +28,7 @@ public class asdf {
         int[] a = new int[5];
 
         int[][] aasd = new int[][]{{1, 2, 3}};
+
 
     }
 }
