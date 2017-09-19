@@ -49,7 +49,7 @@ internal class ArrayTest {
     @Test
     internal fun arrayCreation_withInitializer_returnsArrayCreation() {
         val expression = newArray(FluentArrayType(dummyType("Integer"), 3), arrayInit(
-                n(1), n(2))).build() as ArrayCreation
+                i(1), i(2))).build() as ArrayCreation
 
         assertEquals("new Integer[][][]{1,2}", expression.toInlineString())
     }

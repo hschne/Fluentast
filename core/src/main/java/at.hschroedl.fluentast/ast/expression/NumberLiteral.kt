@@ -9,6 +9,6 @@ class FluentNumberLiteral internal constructor(private val literal: Int) : Fluen
     }
 }
 
-fun n(value: Int): FluentNumberLiteral {
+fun i(value: Int): FluentNumberLiteral {
     return FluentNumberLiteral(value)
 }

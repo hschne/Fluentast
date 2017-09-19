@@ -29,8 +29,8 @@ internal class AnnotationTest {
 
     @Test
     internal fun annotation_withMoreParameters_returnsAnnotation() {
-        val expression = annotation("Test", pair("param1", n(1)),
-                pair("param2", n(2))).build() as NormalAnnotation
+        val expression = annotation("Test", pair("param1", i(1)),
+                pair("param2", i(2))).build() as NormalAnnotation
 
         assertEquals("@Test(param1=1,param2=2)", expression.toInlineString())
     }

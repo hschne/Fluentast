@@ -68,12 +68,6 @@ class FluentEnhancedForStatement : FluentStatement() {
     }
 }
 
-class FluentExpressionStatement : FluentStatement() {
-    override fun build(ast: AST): Statement {
-        return ast.newEnhancedForStatement()
-    }
-}
-
 class FluentForStatement : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
@@ -152,6 +146,7 @@ class FluentWhileStatement : FluentStatement() {
 fun stmnt(content: String): FluentStatement {
     return FluentParsedStatement(content)
 }
+
 
 fun br(): FluentStatement {
     return FluentBreakStatement()
