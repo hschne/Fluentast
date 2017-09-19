@@ -74,12 +74,6 @@ class FluentForStatement : FluentStatement() {
     }
 }
 
-class FluentIfStatement : FluentStatement() {
-    override fun build(ast: AST): Statement {
-        return ast.newEnhancedForStatement()
-    }
-}
-
 class FluentLabeledStatement : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
