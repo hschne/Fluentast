@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="FluentAST" />
+        <module name="core" />
+        <module name="demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="FluentAST" target="1.8" />
+      <module name="core" target="1.8" />
+      <module name="demo" target="1.5" />
+      <module name="fluentast" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,15 +1,15 @@
-package at.hschroedl.fluentast;
-
 import org.eclipse.jdt.core.dom.ASTNode;
 
-import static at.hschroedl.fluentast.ast.statement.BlockKt.block;
-import static at.hschroedl.fluentast.ast.statement.StatementKt.ret;
-import static at.hschroedl.fluentast.ast.statement.StatementKt.stmnt;
+
+// TODO: Simplify import statements
 import static at.hschroedl.fluentast.ast.expression.MethodInvocationKt.invocation;
 import static at.hschroedl.fluentast.ast.expression.ThisExpressionKt.thiss;
 import static at.hschroedl.fluentast.ast.expression.VariableDeclarationKt.var;
+import static at.hschroedl.fluentast.ast.statement.BlockKt.block;
+import static at.hschroedl.fluentast.ast.statement.StatementKt.ret;
+import static at.hschroedl.fluentast.ast.statement.StatementKt.stmnt;
 
-public class asdf {
+public class Main {
 
     public static void main(String[] args) {
         ASTNode node = block(stmnt("int i = 3;"),
