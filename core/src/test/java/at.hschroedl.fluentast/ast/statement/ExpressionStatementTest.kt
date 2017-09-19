@@ -9,11 +9,10 @@ import org.junit.jupiter.api.Test
 internal class ExpressionStatementTest {
 
     @Test
-    fun assert_withoutMessage_shouldReturnAssertStatement() {
+    fun expressionStatement_withoutMessage_shouldReturnAssertStatement() {
         val statement = stmnt(dummyExpression("expression")).build() as ExpressionStatement
 
         assertEquals("expression;", statement.toInlineString())
     }
-
 
 }

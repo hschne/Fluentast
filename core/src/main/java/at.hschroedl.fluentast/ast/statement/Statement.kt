@@ -5,7 +5,7 @@ import at.hschroedl.fluentast.ast.expression.FluentExpression
 import org.eclipse.jdt.core.dom.*
 
 
-abstract class FluentStatement : FluentASTNode(), FluentStandaloneNode<Statement>, FluentChildNode<Statement> {
+abstract class FluentStatement internal constructor() : FluentASTNode(), FluentStandaloneNode<Statement>, FluentChildNode<Statement> {
 
     abstract override fun build(ast: AST): Statement
 
@@ -126,12 +126,6 @@ class FluentTryStatement : FluentStatement() {
 }
 
 class FluentTypeDeclarationStatement : FluentStatement() {
-    override fun build(ast: AST): Statement {
-        return ast.newEnhancedForStatement()
-    }
-}
-
-class FluentWhileStatement : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }

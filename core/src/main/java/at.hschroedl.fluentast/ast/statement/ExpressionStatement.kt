@@ -8,7 +8,7 @@ import org.eclipse.jdt.core.dom.Statement
 
 class FluentExpressionStatement(private val expression: FluentExpression) : FluentStatement() {
     override fun build(ast: AST): ExpressionStatement {
-        return ast.newExpressionStatement(expression.build())
+        return ast.newExpressionStatement(expression.build(ast))
     }
 }
 
