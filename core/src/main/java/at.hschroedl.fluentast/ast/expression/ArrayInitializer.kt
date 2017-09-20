@@ -14,8 +14,3 @@ class FluentArrayInitializer internal constructor(
     }
 }
 
-fun arrayInit(vararg expression: FluentExpression): FluentArrayInitializer {
-    return FluentArrayInitializer(*expression)
-}
-
-

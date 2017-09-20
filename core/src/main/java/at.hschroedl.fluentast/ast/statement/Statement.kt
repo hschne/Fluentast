@@ -1,11 +1,14 @@
 package at.hschroedl.fluentast.ast.statement
 
-import at.hschroedl.fluentast.*
+import at.hschroedl.fluentast.exception.FluentArgumentException
+import at.hschroedl.fluentast.ast.FluentASTNode
+import at.hschroedl.fluentast.ast.FluentParsedNode
+import at.hschroedl.fluentast.ast.FluentStandaloneNode
 import at.hschroedl.fluentast.ast.expression.FluentExpression
 import org.eclipse.jdt.core.dom.*
 
 
-abstract class FluentStatement internal constructor() : FluentASTNode(), FluentStandaloneNode<Statement>, FluentChildNode<Statement> {
+abstract class FluentStatement internal constructor() : FluentASTNode(), FluentStandaloneNode<Statement> {
 
     abstract override fun build(ast: AST): Statement
 

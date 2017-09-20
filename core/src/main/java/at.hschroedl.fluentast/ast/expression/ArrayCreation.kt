@@ -14,12 +14,3 @@ class FluentArrayCreation internal constructor(private val type: FluentArrayType
     }
 
 }
-
-
-fun newArray(type: FluentArrayType, initializer: FluentArrayInitializer?): FluentArrayCreation {
-    return FluentArrayCreation(type, initializer)
-}
-
-fun newArray(type: FluentArrayType): FluentArrayCreation {
-    return FluentArrayCreation(type, null)
-}

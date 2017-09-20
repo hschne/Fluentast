@@ -9,6 +9,3 @@ class FluentNullLiteral : FluentExpression() {
     }
 }
 
-fun nullz(): FluentNullLiteral {
-    return FluentNullLiteral()
-}

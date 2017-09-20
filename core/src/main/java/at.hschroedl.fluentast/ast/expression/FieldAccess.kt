@@ -13,6 +13,3 @@ class FluentFieldAccess internal constructor(private val expression: FluentExpre
     }
 }
 
-fun fieldAccess(expression: FluentExpression, fieldName: String): FluentFieldAccess {
-    return FluentFieldAccess(expression, fieldName)
-}

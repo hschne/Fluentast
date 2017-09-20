@@ -11,6 +11,3 @@ class FluentCharacterLiteral internal constructor(private val literal: Char) : F
     }
 }
 
-fun c(value: Char): FluentCharacterLiteral {
-    return FluentCharacterLiteral(value)
-}

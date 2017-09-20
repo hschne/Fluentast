@@ -13,6 +13,3 @@ class FluentArrayAccess internal constructor(private val array: FluentExpression
     }
 }
 
-fun arrayIndex(array: FluentExpression, index: FluentExpression): FluentArrayAccess {
-    return FluentArrayAccess(array, index)
-}

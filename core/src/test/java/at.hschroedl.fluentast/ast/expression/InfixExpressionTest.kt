@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
-import at.hschroedl.fluentast.FluentArgumentException
+import at.hschroedl.fluentast.exception.FluentArgumentException
 import at.hschroedl.fluentast.test.dummyExpression
 import at.hschroedl.fluentast.test.dummyLiteral
 import at.hschroedl.fluentast.test.toInlineString

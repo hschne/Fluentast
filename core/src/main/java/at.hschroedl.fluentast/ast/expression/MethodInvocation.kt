@@ -22,15 +22,3 @@ class FluentMethodInvocation(private val expression: FluentExpression? = null,
     }
 }
 
-
-
-fun invocation(name: String): FluentMethodInvocation {
-    return FluentMethodInvocation(name = name)
-}
-
-fun invocation(expression: FluentExpression,
-               typeParameter: List<FluentType>,
-               name: String,
-               vararg arguments: FluentExpression): FluentMethodInvocation {
-    return FluentMethodInvocation(expression, typeParameter, name, *arguments)
-}

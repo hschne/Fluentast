@@ -14,6 +14,3 @@ class FluentWhileStatement internal constructor(private val condition: FluentExp
     }
 }
 
-fun whilez(condition: FluentExpression, body: FluentStatement): FluentWhileStatement {
-    return FluentWhileStatement(condition, body)
-}

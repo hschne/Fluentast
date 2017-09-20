@@ -1,5 +1,6 @@
 package at.hschroedl.fluentast.ast.statement
 
+import at.hschroedl.fluentast.iff
 import at.hschroedl.fluentast.test.dummyExpression
 import at.hschroedl.fluentast.test.dummyStatement
 import at.hschroedl.fluentast.test.toInlineString

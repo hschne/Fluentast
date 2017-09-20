@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast.type
 
-import at.hschroedl.fluentast.FluentArgumentException
+import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.PrimitiveType
 
@@ -16,7 +16,8 @@ class FluentPrimitiveType(private val primitiveType: String) : FluentType() {
             "double" -> ast.newPrimitiveType(PrimitiveType.DOUBLE)
             "boolean" -> ast.newPrimitiveType(PrimitiveType.BOOLEAN)
             "void" -> ast.newPrimitiveType(PrimitiveType.VOID)
-            else -> throw FluentArgumentException("Invalid primitive type '$primitiveType'")
+            else -> throw FluentArgumentException(
+                    "Invalid primitive type '$primitiveType'")
         }
     }
 }

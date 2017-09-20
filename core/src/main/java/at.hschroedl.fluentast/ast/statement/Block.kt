@@ -1,7 +1,7 @@
 package at.hschroedl.fluentast.ast.statement
 
-import at.hschroedl.fluentast.FluentArgumentException
-import at.hschroedl.fluentast.FluentParsedNode
+import at.hschroedl.fluentast.ast.FluentParsedNode
+import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.*
 
 
@@ -41,24 +41,4 @@ class FluentParsedBlock(private val content: String) : FluentBlock() {
         val convertedAstNodeWithMethodBody = ASTNode.copySubtree(ast, build())
         return convertedAstNodeWithMethodBody as Block
     }
-}
-
-fun body(): FluentBlock {
-    return FluentStatementBlock()
-}
-
-fun body(vararg statements: FluentStatement): FluentBlock {
-    return FluentStatementBlock(arrayOf(*statements))
-}
-
-fun body(content: String): FluentBlock {
-    return FluentParsedBlock(content)
-}
-
-fun block(): FluentBlock {
-    return FluentStatementBlock()
-}
-
-fun block(vararg statements: FluentStatement): FluentBlock {
-    return FluentStatementBlock(arrayOf(*statements))
 }

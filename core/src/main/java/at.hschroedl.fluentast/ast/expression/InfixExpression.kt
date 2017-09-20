@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
-import at.hschroedl.fluentast.FluentArgumentException
+import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.InfixExpression
 
@@ -11,7 +11,8 @@ class FluentInfixExpression internal constructor(private val left: FluentExpress
         exp.leftOperand = left.build(ast)
         exp.operator = infixOperator(operator)
         if (right.isEmpty()) {
-            throw FluentArgumentException("Infix must have at least one right-hand-side expression.")
+            throw FluentArgumentException(
+                    "Infix must have at least one right-hand-side expression.")
         }
         exp.rightOperand = right.first().build(ast)
         exp.extendedOperands().addAll(right.drop(1).map { it.build(ast) })
@@ -39,7 +40,8 @@ class FluentInfixExpression internal constructor(private val left: FluentExpress
             "|" -> InfixExpression.Operator.OR
             "&&" -> InfixExpression.Operator.CONDITIONAL_AND
             "||" -> InfixExpression.Operator.CONDITIONAL_OR
-            else -> throw FluentArgumentException("Invalid infix operator '$operator.'")
+            else -> throw FluentArgumentException(
+                    "Invalid infix operator '$operator.'")
         }
     }
 }

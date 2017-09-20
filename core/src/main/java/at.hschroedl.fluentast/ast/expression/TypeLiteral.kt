@@ -11,7 +11,3 @@ class FluentTypeLiteral(private val type: FluentType) : FluentExpression() {
         return typeLiteral
     }
 }
-
-fun clazz(type: FluentType): FluentTypeLiteral {
-    return FluentTypeLiteral(type)
-}

@@ -11,6 +11,3 @@ class FluentParenthesizedExpression(private val expression: FluentExpression) : 
     }
 }
 
-fun paranthesis(expression: FluentExpression): FluentParenthesizedExpression {
-    return FluentParenthesizedExpression(expression)
-}

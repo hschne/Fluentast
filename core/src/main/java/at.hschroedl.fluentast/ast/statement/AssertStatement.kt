@@ -13,11 +13,3 @@ class FluentAssertStatement internal constructor(private val expression: FluentE
         return assert
     }
 }
-
-fun assert(expression: FluentExpression): FluentAssertStatement {
-    return FluentAssertStatement(expression)
-}
-
-fun assert(expression: FluentExpression, message: FluentExpression): FluentAssertStatement {
-    return FluentAssertStatement(expression, message)
-}

@@ -8,7 +8,3 @@ class FluentName(private val name: String) : FluentExpression() {
         return ast.newName(name.split(".").toTypedArray())
     }
 }
-
-fun name(name: String): FluentName {
-    return FluentName(name)
-}

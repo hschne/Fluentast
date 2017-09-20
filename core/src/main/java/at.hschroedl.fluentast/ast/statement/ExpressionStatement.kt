@@ -12,6 +12,3 @@ class FluentExpressionStatement(private val expression: FluentExpression) : Flue
     }
 }
 
-fun stmnt(expression: FluentExpression): FluentExpressionStatement {
-    return FluentExpressionStatement(expression)
-}

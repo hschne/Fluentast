@@ -15,7 +15,3 @@ class FluentConditionalExpression internal constructor(private val condition: Fl
     }
 }
 
-fun ternary(condition: FluentExpression, then: FluentExpression,
-            `else`: FluentExpression): FluentConditionalExpression {
-    return FluentConditionalExpression(condition, then, `else`)
-}

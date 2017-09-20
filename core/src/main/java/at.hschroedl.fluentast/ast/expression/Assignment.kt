@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
-import at.hschroedl.fluentast.FluentArgumentException
+import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.Assignment
 
@@ -29,11 +29,9 @@ class FluentAssignment internal constructor(private val left: FluentExpression, 
             "<<=" -> Assignment.Operator.LEFT_SHIFT_ASSIGN
             ">>=" -> Assignment.Operator.RIGHT_SHIFT_SIGNED_ASSIGN
             ">>>=" -> Assignment.Operator.RIGHT_SHIFT_UNSIGNED_ASSIGN
-            else -> throw FluentArgumentException("Invalid assignment operator '$operator.'")
+            else -> throw FluentArgumentException(
+                    "Invalid assignment operator '$operator.'")
         }
     }
 }
 
-fun assignment(left: FluentExpression, operator: String, right: FluentExpression): FluentAssignment {
-    return FluentAssignment(left, operator, right)
-}

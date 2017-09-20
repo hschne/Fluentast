@@ -1,11 +1,10 @@
 package at.hschroedl.fluentast.ast.type
 
-import at.hschroedl.fluentast.FluentASTNode
-import at.hschroedl.fluentast.FluentChildNode
-import at.hschroedl.fluentast.ast.expression.name
+import at.hschroedl.fluentast.ast.FluentASTNode
+import at.hschroedl.fluentast.name
 import org.eclipse.jdt.core.dom.*
 
-abstract class FluentType : FluentASTNode(), FluentChildNode<Type> {
+abstract class FluentType : FluentASTNode() {
 
     abstract override fun build(ast: AST): Type
 }

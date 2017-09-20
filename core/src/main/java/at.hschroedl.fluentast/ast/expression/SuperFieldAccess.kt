@@ -1,5 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
+import at.hschroedl.fluentast.name
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.Expression
 import org.eclipse.jdt.core.dom.SuperFieldAccess
@@ -16,10 +17,3 @@ class FluentSuperFieldAccess(private val className: String?, private val field: 
     }
 }
 
-fun superField(field: String): FluentSuperFieldAccess {
-    return FluentSuperFieldAccess(null, field)
-}
-
-fun superField(className: String, field: String): FluentSuperFieldAccess {
-    return FluentSuperFieldAccess(className, field)
-}

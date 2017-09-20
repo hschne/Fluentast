@@ -1,8 +1,7 @@
 package at.hschroedl.fluentast.ast.expression
 
-import at.hschroedl.fluentast.FluentArgumentException
+import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
-import org.eclipse.jdt.core.dom.Expression
 import org.eclipse.jdt.core.dom.PostfixExpression
 
 class FluentPostfixExpression(private val expression: FluentExpression,
@@ -18,7 +17,8 @@ class FluentPostfixExpression(private val expression: FluentExpression,
         return when (operator) {
             "++" -> PostfixExpression.Operator.INCREMENT
             "--" -> PostfixExpression.Operator.DECREMENT
-            else -> throw FluentArgumentException("Invalid postfix operator '$operator.'")
+            else -> throw FluentArgumentException(
+                    "Invalid postfix operator '$operator.'")
         }
     }
 }

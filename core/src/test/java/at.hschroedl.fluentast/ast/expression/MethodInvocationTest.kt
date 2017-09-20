@@ -1,5 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
+import at.hschroedl.fluentast.invocation
 import at.hschroedl.fluentast.test.dummyExpression
 import at.hschroedl.fluentast.test.dummyLiteral
 import at.hschroedl.fluentast.test.dummyType

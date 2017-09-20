@@ -1,7 +1,11 @@
 package at.hschroedl.fluentast.ast.expression
 
 
+import at.hschroedl.fluentast.arrayIndex
+import at.hschroedl.fluentast.arrayInit
 import at.hschroedl.fluentast.ast.type.FluentArrayType
+import at.hschroedl.fluentast.i
+import at.hschroedl.fluentast.newArray
 import at.hschroedl.fluentast.test.dummyExpression
 import at.hschroedl.fluentast.test.dummyLiteral
 import at.hschroedl.fluentast.test.dummyType

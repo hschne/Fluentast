@@ -13,10 +13,3 @@ class FluentThisExpression(private val qualifier: String? = null) : FluentExpres
     }
 }
 
-fun thiss(): FluentThisExpression {
-    return FluentThisExpression()
-}
-
-fun thiss(qualifier: String): FluentThisExpression {
-    return FluentThisExpression(qualifier = qualifier)
-}

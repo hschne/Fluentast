@@ -3,6 +3,9 @@ package at.hschroedl.fluentast.ast.expression
 import at.hschroedl.fluentast.ast.type.FluentType
 import at.hschroedl.fluentast.ast.type.p
 import at.hschroedl.fluentast.ast.type.t
+import at.hschroedl.fluentast.b
+import at.hschroedl.fluentast.c
+import at.hschroedl.fluentast.i
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.VariableDeclarationExpression
 
@@ -28,26 +31,6 @@ class FluentVariableDeclarationExpression internal constructor(private val type:
     }
 }
 
-
-fun `var`(name: String, initializer: Int): FluentExpression {
-    return FluentVariableDeclarationExpression(p("int"), Pair(name, i(initializer)))
-}
-
-fun `var`(name: String, initializer: Boolean): FluentExpression {
-    return FluentVariableDeclarationExpression(p("boolean"), Pair(name, b(initializer)))
-}
-
-fun `var`(name: String, initializer: Char): FluentExpression {
-    return FluentVariableDeclarationExpression(p("char"), Pair(name, c(initializer)))
-}
-
-fun `var`(type: String, name: String): FluentExpression {
-    return FluentVariableDeclarationExpression(t(type), Pair(name, null))
-}
-
-fun `var`(type: String, name: String, expression: FluentExpression): FluentExpression {
-    return FluentVariableDeclarationExpression(t(type), Pair(name, expression))
-}
 
 // TODO: Rework this, too cumbersome
 fun vars(type: String, vararg values: Pair<String, FluentExpression>): FluentExpression {

@@ -15,10 +15,3 @@ class FluentIfStatement internal constructor(private val condition: FluentExpres
     }
 }
 
-fun iff(condition: FluentExpression, then: FluentStatement): FluentIfStatement {
-    return FluentIfStatement(condition, then, null)
-}
-
-fun iff(condition: FluentExpression, then: FluentStatement, elseBody: FluentStatement): FluentIfStatement {
-    return FluentIfStatement(condition, then, elseBody)
-}

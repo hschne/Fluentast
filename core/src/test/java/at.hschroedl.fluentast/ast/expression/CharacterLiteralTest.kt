@@ -1,5 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
+import at.hschroedl.fluentast.c
 import org.eclipse.jdt.core.dom.CharacterLiteral
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals

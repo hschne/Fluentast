@@ -1,9 +1,12 @@
 package at.hschroedl.fluentast.ast.expression
 
-import at.hschroedl.fluentast.*
+import at.hschroedl.fluentast.exception.FluentArgumentException
+import at.hschroedl.fluentast.ast.FluentASTNode
+import at.hschroedl.fluentast.ast.FluentParsedNode
+import at.hschroedl.fluentast.ast.FluentStandaloneNode
 import org.eclipse.jdt.core.dom.*
 
-abstract class FluentExpression : FluentASTNode(), FluentChildNode<Expression>, FluentStandaloneNode<Expression> {
+abstract class FluentExpression : FluentASTNode(), FluentStandaloneNode<Expression> {
 
     abstract override fun build(ast: AST): Expression
 
@@ -35,7 +38,6 @@ internal class FluentParsedExpression internal constructor(private val content: 
 fun exp(content: String): FluentExpression {
     return FluentParsedExpression(content)
 }
-
 
 
 // TODO: Implement class instance creation when method stuff is done

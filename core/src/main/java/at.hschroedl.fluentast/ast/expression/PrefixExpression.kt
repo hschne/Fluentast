@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
-import at.hschroedl.fluentast.FluentArgumentException
+import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.PrefixExpression
 
@@ -21,7 +21,8 @@ class FluentPrefixExpression(private val operator: String,
             "-" -> PrefixExpression.Operator.MINUS
             "~" -> PrefixExpression.Operator.COMPLEMENT
             "!" -> PrefixExpression.Operator.NOT
-            else -> throw FluentArgumentException("Invalid postfix operator '$operator.'")
+            else -> throw FluentArgumentException(
+                    "Invalid postfix operator '$operator.'")
         }
     }
 }

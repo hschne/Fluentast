@@ -15,6 +15,3 @@ class FluentCastExpression internal constructor(private val type: FluentType?,
     }
 }
 
-fun cast(type: FluentType, expression: FluentExpression): FluentCastExpression {
-    return FluentCastExpression(type, expression)
-}

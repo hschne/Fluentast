@@ -38,14 +38,3 @@ class FluentNormalAnnotation(private val name: String,
     }
 }
 
-fun annotation(name: String): FluentMarkerAnnotation {
-    return FluentMarkerAnnotation(name)
-}
-
-fun annotation(name: String, expression: FluentExpression): FluentSingleMemberAnnotation {
-    return FluentSingleMemberAnnotation(name, expression)
-}
-
-fun annotation(name: String, vararg members: FluentMemberValuePair): FluentNormalAnnotation {
-    return FluentNormalAnnotation(name, *members)
-}

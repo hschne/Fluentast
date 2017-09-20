@@ -23,14 +23,3 @@ class FluentSuperMethodInvocation(private val qualifier: String? = null,
         return exp
     }
 }
-
-fun superMethod(name: String): FluentSuperMethodInvocation {
-    return FluentSuperMethodInvocation(name = name)
-}
-
-fun superMethod(qualifier: String,
-               typeParameter: List<FluentType>,
-               name: String,
-               vararg arguments: FluentExpression): FluentSuperMethodInvocation {
-    return FluentSuperMethodInvocation(qualifier, typeParameter, name, *arguments)
-}

@@ -11,6 +11,3 @@ class FluentStringLiteral(private val literalValue: String) : FluentExpression()
     }
 }
 
-fun s(literal: String): FluentStringLiteral {
-    return FluentStringLiteral(literal)
-}

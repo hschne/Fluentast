@@ -1,4 +1,4 @@
-package at.hschroedl.fluentast
+package at.hschroedl.fluentast.exception
 
 class FluentCastException(message: String) : Throwable(message)
 

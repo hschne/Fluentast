@@ -1,6 +1,7 @@
 package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.test.toInlineString
+import at.hschroedl.fluentast.thiss
 import org.eclipse.jdt.core.dom.ThisExpression
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

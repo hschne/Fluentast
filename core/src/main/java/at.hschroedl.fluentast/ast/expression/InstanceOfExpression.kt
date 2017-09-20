@@ -14,6 +14,3 @@ class FluentInstanceOfExpression(private val left: FluentExpression,
     }
 }
 
-fun instanceof(left: FluentExpression, right: FluentType): FluentInstanceOfExpression {
-    return FluentInstanceOfExpression(left, right)
-}

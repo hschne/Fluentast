@@ -9,6 +9,3 @@ class FluentBooleanLiteral internal constructor(private val literal: Boolean) : 
     }
 }
 
-fun b(value: Boolean): FluentBooleanLiteral {
-    return FluentBooleanLiteral(value)
-}
