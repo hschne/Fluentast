@@ -1,14 +1,8 @@
 package at.hschroedl.fluentast.demo;
 
-import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.*;
 
-import static at.hschroedl.fluentast.ast.expression.MethodInvocationKt.invocation;
-import static at.hschroedl.fluentast.ast.expression.ThisExpressionKt.thiss;
-import static at.hschroedl.fluentast.ast.expression.VariableDeclarationExpressionKt.var;
 import static at.hschroedl.fluentast.ast.statement.BlockKt.block;
-import static at.hschroedl.fluentast.ast.statement.ExpressionStatementKt.stmnt;
-import static at.hschroedl.fluentast.ast.statement.StatementKt.ret;
-import static at.hschroedl.fluentast.ast.statement.StatementKt.stmnt;
 
 // TODO: Simplify import statements
 
@@ -20,14 +14,92 @@ import static at.hschroedl.fluentast.ast.statement.StatementKt.stmnt;
 public class Quicksort {
 
     public static void main(String[] args) {
-        ASTNode node = block(stmnt("int i = 3;"),
-                stmnt("List<String> myStrings = new ArrayList<>();"),
-                stmnt(var("Integer", "iins")),
-                block(stmnt(var("myInt", 3)),
-                        stmnt(var("myBool", false)),
-                        stmnt(var("Integer", "mydudu", thiss())),
-                        ret(invocation("myTMethod")))).build();
+        System.out.println(quickSortJDT());
 
+    }
 
+    static String quickSortFluentast(){
+        return "";
+    }
+
+    static String quickSortJDT() {
+        AST ast = AST.newAST(AST.JLS8);
+        Block body = ast.newBlock();
+
+        IfStatement ifStatement = ast.newIfStatement();
+        InfixExpression condition = ast.newInfixExpression();
+
+        InfixExpression leftSide = ast.newInfixExpression();
+        leftSide.setLeftOperand(ast.newSimpleName("arr"));
+        leftSide.setOperator(InfixExpression.Operator.EQUALS);
+        leftSide.setRightOperand(ast.newNullLiteral());
+        condition.setLeftOperand(leftSide);
+
+        condition.setOperator(InfixExpression.Operator.OR);
+
+        InfixExpression rightSide = ast.newInfixExpression();
+        FieldAccess fieldAccess = ast.newFieldAccess();
+        fieldAccess.setExpression(ast.newSimpleName("arr"));
+        fieldAccess.setName(ast.newSimpleName("length"));
+        rightSide.setOperator(InfixExpression.Operator.EQUALS);
+        rightSide.setLeftOperand(fieldAccess);
+        rightSide.setRightOperand(ast.newNumberLiteral("0"));
+
+        condition.setRightOperand(rightSide);
+
+        ifStatement.setExpression(condition);
+        ifStatement.setThenStatement(ast.newReturnStatement());
+
+        body.statements().add(ifStatement);
+        return body.toString();
+    }
+
+    static void quickSortOriginal(int[] arr, int low, int high) {
+        if (arr == null || arr.length == 0) return;
+
+        if (low >= high) return;
+
+        int middle = low + (high - low) / 2;
+        int pivot = arr[middle];
+
+        int i = low, j = high;
+        while (i <= j) {
+            while (arr[i] < pivot) {
+                i++;
+            }
+
+            while (arr[j] > pivot) {
+                j--;
+            }
+
+            if (i <= j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
+            }
+        }
+
+        if (low < j)
+            quickSortOriginal(arr, low, j);
+
+        if (high > i)
+            quickSortOriginal(arr, i, high);
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            try {
+                URL my_url = new URL("http://www.viralpatel.net/blogs/");
+                BufferedReader br = newBufferedReader(new InputStreamReader(my_url.openStream()));
+                String strTemp = "";
+                while (null != (strTemp = br.readLine())) {
+                    System.out.println(strTemp);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
