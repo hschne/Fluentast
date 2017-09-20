@@ -31,6 +31,7 @@ public class Quicksort {
     out.println(quickSortFluentast());
   }
 
+  //TODO: Rework infix, iff API to make it more fluent
   static String quickSortFluentast() {
     return block(iff(infix(infix(var("arr"),
                                  "==",
