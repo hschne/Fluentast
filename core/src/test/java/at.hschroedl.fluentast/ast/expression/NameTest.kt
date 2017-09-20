@@ -3,7 +3,7 @@ package at.hschroedl.fluentast.ast.expression
 import at.hschroedl.fluentast.name
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.Name
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 internal class NameTest {

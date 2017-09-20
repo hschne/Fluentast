@@ -3,6 +3,7 @@ package at.hschroedl.fluentast.demo;
 import org.eclipse.jdt.core.dom.*;
 
 import static at.hschroedl.fluentast.FluentastKt.*;
+import static java.lang.System.out;
 
 
 // TODO: Simplify import statements
@@ -15,17 +16,27 @@ import static at.hschroedl.fluentast.FluentastKt.*;
 public class Quicksort {
 
     public static void main(String[] args) {
-        System.out.println(quickSortJDT());
-
+        out.println(quickSortJDT());
+        out.println(quickSortFluentast());
     }
 
     static String quickSortFluentast() {
-        block();
-        return "";
+        return block(iff(infix(infix(var("arr"),
+                "==",
+                nullz()),
+                "||",
+                infix(fieldAccess(var("arr"),
+                        "length"),
+                        "==",
+                        i(0))),
+                ret())).build()
+                       .toString();
     }
 
 
-    static void quickSortOriginal(int[] arr, int low, int high) {
+    static void quickSortOriginal(int[] arr,
+            int low,
+            int high) {
         if (arr == null || arr.length == 0) return;
 
         if (low >= high) return;
@@ -52,11 +63,13 @@ public class Quicksort {
             }
         }
 
-        if (low < j)
-            quickSortOriginal(arr, low, j);
+        if (low < j) quickSortOriginal(arr,
+                low,
+                j);
 
-        if (high > i)
-            quickSortOriginal(arr, i, high);
+        if (high > i) quickSortOriginal(arr,
+                i,
+                high);
     }
 
     static String quickSortJDT() {
@@ -72,7 +85,7 @@ public class Quicksort {
         leftSide.setRightOperand(ast.newNullLiteral());
         condition.setLeftOperand(leftSide);
 
-        condition.setOperator(InfixExpression.Operator.OR);
+        condition.setOperator(InfixExpression.Operator.CONDITIONAL_OR);
 
         InfixExpression rightSide = ast.newInfixExpression();
         FieldAccess fieldAccess = ast.newFieldAccess();
@@ -87,7 +100,8 @@ public class Quicksort {
         ifStatement.setExpression(condition);
         ifStatement.setThenStatement(ast.newReturnStatement());
 
-        body.statements().add(ifStatement);
+        body.statements()
+            .add(ifStatement);
         return body.toString();
     }
 }

@@ -57,6 +57,9 @@ fun invocation(expression: FluentExpression,
     return FluentMethodInvocation(expression, typeParameter, name, *arguments)
 }
 
+fun `var`(name: String): FluentName {
+    return FluentName(name);
+}
 
 fun name(name: String): FluentName {
     return FluentName(name)
@@ -68,6 +71,32 @@ fun nullz(): FluentNullLiteral {
 
 fun i(value: Int): FluentNumberLiteral {
     return FluentNumberLiteral(value)
+}
+
+fun stmnt(content: String): FluentStatement {
+    return FluentParsedStatement(content)
+}
+
+
+fun br(): FluentStatement {
+    return FluentBreakStatement()
+}
+
+fun ret(): FluentStatement {
+    return FluentReturnStatement(null)
+}
+
+fun ret(expression: FluentExpression): FluentReturnStatement {
+    return FluentReturnStatement(expression)
+}
+
+fun empty(): FluentStatement {
+    return FluentEmptyStatement()
+}
+
+
+fun exp(content: String): FluentExpression {
+    return FluentParsedExpression(content)
 }
 
 fun paranthesis(expression: FluentExpression): FluentParenthesizedExpression {
@@ -99,25 +128,30 @@ fun superMethod(qualifier: String,
 }
 
 
-fun `var`(name: String, initializer: Int): FluentExpression {
+fun decl(name: String, initializer: Int): FluentExpression {
     return FluentVariableDeclarationExpression(p("int"), Pair(name, i(initializer)))
 }
 
-fun `var`(name: String, initializer: Boolean): FluentExpression {
+fun decl(name: String, initializer: Boolean): FluentExpression {
     return FluentVariableDeclarationExpression(p("boolean"), Pair(name, b(initializer)))
 }
 
-fun `var`(name: String, initializer: Char): FluentExpression {
+fun decl(name: String, initializer: Char): FluentExpression {
     return FluentVariableDeclarationExpression(p("char"), Pair(name, c(initializer)))
 }
 
-fun `var`(type: String, name: String): FluentExpression {
+fun decl(type: String, name: String): FluentExpression {
     return FluentVariableDeclarationExpression(t(type), Pair(name, null))
 }
 
-fun `var`(type: String, name: String, expression: FluentExpression): FluentExpression {
+fun decl(type: String, name: String, expression: FluentExpression): FluentExpression {
     return FluentVariableDeclarationExpression(t(type), Pair(name, expression))
 }
+
+fun infix(left: FluentExpression, operator: String, vararg right: FluentExpression): FluentInfixExpression {
+    return FluentInfixExpression(left, operator, *right)
+}
+
 
 fun thiss(): FluentThisExpression {
     return FluentThisExpression()

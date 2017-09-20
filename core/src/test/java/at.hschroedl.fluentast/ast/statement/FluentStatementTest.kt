@@ -2,6 +2,7 @@ package at.hschroedl.fluentast.ast.statement
 
 import at.hschroedl.fluentast.body
 import at.hschroedl.fluentast.exception.FluentArgumentException
+import at.hschroedl.fluentast.stmnt
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.Statement
 import org.junit.jupiter.api.Assertions

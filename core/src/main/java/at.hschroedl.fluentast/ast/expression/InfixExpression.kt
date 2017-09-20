@@ -45,7 +45,3 @@ class FluentInfixExpression internal constructor(private val left: FluentExpress
         }
     }
 }
-
-fun infix(left: FluentExpression, operator: String, vararg right: FluentExpression): FluentInfixExpression {
-    return FluentInfixExpression(left, operator, *right)
-}

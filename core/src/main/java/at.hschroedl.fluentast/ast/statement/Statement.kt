@@ -34,12 +34,6 @@ class FluentParsedStatement(private val content: String) : FluentStatement() {
     }
 }
 
-class FluentBreakStatement : FluentStatement() {
-    override fun build(ast: AST): Statement {
-        return ast.newBreakStatement()
-    }
-}
-
 class FluentConstructorInvocation : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newBreakStatement()
@@ -80,15 +74,6 @@ class FluentForStatement : FluentStatement() {
 class FluentLabeledStatement : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
-    }
-}
-
-class FluentReturnStatement(private val expression: FluentExpression?) : FluentStatement() {
-
-    override fun build(ast: AST): Statement {
-        val ret = ast.newReturnStatement()
-        ret.expression = expression?.build(ast)
-        return ret
     }
 }
 
@@ -134,26 +119,6 @@ class FluentTypeDeclarationStatement : FluentStatement() {
     }
 }
 
-fun stmnt(content: String): FluentStatement {
-    return FluentParsedStatement(content)
-}
-
-
-fun br(): FluentStatement {
-    return FluentBreakStatement()
-}
-
-fun ret(): FluentStatement {
-    return FluentReturnStatement(null)
-}
-
-fun ret(expression: FluentExpression): FluentReturnStatement {
-    return FluentReturnStatement(expression)
-}
-
-fun empty(): FluentStatement {
-    return FluentEmptyStatement()
-}
 
 
 

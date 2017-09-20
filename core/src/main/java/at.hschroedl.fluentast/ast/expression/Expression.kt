@@ -35,10 +35,6 @@ internal class FluentParsedExpression internal constructor(private val content: 
     }
 }
 
-fun exp(content: String): FluentExpression {
-    return FluentParsedExpression(content)
-}
-
 
 // TODO: Implement class instance creation when method stuff is done
 class FluentClassInstanceCreation() : FluentExpression() {

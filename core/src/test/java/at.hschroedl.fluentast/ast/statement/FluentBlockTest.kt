@@ -2,16 +2,19 @@ package at.hschroedl.fluentast.ast.statement
 
 import at.hschroedl.fluentast.block
 import at.hschroedl.fluentast.body
+import at.hschroedl.fluentast.empty
 import at.hschroedl.fluentast.exception.FluentArgumentException
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.Block
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import kotlin.test.assertFailsWith
 
 
 internal class FluentBlockTest {
 
+    //TODO: Refactor bad unit tests
     @Test
     fun body_emptyBlock_shouldReturnEmptyBlock() {
         val block = body().build() as Block
