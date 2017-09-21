@@ -1,6 +1,7 @@
 package at.hschroedl.fluentast
 
 import at.hschroedl.fluentast.ast.FluentMemberValuePair
+import at.hschroedl.fluentast.ast.FluentVariableDeclarationFragment
 import at.hschroedl.fluentast.ast.expression.*
 import at.hschroedl.fluentast.ast.statement.*
 import at.hschroedl.fluentast.ast.type.FluentArrayType
@@ -53,8 +54,12 @@ fun invocation(expression: FluentExpression,
     return FluentMethodInvocation(expression, typeParameter, name, *arguments)
 }
 
-fun v(name: String): FluentName {
-    return FluentName(name);
+fun n(name: String): FluentName {
+    return FluentName(name)
+}
+
+fun v(name: String): FluentVariableDeclarationFragment {
+    return FluentVariableDeclarationFragment(name)
 }
 
 fun name(name: String): FluentName {
@@ -125,23 +130,35 @@ fun superMethod(qualifier: String,
 
 
 fun decl(name: String, initializer: Int): FluentExpression {
-    return FluentVariableDeclarationExpression(p("int"), Pair(name, i(initializer)))
+    return FluentVariableDeclarationExpression(p("int"),
+                                               FluentVariableDeclarationFragment(
+                                                       name, initializer =
+                                               i(initializer)))
 }
 
-fun decl(name: String, initializer: Boolean): FluentExpression {
-    return FluentVariableDeclarationExpression(p("boolean"), Pair(name, b(initializer)))
+fun decl(type: String,
+         vararg fragment: FluentVariableDeclarationFragment): FluentVariableDeclarationExpression {
+    return FluentVariableDeclarationExpression(t(type), *fragment)
 }
 
-fun decl(name: String, initializer: Char): FluentExpression {
-    return FluentVariableDeclarationExpression(p("char"), Pair(name, c(initializer)))
+fun decl(name: String, initializer: Boolean): FluentVariableDeclarationExpression {
+    return FluentVariableDeclarationExpression(p("boolean"),
+                                               FluentVariableDeclarationFragment(
+                                                       name,
+                                                       initializer = b(initializer)))
+}
+
+fun decl(name: String, initializer: Char): FluentVariableDeclarationExpression {
+    return FluentVariableDeclarationExpression(p("char"),
+                                               FluentVariableDeclarationFragment(
+                                                       name,
+                                                       initializer = c(initializer)))
 }
 
 fun decl(type: String, name: String): FluentExpression {
-    return FluentVariableDeclarationExpression(t(type), Pair(name, null))
-}
-
-fun decl(type: String, name: String, expression: FluentExpression): FluentExpression {
-    return FluentVariableDeclarationExpression(t(type), Pair(name, expression))
+    return FluentVariableDeclarationExpression(t(type),
+                                               FluentVariableDeclarationFragment(
+                                                       name, initializer = null))
 }
 
 fun infix(operator: String): FluentInfixExpression.OperatorPartial {

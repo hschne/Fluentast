@@ -1,16 +1,20 @@
 package at.hschroedl.fluentast.demo;
 
-import at.hschroedl.fluentast.ast.expression.FluentVariableDeclarationExpression;
 import at.hschroedl.fluentast.ast.statement.FluentIfStatement;
+import at.hschroedl.fluentast.ast.statement.FluentStatement;
 import at.hschroedl.fluentast.demo.quicksort.QuicksortWithJDT;
 
 import static at.hschroedl.fluentast.FluentastKt.block;
 import static at.hschroedl.fluentast.FluentastKt.body;
+import static at.hschroedl.fluentast.FluentastKt.decl;
 import static at.hschroedl.fluentast.FluentastKt.i;
 import static at.hschroedl.fluentast.FluentastKt.if_;
 import static at.hschroedl.fluentast.FluentastKt.infix;
+import static at.hschroedl.fluentast.FluentastKt.n;
 import static at.hschroedl.fluentast.FluentastKt.nullz;
+import static at.hschroedl.fluentast.FluentastKt.paranthesis;
 import static at.hschroedl.fluentast.FluentastKt.return_;
+import static at.hschroedl.fluentast.FluentastKt.stmnt;
 import static at.hschroedl.fluentast.FluentastKt.v;
 import static java.lang.System.out;
 
@@ -32,24 +36,32 @@ public class Quicksort {
     FluentIfStatement firstIf;
     firstIf = if_(infix("||")
                       .left(infix("==")
-                                .left(v("arr"))
+                                .left(n("arr"))
                                 .right(nullz()))
                       .right(infix("==")
-                                 .left(v("arr").field("length"))
+                                 .left(n("arr").field("length"))
                                  .right(i(0)))).then(block(return_()));
 
     FluentIfStatement secondIf = if_(infix(">=")
-                                         .left(v("arr"))
-                                         .right(v("high"))).then(block(return_()));
+                                         .left(n("arr"))
+                                         .right(n("high"))).then(block(return_()));
 
-    FluentVariableDeclarationExpression variableDeclarationExpression = v()
+    FluentStatement middle = stmnt(decl("int",
+                                        v("middle").is(infix("+")
+                                                           .left(n("low"))
+                                                           .right((infix("/")
+                                                               .left(paranthesis(infix("-")
+                                                                                     .left(n("high"))
+                                                                                     .right(n("low"))))
+                                                               .right(i(2)))))));
 
     //    int middle = low + (high - low) / 2;
 //    int pivot = arr[middle];
 //    int i = low, j = high;
 
     return body(firstIf,
-                secondIf)
+                secondIf,
+                middle)
         .build()
         .toString();
 

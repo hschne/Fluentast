@@ -3,6 +3,7 @@ package at.hschroedl.fluentast.ast.expression
 import at.hschroedl.fluentast.decl
 import at.hschroedl.fluentast.test.dummyExpression
 import at.hschroedl.fluentast.test.toInlineString
+import at.hschroedl.fluentast.v
 import org.eclipse.jdt.core.dom.VariableDeclarationExpression
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -39,16 +40,28 @@ internal class VariableDeclarationTest {
 
     @Test
     internal fun variable_withTypeAndExpression_shouldReturnVariableDeclaration() {
-        val varDecl = decl("Integer", "a", dummyExpression("expression")).build() as VariableDeclarationExpression
+        val varDecl = decl("Integer", v("a").`is`(
+                dummyExpression("expression"))).build() as VariableDeclarationExpression
 
         assertEquals("Integer a=expression", varDecl.toInlineString())
     }
 
+    // TODO: Isolate tests, declaration fragment should be moved away
     @Test
     internal fun variable_withMultipleFragments_shouldReturnVariableDeclaration() {
-        val varDecl = vars("Integer", Pair("a", dummyExpression("expression")),
-                Pair("b", dummyExpression("expression"))).build() as VariableDeclarationExpression
+        val varDecl = decl("Integer", v("a").`is`(dummyExpression("expression")),
+                           v("b").`is`(1), v("c")).build() as VariableDeclarationExpression
 
-        assertEquals("Integer a=expression, b=expression", varDecl.toInlineString())
+        assertEquals("Integer a=expression, b=1, c", varDecl.toInlineString())
     }
+
+    @Test
+    internal fun variable_withDimensions_shouldReturnVariableDeclaration() {
+        val varDecl = decl("Integer",
+                           v("a").at(dummyExpression("expression"))).build() as VariableDeclarationExpression
+
+        assertEquals("Integer a[expression]", varDecl.toInlineString())
+    }
+
+
 }

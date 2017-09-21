@@ -7,4 +7,5 @@ class FluentName(private val name: String) : FluentExpression() {
     override fun build(ast: AST): Name {
         return ast.newName(name.split(".").toTypedArray())
     }
+
 }
