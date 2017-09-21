@@ -4,8 +4,11 @@ import at.hschroedl.fluentast.ast.expression.FluentExpression
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.IfStatement
 
-class FluentIfStatement internal constructor(private val condition: FluentExpression, private val body: FluentStatement,
-                                             private val elseBody: FluentStatement?) : FluentStatement() {
+open class FluentIfStatement internal constructor(protected val condition: FluentExpression,
+                                                  protected val body: FluentStatement,
+                                                  private val elseBody: FluentStatement? = null) : FluentStatement() {
+
+
     override fun build(ast: AST): IfStatement {
         val statement = ast.newIfStatement()
         statement.expression = condition.build(ast)
@@ -13,5 +16,22 @@ class FluentIfStatement internal constructor(private val condition: FluentExpres
         statement.elseStatement = elseBody?.build(ast)
         return statement
     }
-}
 
+
+    class IfPartial(private val condition: FluentExpression) {
+
+        fun then(statement: FluentStatement): ThenPartial {
+            return ThenPartial(condition, statement)
+        }
+    }
+
+    class ThenPartial(condition: FluentExpression,
+                      body: FluentStatement) : FluentIfStatement(condition, body) {
+
+        fun elsez(statement: FluentStatement): FluentIfStatement {
+            return FluentIfStatement(condition, body, statement)
+        }
+
+    }
+
+}

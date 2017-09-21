@@ -213,13 +213,10 @@ fun stmnt(expression: FluentExpression): FluentExpressionStatement {
     return FluentExpressionStatement(expression)
 }
 
-fun iff(condition: FluentExpression, then: FluentStatement): FluentIfStatement {
-    return FluentIfStatement(condition, then, null)
+fun iff(condition: FluentExpression): FluentIfStatement.IfPartial {
+    return FluentIfStatement.IfPartial(condition)
 }
 
-fun iff(condition: FluentExpression, then: FluentStatement, elseBody: FluentStatement): FluentIfStatement {
-    return FluentIfStatement(condition, then, elseBody)
-}
 
 fun whilez(condition: FluentExpression, body: FluentStatement): FluentWhileStatement {
     return FluentWhileStatement(condition, body)

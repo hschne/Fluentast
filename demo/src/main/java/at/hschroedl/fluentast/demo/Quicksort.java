@@ -16,8 +16,6 @@ import org.eclipse.jdt.core.dom.FieldAccess;
 import org.eclipse.jdt.core.dom.IfStatement;
 import org.eclipse.jdt.core.dom.InfixExpression;
 
-// TODO: Simplify import statements
-
 /**
  * This class' main method creates the code for the Quicksort Algorithm.
  *
@@ -33,6 +31,7 @@ public class Quicksort {
 
   //TODO: Rework infix, iff API to make it more fluent
   static String quickSortFluentast() {
+
     return block(iff(infix(infix(var("arr"),
                                  "==",
                                  nullz()),
@@ -40,9 +39,8 @@ public class Quicksort {
                            infix(fieldAccess(var("arr"),
                                              "length"),
                                  "==",
-                                 i(0))),
-                     block(ret()))).build()
-                                   .toString();
+                                 i(0)))).then(block(ret()))).build()
+                                                            .toString();
   }
 
   static String quickSortJDT() {

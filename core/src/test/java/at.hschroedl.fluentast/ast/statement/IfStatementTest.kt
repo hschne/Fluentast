@@ -12,16 +12,18 @@ internal class IfStatementTest {
 
     @Test
     fun ifStatement_withElse_shouldReturnIfStatement() {
-        val statement = iff(dummyExpression("condition"), dummyStatement("statement"),
-                dummyStatement("statement")).build() as IfStatement
+        val statement = iff(dummyExpression("condition"))
+                .then(dummyStatement("statement"))
+                .elsez(dummyStatement("statement")).build()
 
         assertEquals("if (condition) statement;else statement;", statement.toInlineString())
     }
 
     @Test
     fun ifStatement_withoutElse_shouldReturnIfStatement() {
-        val statement = iff(dummyExpression("condition"), dummyStatement("statement")
-        ).build() as IfStatement
+        val statement = iff(dummyExpression("condition"))
+                .then(dummyStatement("statement"))
+                .build() as IfStatement
 
         assertEquals("if (condition) statement;", statement.toInlineString())
 
