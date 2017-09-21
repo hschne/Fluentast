@@ -1,6 +1,6 @@
 package at.hschroedl.fluentast.ast.statement
 
-import at.hschroedl.fluentast.iff
+import at.hschroedl.fluentast.if_
 import at.hschroedl.fluentast.test.dummyExpression
 import at.hschroedl.fluentast.test.dummyStatement
 import at.hschroedl.fluentast.test.toInlineString
@@ -12,16 +12,16 @@ internal class IfStatementTest {
 
     @Test
     fun ifStatement_withElse_shouldReturnIfStatement() {
-        val statement = iff(dummyExpression("condition"))
+        val statement = if_(dummyExpression("condition"))
                 .then(dummyStatement("statement"))
-                .elsez(dummyStatement("statement")).build()
+                .else_(dummyStatement("statement")).build()
 
         assertEquals("if (condition) statement;else statement;", statement.toInlineString())
     }
 
     @Test
     fun ifStatement_withoutElse_shouldReturnIfStatement() {
-        val statement = iff(dummyExpression("condition"))
+        val statement = if_(dummyExpression("condition"))
                 .then(dummyStatement("statement"))
                 .build() as IfStatement
 

@@ -78,15 +78,15 @@ fun stmnt(content: String): FluentStatement {
 }
 
 
-fun br(): FluentStatement {
+fun break_(): FluentStatement {
     return FluentBreakStatement()
 }
 
-fun ret(): FluentStatement {
+fun return_(): FluentStatement {
     return FluentReturnStatement(null)
 }
 
-fun ret(expression: FluentExpression): FluentReturnStatement {
+fun return_(expression: FluentExpression): FluentReturnStatement {
     return FluentReturnStatement(expression)
 }
 
@@ -153,12 +153,12 @@ fun infix(operator: String): FluentInfixExpression.OperatorPartial {
 }
 
 
-fun thiss(): FluentThisExpression {
+fun this_(): FluentThisExpression {
     return FluentThisExpression()
 }
 
-fun thiss(qualifier: String): FluentThisExpression {
-    return FluentThisExpression(qualifier = qualifier)
+fun this_(qualifier: String): FluentThisExpression {
+    return FluentThisExpression(qualifier)
 }
 
 fun clazz(type: FluentType): FluentTypeLiteral {
@@ -214,11 +214,11 @@ fun stmnt(expression: FluentExpression): FluentExpressionStatement {
     return FluentExpressionStatement(expression)
 }
 
-fun iff(condition: FluentExpression): FluentIfStatement.IfPartial {
+fun if_(condition: FluentExpression): FluentIfStatement.IfPartial {
     return FluentIfStatement.IfPartial(condition)
 }
 
-fun whilez(condition: FluentExpression, body: FluentStatement): FluentWhileStatement {
+fun while_(condition: FluentExpression, body: FluentStatement): FluentWhileStatement {
     return FluentWhileStatement(condition, body)
 }
 

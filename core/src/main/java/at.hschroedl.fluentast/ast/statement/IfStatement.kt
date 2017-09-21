@@ -4,8 +4,8 @@ import at.hschroedl.fluentast.ast.expression.FluentExpression
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.IfStatement
 
-open class FluentIfStatement internal constructor(protected val condition: FluentExpression,
-                                                  protected val body: FluentStatement,
+open class FluentIfStatement internal constructor(private val condition: FluentExpression,
+                                                  private val body: FluentStatement,
                                                   private val elseBody: FluentStatement? = null) : FluentStatement() {
 
 
@@ -17,7 +17,7 @@ open class FluentIfStatement internal constructor(protected val condition: Fluen
         return statement
     }
 
-    fun elsez(statement: FluentStatement): FluentIfStatement {
+    fun else_(statement: FluentStatement): FluentIfStatement {
         return FluentIfStatement(condition, body, statement)
     }
 

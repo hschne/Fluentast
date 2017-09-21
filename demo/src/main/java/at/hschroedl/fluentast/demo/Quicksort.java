@@ -2,17 +2,16 @@ package at.hschroedl.fluentast.demo;
 
 import static at.hschroedl.fluentast.FluentastKt.block;
 import static at.hschroedl.fluentast.FluentastKt.body;
-import static at.hschroedl.fluentast.FluentastKt.exp;
 import static at.hschroedl.fluentast.FluentastKt.fieldAccess;
 import static at.hschroedl.fluentast.FluentastKt.i;
-import static at.hschroedl.fluentast.FluentastKt.iff;
+import static at.hschroedl.fluentast.FluentastKt.if_;
 import static at.hschroedl.fluentast.FluentastKt.infix;
 import static at.hschroedl.fluentast.FluentastKt.nullz;
-import static at.hschroedl.fluentast.FluentastKt.paranthesis;
-import static at.hschroedl.fluentast.FluentastKt.ret;
+import static at.hschroedl.fluentast.FluentastKt.return_;
 import static at.hschroedl.fluentast.FluentastKt.var;
 import static java.lang.System.out;
 
+import at.hschroedl.fluentast.FluentastKt;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.FieldAccess;
@@ -32,25 +31,18 @@ public class Quicksort {
     out.println(quickSortFluentast());
   }
 
-  //TODO: Rework infix, iff API to make it more fluent
+  //TODO: Rework infix, if_ API to make it more fluent
   static String quickSortFluentast() {
 
-    infix("&&")
-        .left(exp(""))
-        .right(exp("ex"))
-        .right(paranthesis(infix("||")
-                               .left(exp("test"))
-                               .right(exp("exa"))))
-        .build();
-
-    return body(iff(infix("||")
+    return body(if_(infix("||")
                         .left(infix("==")
                                   .left(var("arr"))
                                   .right(nullz()))
                         .right(infix("==")
                                    .left(fieldAccess(var("arr"),
                                                      "length"))
-                                   .right(i(0)))).then(block(ret())))
+                                   .right(i(0))))
+                    .then(block(FluentastKt.return_())))
         .build()
         .toString();
 
