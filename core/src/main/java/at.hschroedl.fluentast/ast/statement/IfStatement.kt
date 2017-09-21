@@ -17,21 +17,16 @@ open class FluentIfStatement internal constructor(protected val condition: Fluen
         return statement
     }
 
-
-    class IfPartial(private val condition: FluentExpression) {
-
-        fun then(statement: FluentStatement): ThenPartial {
-            return ThenPartial(condition, statement)
-        }
+    fun elsez(statement: FluentStatement): FluentIfStatement {
+        return FluentIfStatement(condition, body, statement)
     }
 
-    class ThenPartial(condition: FluentExpression,
-                      body: FluentStatement) : FluentIfStatement(condition, body) {
 
-        fun elsez(statement: FluentStatement): FluentIfStatement {
-            return FluentIfStatement(condition, body, statement)
+    class IfPartial internal constructor(private val condition: FluentExpression) {
+
+        fun then(statement: FluentStatement): FluentIfStatement {
+            return FluentIfStatement(condition, statement)
         }
-
     }
 
 }

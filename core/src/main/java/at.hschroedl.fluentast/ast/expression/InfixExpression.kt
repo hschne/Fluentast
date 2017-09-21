@@ -4,8 +4,9 @@ import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.InfixExpression
 
-class FluentInfixExpression internal constructor(private val left: FluentExpression, private val operator: String,
-                                                 private vararg val right: FluentExpression) : FluentExpression() {
+open class FluentInfixExpression internal constructor(protected val operator: String,
+                                                      private val left: FluentExpression,
+                                                      private val right: MutableCollection<FluentExpression>) : FluentExpression() {
     override fun build(ast: AST): InfixExpression {
         val exp = ast.newInfixExpression()
         exp.leftOperand = left.build(ast)
@@ -17,6 +18,11 @@ class FluentInfixExpression internal constructor(private val left: FluentExpress
         exp.rightOperand = right.first().build(ast)
         exp.extendedOperands().addAll(right.drop(1).map { it.build(ast) })
         return exp
+    }
+
+    fun right(anotherExpression: FluentExpression): FluentInfixExpression {
+        right.add(anotherExpression)
+        return this
     }
 
     private fun infixOperator(operator: String): InfixExpression.Operator {
@@ -44,4 +50,26 @@ class FluentInfixExpression internal constructor(private val left: FluentExpress
                     "Invalid infix operator '$operator.'")
         }
     }
+
+    class OperatorPartial internal constructor(private val operator: String) {
+
+        fun left(expression: FluentExpression): LeftPartial {
+            return LeftPartial(operator, expression)
+
+        }
+    }
+
+    class LeftPartial internal constructor(private val operator: String,
+                                           private val leftExpression: FluentExpression) {
+
+        fun right(rightExpression: FluentExpression): FluentInfixExpression {
+            return FluentInfixExpression(operator, leftExpression,
+                                         mutableListOf(rightExpression))
+        }
+
+    }
+
+
 }
+
+

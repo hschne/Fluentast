@@ -148,8 +148,8 @@ fun decl(type: String, name: String, expression: FluentExpression): FluentExpres
     return FluentVariableDeclarationExpression(t(type), Pair(name, expression))
 }
 
-fun infix(left: FluentExpression, operator: String, vararg right: FluentExpression): FluentInfixExpression {
-    return FluentInfixExpression(left, operator, *right)
+fun infix(operator: String): FluentInfixExpression.OperatorPartial {
+    return FluentInfixExpression.OperatorPartial(operator)
 }
 
 
@@ -177,7 +177,8 @@ fun arrayInit(vararg expression: FluentExpression): FluentArrayInitializer {
     return FluentArrayInitializer(*expression)
 }
 
-fun assignment(left: FluentExpression, operator: String, right: FluentExpression): FluentAssignment {
+fun assignment(left: FluentExpression, operator: String,
+               right: FluentExpression): FluentAssignment {
     return FluentAssignment(left, operator, right)
 }
 
@@ -216,7 +217,6 @@ fun stmnt(expression: FluentExpression): FluentExpressionStatement {
 fun iff(condition: FluentExpression): FluentIfStatement.IfPartial {
     return FluentIfStatement.IfPartial(condition)
 }
-
 
 fun whilez(condition: FluentExpression, body: FluentStatement): FluentWhileStatement {
     return FluentWhileStatement(condition, body)

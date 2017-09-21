@@ -22,8 +22,10 @@ internal class InfixExpressionTest {
                     "<", ">", "<=", ">=", "==", "!=",
                     "^", "&", "|", "&&", "||"))
     internal fun infixExpression_withOperator_returnsPrefixExpression(operator: String) {
-        val expression = infix(dummyExpression("a"), operator,
-                dummyLiteral(1)).build() as InfixExpression
+        val expression = infix(operator)
+                .left(dummyExpression("a"))
+                .right(dummyLiteral(1))
+                .build() as InfixExpression
 
         assertEquals("a $operator 1", expression.toInlineString())
     }
@@ -32,16 +34,22 @@ internal class InfixExpressionTest {
     @Test
     internal fun infixExpression_invalidOperator_returnsInfixExpression() {
         assertFailsWith(FluentArgumentException::class) {
-            infix(dummyExpression("a"), "test", dummyLiteral(1)).build() as InfixExpression
+            infix("test")
+                    .left(dummyExpression("a"))
+                    .right(dummyLiteral(1))
+                    .build() as InfixExpression
         }
 
     }
 
     @Test
     internal fun infixExpression_withExtendedOperands_returnInfixExpression() {
-        val expression = infix(dummyExpression("a"), "||",
-                dummyLiteral(1),
-                dummyLiteral(2), dummyLiteral(3)).build() as InfixExpression
+        val expression = infix("||")
+                .left(dummyExpression("a"))
+                .right(dummyLiteral(1))
+                .right(dummyLiteral(2))
+                .right(dummyLiteral(3))
+                .build()
 
         assertEquals("a || 1 || 2|| 3", expression.toInlineString())
     }

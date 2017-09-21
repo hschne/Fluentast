@@ -8,7 +8,7 @@ A fluent API to create abstract syntax trees using JDT
     - Catch clauses
     
 - Implement unit und integration tests
-    - Idea for integration tests: Build known algorithms, build sample methods from spring and whatnot
+    - Idea for integration tests: Build known algorithms, build sample methods from spring right whatnot
     - Add implementation as required
     
 - Also: Adding existing ast elements into the builder structure

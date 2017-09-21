@@ -1,11 +1,14 @@
 package at.hschroedl.fluentast.demo;
 
 import static at.hschroedl.fluentast.FluentastKt.block;
+import static at.hschroedl.fluentast.FluentastKt.body;
+import static at.hschroedl.fluentast.FluentastKt.exp;
 import static at.hschroedl.fluentast.FluentastKt.fieldAccess;
 import static at.hschroedl.fluentast.FluentastKt.i;
 import static at.hschroedl.fluentast.FluentastKt.iff;
 import static at.hschroedl.fluentast.FluentastKt.infix;
 import static at.hschroedl.fluentast.FluentastKt.nullz;
+import static at.hschroedl.fluentast.FluentastKt.paranthesis;
 import static at.hschroedl.fluentast.FluentastKt.ret;
 import static at.hschroedl.fluentast.FluentastKt.var;
 import static java.lang.System.out;
@@ -32,15 +35,26 @@ public class Quicksort {
   //TODO: Rework infix, iff API to make it more fluent
   static String quickSortFluentast() {
 
-    return block(iff(infix(infix(var("arr"),
-                                 "==",
-                                 nullz()),
-                           "||",
-                           infix(fieldAccess(var("arr"),
-                                             "length"),
-                                 "==",
-                                 i(0)))).then(block(ret()))).build()
-                                                            .toString();
+    infix("&&")
+        .left(exp(""))
+        .right(exp("ex"))
+        .right(paranthesis(infix("||")
+                               .left(exp("test"))
+                               .right(exp("exa"))))
+        .build();
+
+    return body(iff(infix("||")
+                        .left(infix("==")
+                                  .left(var("arr"))
+                                  .right(nullz()))
+                        .right(infix("==")
+                                   .left(fieldAccess(var("arr"),
+                                                     "length"))
+                                   .right(i(0)))).then(block(ret())))
+        .build()
+        .toString();
+
+
   }
 
   static String quickSortJDT() {
@@ -70,11 +84,13 @@ public class Quicksort {
 
     ifStatement.setExpression(condition);
     Block block = ast.newBlock();
-    block.statements()
-         .add(ast.newReturnStatement());
+    block
+        .statements()
+        .add(ast.newReturnStatement());
     ifStatement.setThenStatement(block);
 
-    body.statements()
+    body
+        .statements()
         .add(ifStatement);
     return body.toString();
   }
