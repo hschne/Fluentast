@@ -12,25 +12,5 @@ import kotlin.test.assertFailsWith
 internal class ExpressionTest {
 
 
-    private lateinit var ast: AST
-
-    @BeforeEach
-    internal fun setUp() {
-        ast = AST.newAST(AST.JLS8)
-    }
-
-    @Test
-    internal fun parse_withString_shouldReturnExpression() {
-        val expression = exp("new Integer()").build()
-
-        assertEquals("new Integer()", expression.toInlineString())
-    }
-
-    @Test
-    internal fun parse_withMalformedString_shouldThrowException() {
-        assertFailsWith(FluentArgumentException::class) {
-            exp("new Invalid!").build()
-        }
-    }
 
 }

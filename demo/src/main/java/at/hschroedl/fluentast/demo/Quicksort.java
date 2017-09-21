@@ -1,22 +1,18 @@
 package at.hschroedl.fluentast.demo;
 
+import at.hschroedl.fluentast.ast.expression.FluentVariableDeclarationExpression;
+import at.hschroedl.fluentast.ast.statement.FluentIfStatement;
+import at.hschroedl.fluentast.demo.quicksort.QuicksortWithJDT;
+
 import static at.hschroedl.fluentast.FluentastKt.block;
 import static at.hschroedl.fluentast.FluentastKt.body;
-import static at.hschroedl.fluentast.FluentastKt.fieldAccess;
 import static at.hschroedl.fluentast.FluentastKt.i;
 import static at.hschroedl.fluentast.FluentastKt.if_;
 import static at.hschroedl.fluentast.FluentastKt.infix;
 import static at.hschroedl.fluentast.FluentastKt.nullz;
 import static at.hschroedl.fluentast.FluentastKt.return_;
-import static at.hschroedl.fluentast.FluentastKt.var;
+import static at.hschroedl.fluentast.FluentastKt.v;
 import static java.lang.System.out;
-
-import at.hschroedl.fluentast.FluentastKt;
-import org.eclipse.jdt.core.dom.AST;
-import org.eclipse.jdt.core.dom.Block;
-import org.eclipse.jdt.core.dom.FieldAccess;
-import org.eclipse.jdt.core.dom.IfStatement;
-import org.eclipse.jdt.core.dom.InfixExpression;
 
 /**
  * This class' main method creates the code for the Quicksort Algorithm.
@@ -27,65 +23,39 @@ import org.eclipse.jdt.core.dom.InfixExpression;
 public class Quicksort {
 
   public static void main(String[] args) {
-    out.println(quickSortJDT());
+    out.println(QuicksortWithJDT.quickSortJDT());
     out.println(quickSortFluentast());
   }
 
-  //TODO: Rework infix, if_ API to make it more fluent
   static String quickSortFluentast() {
 
-    return body(if_(infix("||")
-                        .left(infix("==")
-                                  .left(var("arr"))
-                                  .right(nullz()))
-                        .right(infix("==")
-                                   .left(fieldAccess(var("arr"),
-                                                     "length"))
-                                   .right(i(0))))
-                    .then(block(FluentastKt.return_())))
+    FluentIfStatement firstIf;
+    firstIf = if_(infix("||")
+                      .left(infix("==")
+                                .left(v("arr"))
+                                .right(nullz()))
+                      .right(infix("==")
+                                 .left(v("arr").field("length"))
+                                 .right(i(0)))).then(block(return_()));
+
+    FluentIfStatement secondIf = if_(infix(">=")
+                                         .left(v("arr"))
+                                         .right(v("high"))).then(block(return_()));
+
+    FluentVariableDeclarationExpression variableDeclarationExpression = v()
+
+    //    int middle = low + (high - low) / 2;
+//    int pivot = arr[middle];
+//    int i = low, j = high;
+
+    return body(firstIf,
+                secondIf)
         .build()
         .toString();
 
 
   }
 
-  static String quickSortJDT() {
-    AST ast = AST.newAST(AST.JLS8);
-    Block body = ast.newBlock();
-
-    IfStatement ifStatement = ast.newIfStatement();
-    InfixExpression condition = ast.newInfixExpression();
-
-    InfixExpression leftSide = ast.newInfixExpression();
-    leftSide.setLeftOperand(ast.newSimpleName("arr"));
-    leftSide.setOperator(InfixExpression.Operator.EQUALS);
-    leftSide.setRightOperand(ast.newNullLiteral());
-    condition.setLeftOperand(leftSide);
-
-    condition.setOperator(InfixExpression.Operator.CONDITIONAL_OR);
-
-    InfixExpression rightSide = ast.newInfixExpression();
-    FieldAccess fieldAccess = ast.newFieldAccess();
-    fieldAccess.setExpression(ast.newSimpleName("arr"));
-    fieldAccess.setName(ast.newSimpleName("length"));
-    rightSide.setOperator(InfixExpression.Operator.EQUALS);
-    rightSide.setLeftOperand(fieldAccess);
-    rightSide.setRightOperand(ast.newNumberLiteral("0"));
-
-    condition.setRightOperand(rightSide);
-
-    ifStatement.setExpression(condition);
-    Block block = ast.newBlock();
-    block
-        .statements()
-        .add(ast.newReturnStatement());
-    ifStatement.setThenStatement(block);
-
-    body
-        .statements()
-        .add(ifStatement);
-    return body.toString();
-  }
 
   static void quickSortOriginal(int[] arr, int low, int high) {
     if (arr == null || arr.length == 0) {
@@ -98,8 +68,8 @@ public class Quicksort {
 
     int middle = low + (high - low) / 2;
     int pivot = arr[middle];
-
     int i = low, j = high;
+
     while (i <= j) {
       while (arr[i] < pivot) {
         i++;

@@ -4,6 +4,7 @@ import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.InfixExpression
 
+//TODO: Use static import parameters GEQ, LEQ etc.
 open class FluentInfixExpression internal constructor(protected val operator: String,
                                                       private val left: FluentExpression,
                                                       private val right: MutableCollection<FluentExpression>) : FluentExpression() {

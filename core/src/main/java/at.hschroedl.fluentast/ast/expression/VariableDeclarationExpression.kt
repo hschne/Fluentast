@@ -13,6 +13,7 @@ class FluentVariableDeclarationExpression internal constructor(private val type:
                                                                private vararg val values: Pair<String, FluentExpression?>) : FluentExpression() {
 
 
+
     override fun build(ast: AST): VariableDeclarationExpression {
 
         val fragment = ast.newVariableDeclarationFragment()

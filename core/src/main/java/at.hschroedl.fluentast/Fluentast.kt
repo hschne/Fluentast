@@ -38,10 +38,6 @@ fun ternary(condition: FluentExpression, then: FluentExpression,
     return FluentConditionalExpression(condition, then, `else`)
 }
 
-fun fieldAccess(expression: FluentExpression, fieldName: String): FluentFieldAccess {
-    return FluentFieldAccess(expression, fieldName)
-}
-
 fun instanceof(left: FluentExpression, right: FluentType): FluentInstanceOfExpression {
     return FluentInstanceOfExpression(left, right)
 }
@@ -57,7 +53,7 @@ fun invocation(expression: FluentExpression,
     return FluentMethodInvocation(expression, typeParameter, name, *arguments)
 }
 
-fun `var`(name: String): FluentName {
+fun v(name: String): FluentName {
     return FluentName(name);
 }
 
