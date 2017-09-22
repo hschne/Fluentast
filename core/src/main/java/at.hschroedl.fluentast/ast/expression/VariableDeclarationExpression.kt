@@ -1,6 +1,7 @@
 package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.ast.FluentVariableDeclarationFragment
+import at.hschroedl.fluentast.ast.FluentVariableDeclarationFragmentImpl
 import at.hschroedl.fluentast.ast.type.FluentType
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.VariableDeclarationExpression

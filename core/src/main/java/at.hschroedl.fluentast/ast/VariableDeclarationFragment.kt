@@ -4,11 +4,14 @@ import at.hschroedl.fluentast.ast.expression.FluentExpression
 import at.hschroedl.fluentast.i
 import at.hschroedl.fluentast.s
 import org.eclipse.jdt.core.dom.AST
+import org.eclipse.jdt.core.dom.VariableDeclaration
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment
 
-class FluentVariableDeclarationFragment internal constructor(private val name: String,
-                                                             private val initializer: FluentExpression? = null,
-                                                             private val dimensions: Array<out FluentExpression>? = null) : FluentChildNode<VariableDeclarationFragment> {
+abstract class FluentVariableDeclaration : FluentChildNode<VariableDeclaration>
+
+
+abstract class FluentVariableDeclarationFragment(private val name: String,
+                                                 private val initializer: FluentExpression? = null) : FluentVariableDeclaration() {
 
     override fun build(ast: AST): VariableDeclarationFragment {
         val fragment = ast.newVariableDeclarationFragment()
@@ -17,21 +20,23 @@ class FluentVariableDeclarationFragment internal constructor(private val name: S
         return fragment
     }
 
-    fun `is`(value: String): FluentVariableDeclarationFragment {
-        return FluentVariableDeclarationFragment(name, s(value))
+}
+
+class FluentVariableDeclarationFragmentImpl(private val name: String,
+                                            initializer: FluentExpression? = null) : FluentVariableDeclarationFragment(
+        name, initializer) {
+
+
+    fun `is`(value: String): FluentVariableDeclarationFragmentImpl {
+        return FluentVariableDeclarationFragmentImpl(name, s(value))
     }
 
-    fun `is`(value: Int): FluentVariableDeclarationFragment {
-        return FluentVariableDeclarationFragment(name, i(value))
+    fun `is`(value: Int): FluentVariableDeclarationFragmentImpl {
+        return FluentVariableDeclarationFragmentImpl(name, i(value))
     }
 
-    fun `is`(value: FluentExpression): FluentVariableDeclarationFragment {
-        return FluentVariableDeclarationFragment(name, value)
+    fun `is`(value: FluentExpression): FluentVariableDeclarationFragmentImpl {
+        return FluentVariableDeclarationFragmentImpl(name, value)
     }
-
-    fun at(vararg dimensions: FluentExpression): FluentVariableDeclarationFragment {
-        return FluentVariableDeclarationFragment(name, initializer, dimensions)
-    }
-
 
 }

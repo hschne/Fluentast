@@ -4,6 +4,7 @@ import at.hschroedl.fluentast.ast.statement.FluentIfStatement;
 import at.hschroedl.fluentast.ast.statement.FluentStatement;
 import at.hschroedl.fluentast.demo.quicksort.QuicksortWithJDT;
 
+import static at.hschroedl.fluentast.FluentastKt.arrayIndex;
 import static at.hschroedl.fluentast.FluentastKt.block;
 import static at.hschroedl.fluentast.FluentastKt.body;
 import static at.hschroedl.fluentast.FluentastKt.decl;
@@ -55,13 +56,18 @@ public class Quicksort {
                                                                                      .right(n("low"))))
                                                                .right(i(2)))))));
 
-    //    int middle = low + (high - low) / 2;
+    //TODO: Improve array index
+    FluentStatement pivot = stmnt(decl("int",
+                                       v("pivot").is(arrayIndex(n("arr"),
+                                                                n("middle")))));
+
 //    int pivot = arr[middle];
 //    int i = low, j = high;
 
     return body(firstIf,
                 secondIf,
-                middle)
+                middle,
+                pivot)
         .build()
         .toString();
 

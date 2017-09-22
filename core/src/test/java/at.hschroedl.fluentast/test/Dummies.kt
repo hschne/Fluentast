@@ -1,5 +1,6 @@
 package at.hschroedl.fluentast.test
 
+import at.hschroedl.fluentast.ast.FluentVariableDeclarationFragment
 import at.hschroedl.fluentast.ast.expression.FluentExpression
 import at.hschroedl.fluentast.ast.expression.FluentLiteral
 import at.hschroedl.fluentast.ast.statement.FluentStatement
@@ -31,6 +32,21 @@ class DummyStatement(private val value: String) : FluentStatement() {
     }
 }
 
+class DummyVariableFragment(private val name: String,
+                            private val value: Int?) : FluentVariableDeclarationFragment(name,
+                                                                                         null) {
+
+    override fun build(ast: AST): VariableDeclarationFragment {
+        val fragment = ast.newVariableDeclarationFragment()
+        fragment.name = ast.newSimpleName(name)
+        if (value != null) {
+            fragment.initializer = ast.newNumberLiteral(value.toString(10))
+        }
+        return fragment
+    }
+
+}
+
 fun dummyLiteral(value: Int): DummyLiteral {
     return DummyLiteral(value)
 }
@@ -45,4 +61,8 @@ fun dummyType(value: String): DummyType {
 
 fun dummyStatement(value: String): DummyStatement {
     return DummyStatement(value)
+}
+
+fun dummyVariableFragment(name: String, value: Int? = null): DummyVariableFragment {
+    return DummyVariableFragment(name, value)
 }
