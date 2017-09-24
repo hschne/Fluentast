@@ -231,6 +231,15 @@ fun if_(condition: FluentExpression): FluentIfStatement.IfPartial {
     return FluentIfStatement.IfPartial(condition)
 }
 
+fun for_(): FluentForStatement.ForPartial {
+    return FluentForStatement.ForPartial(mutableListOf(), null, mutableListOf())
+}
+
+fun for_(init: FluentExpression, expression: FluentExpression?,
+         update: FluentExpression): FluentForStatement.ForPartial {
+    return FluentForStatement.ForPartial(mutableListOf(init), expression, mutableListOf(update))
+}
+
 fun while_(condition: FluentExpression): FluentWhileStatement.DoPartial {
     return FluentWhileStatement.DoPartial(condition)
 }

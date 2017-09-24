@@ -4,7 +4,6 @@ import at.hschroedl.fluentast.exception.FluentArgumentException
 import at.hschroedl.fluentast.ast.FluentASTNode
 import at.hschroedl.fluentast.ast.FluentParsedNode
 import at.hschroedl.fluentast.ast.FluentStandaloneNode
-import at.hschroedl.fluentast.ast.expression.FluentExpression
 import org.eclipse.jdt.core.dom.*
 
 
@@ -60,12 +59,6 @@ class FluentEmptyStatement : FluentStatement() {
 
 
 class FluentEnhancedForStatement : FluentStatement() {
-    override fun build(ast: AST): Statement {
-        return ast.newEnhancedForStatement()
-    }
-}
-
-class FluentForStatement : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }
