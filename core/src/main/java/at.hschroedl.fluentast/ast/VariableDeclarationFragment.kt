@@ -35,7 +35,7 @@ class FluentVariableDeclarationFragmentImpl(private val name: String,
         return FluentVariableDeclarationFragmentImpl(name, i(value))
     }
 
-    fun `is`(value: FluentExpression): FluentVariableDeclarationFragmentImpl {
+    fun init(value: FluentExpression): FluentVariableDeclarationFragmentImpl {
         return FluentVariableDeclarationFragmentImpl(name, value)
     }
 

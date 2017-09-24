@@ -23,10 +23,6 @@ fun annotation(name: String, vararg members: FluentMemberValuePair): FluentNorma
     return FluentNormalAnnotation(name, *members)
 }
 
-fun arrayIndex(array: FluentExpression, index: FluentExpression): FluentArrayAccess {
-    return FluentArrayAccess(array, index)
-}
-
 fun b(value: Boolean): FluentBooleanLiteral {
     return FluentBooleanLiteral(value)
 }
@@ -59,7 +55,7 @@ fun n(name: String): FluentName {
     return FluentName(name)
 }
 
-fun v(name: String): FluentVariableDeclarationFragmentImpl {
+fun fragment(name: String): FluentVariableDeclarationFragmentImpl {
     return FluentVariableDeclarationFragmentImpl(name)
 }
 
@@ -67,7 +63,7 @@ fun name(name: String): FluentName {
     return FluentName(name)
 }
 
-fun nullz(): FluentNullLiteral {
+fun null_(): FluentNullLiteral {
     return FluentNullLiteral()
 }
 

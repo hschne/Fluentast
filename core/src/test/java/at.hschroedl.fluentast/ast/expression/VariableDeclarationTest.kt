@@ -4,7 +4,7 @@ import at.hschroedl.fluentast.decl
 import at.hschroedl.fluentast.test.dummyExpression
 import at.hschroedl.fluentast.test.dummyVariableFragment
 import at.hschroedl.fluentast.test.toInlineString
-import at.hschroedl.fluentast.v
+import at.hschroedl.fluentast.fragment
 import org.eclipse.jdt.core.dom.VariableDeclarationExpression
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -41,7 +41,7 @@ internal class VariableDeclarationTest {
 
     @Test
     internal fun variable_withTypeAndExpression_shouldReturnVariableDeclaration() {
-        val varDecl = decl("Integer", v("a").`is`(
+        val varDecl = decl("Integer", fragment("a").init(
                 dummyExpression("expression"))).build() as VariableDeclarationExpression
 
         assertEquals("Integer a=expression", varDecl.toInlineString())

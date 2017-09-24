@@ -17,6 +17,10 @@ abstract class FluentExpression : FluentASTNode(), FluentStandaloneNode<Expressi
     fun field(fieldName: String): FluentFieldAccess {
         return FluentFieldAccess(this, fieldName)
     }
+
+    fun index(expression: FluentExpression): FluentArrayAccess {
+        return FluentArrayAccess(this, expression)
+    }
 }
 
 

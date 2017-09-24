@@ -14,7 +14,6 @@ import kotlin.test.assertFailsWith
 
 internal class FluentBlockTest {
 
-    //TODO: Refactor bad unit tests
     @Test
     fun body_emptyBlock_shouldReturnEmptyBlock() {
         val block = body().build() as Block

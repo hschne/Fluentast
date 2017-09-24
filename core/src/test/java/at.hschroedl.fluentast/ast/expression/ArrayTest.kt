@@ -1,7 +1,6 @@
 package at.hschroedl.fluentast.ast.expression
 
 
-import at.hschroedl.fluentast.arrayIndex
 import at.hschroedl.fluentast.arrayInit
 import at.hschroedl.fluentast.ast.type.FluentArrayType
 import at.hschroedl.fluentast.i
@@ -20,8 +19,7 @@ internal class ArrayTest {
 
     @Test
     internal fun arrayAccess_withExpressions_returnsArrayAccessWithExpressions() {
-        val expression = arrayIndex(dummyExpression("test"),
-                dummyLiteral(1)).build() as ArrayAccess
+        val expression = dummyExpression("test").index(dummyLiteral(1)).build() as ArrayAccess
 
         assertEquals("test[1]", expression.toInlineString())
     }
@@ -29,7 +27,7 @@ internal class ArrayTest {
     @Test
     internal fun arrayInitializer_withNumbers_returnsArrayInitializerWithNumbers() {
         val expression = arrayInit(dummyLiteral(1),
-                dummyLiteral(2), dummyLiteral(3)).build() as ArrayInitializer
+                                   dummyLiteral(2), dummyLiteral(3)).build() as ArrayInitializer
 
         assertEquals("{1,2,3}", expression.toInlineString())
     }
