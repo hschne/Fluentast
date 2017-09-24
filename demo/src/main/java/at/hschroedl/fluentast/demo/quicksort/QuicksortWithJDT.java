@@ -8,8 +8,11 @@ import org.eclipse.jdt.core.dom.IfStatement;
 import org.eclipse.jdt.core.dom.InfixExpression;
 import org.eclipse.jdt.core.dom.InfixExpression.Operator;
 import org.eclipse.jdt.core.dom.ParenthesizedExpression;
+import org.eclipse.jdt.core.dom.PostfixExpression;
+import org.eclipse.jdt.core.dom.Statement;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
+import org.eclipse.jdt.core.dom.WhileStatement;
 import org.jetbrains.annotations.NotNull;
 
 import static org.eclipse.jdt.core.dom.PrimitiveType.INT;
@@ -101,7 +104,64 @@ public class QuicksortWithJDT {
         .statements()
         .add(iDecl);
 
+    WhileStatement whileStatement = whileStatement(ast);
+
+    body
+        .statements()
+        .add(whileStatement);
+
     return body.toString();
+  }
+
+  @NotNull
+  private static WhileStatement whileStatement(AST ast) {
+    WhileStatement whileStatement = ast.newWhileStatement();
+
+    InfixExpression infixExpression = ast.newInfixExpression();
+    infixExpression.setLeftOperand(ast.newSimpleName("i"));
+    infixExpression.setOperator(Operator.LESS_EQUALS);
+    infixExpression.setRightOperand(ast.newSimpleName("j"));
+
+    whileStatement.setExpression(infixExpression);
+
+    Block whileBody = ast.newBlock();
+
+    whileBody
+        .statements()
+        .add(firstNestedWhile(ast));
+
+    whileStatement.setBody(whileBody);
+    return whileStatement;
+  }
+
+  private static WhileStatement firstNestedWhile(AST ast) {
+    WhileStatement firstNestedWhile = ast.newWhileStatement();
+
+    InfixExpression infixExpression = ast.newInfixExpression();
+    ArrayAccess access = ast.newArrayAccess();
+    access.setArray(ast.newSimpleName("arr"));
+    access.setIndex(ast.newSimpleName("i"));
+    infixExpression.setLeftOperand(access);
+    infixExpression.setOperator(Operator.LESS);
+    infixExpression.setRightOperand(ast.newSimpleName("pivot"));
+
+    firstNestedWhile.setExpression(infixExpression);
+
+    Block block = ast.newBlock();
+
+    PostfixExpression postfix = ast.newPostfixExpression();
+    postfix.setOperand(ast.newSimpleName("i"));
+    postfix.setOperator(PostfixExpression.Operator.INCREMENT);
+
+    Statement statement = ast.newExpressionStatement(postfix);
+
+    block
+        .statements()
+        .add(statement);
+
+    firstNestedWhile.setBody(block);
+
+    return firstNestedWhile;
   }
 
   @NotNull

@@ -3,11 +3,6 @@ package at.hschroedl.fluentast.demo;
 import at.hschroedl.fluentast.demo.quicksort.QuicksortWithFluentast;
 import at.hschroedl.fluentast.demo.quicksort.QuicksortWithJDT;
 
-import static at.hschroedl.fluentast.FluentastKt.block;
-import static at.hschroedl.fluentast.FluentastKt.body;
-import static at.hschroedl.fluentast.FluentastKt.decl;
-import static at.hschroedl.fluentast.FluentastKt.return_;
-import static at.hschroedl.fluentast.FluentastKt.stmnt;
 import static java.lang.System.out;
 
 /**
@@ -22,7 +17,6 @@ public class Quicksort {
     out.println(QuicksortWithJDT.quickSortJDT());
     out.println(QuicksortWithFluentast.quickSortFluentast());
   }
-
 
 
   static void quickSortOriginal(int[] arr, int low, int high) {

@@ -11,8 +11,9 @@ import org.junit.jupiter.api.Test
 internal class WhileStatementTest {
 
     @Test
-    fun whileStatement_withCondition_shouldReturnIfStatement() {
-        val statement = while_(dummyExpression("condition"), dummyStatement("statement")).build() as WhileStatement
+    fun whileStatement_withCondition_shouldReturnWhileStatement() {
+        val statement = while_(dummyExpression("condition")).do_(
+                dummyStatement("statement")).build() as WhileStatement
 
         assertEquals("while (condition) statement;", statement.toInlineString())
     }

@@ -12,5 +12,12 @@ class FluentWhileStatement internal constructor(private val condition: FluentExp
         statement.body = body.build(ast)
         return statement
     }
+
+    class DoPartial internal constructor(private val condition: FluentExpression) {
+
+        fun do_(statement: FluentStatement): FluentWhileStatement {
+            return FluentWhileStatement(condition, statement)
+        }
+    }
 }
 

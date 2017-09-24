@@ -30,3 +30,7 @@ open class FluentIfStatement internal constructor(private val condition: FluentE
     }
 
 }
+
+public fun iff(condition: FluentExpression): FluentIfStatement.IfPartial {
+    return FluentIfStatement.IfPartial(condition)
+}

@@ -6,9 +6,8 @@ import at.hschroedl.fluentast.ast.FluentVariableDeclarationFragmentImpl
 import at.hschroedl.fluentast.ast.expression.*
 import at.hschroedl.fluentast.ast.statement.*
 import at.hschroedl.fluentast.ast.type.FluentArrayType
+import at.hschroedl.fluentast.ast.type.FluentPrimitiveType
 import at.hschroedl.fluentast.ast.type.FluentType
-import at.hschroedl.fluentast.ast.type.p
-import at.hschroedl.fluentast.ast.type.t
 
 
 fun annotation(name: String): FluentMarkerAnnotation {
@@ -57,6 +56,10 @@ fun n(name: String): FluentName {
 
 fun fragment(name: String): FluentVariableDeclarationFragmentImpl {
     return FluentVariableDeclarationFragmentImpl(name)
+}
+
+fun p(type: String): FluentPrimitiveType {
+    return FluentPrimitiveType(type)
 }
 
 fun name(name: String): FluentName {
@@ -133,9 +136,9 @@ fun decl(name: String, initializer: Int): FluentExpression {
                                                i(initializer)))
 }
 
-fun decl(type: String,
+fun decl(type: FluentType,
          vararg fragment: FluentVariableDeclarationFragment): FluentVariableDeclarationExpression {
-    return FluentVariableDeclarationExpression(t(type), *fragment)
+    return FluentVariableDeclarationExpression(type, *fragment)
 }
 
 fun decl(name: String, initializer: Boolean): FluentVariableDeclarationExpression {
@@ -152,8 +155,8 @@ fun decl(name: String, initializer: Char): FluentVariableDeclarationExpression {
                                                        initializer = c(initializer)))
 }
 
-fun decl(type: String, name: String): FluentExpression {
-    return FluentVariableDeclarationExpression(t(type),
+fun decl(type: FluentType, name: String): FluentExpression {
+    return FluentVariableDeclarationExpression(type,
                                                FluentVariableDeclarationFragmentImpl(
                                                        name, initializer = null))
 }
@@ -228,10 +231,14 @@ fun if_(condition: FluentExpression): FluentIfStatement.IfPartial {
     return FluentIfStatement.IfPartial(condition)
 }
 
-fun while_(condition: FluentExpression, body: FluentStatement): FluentWhileStatement {
-    return FluentWhileStatement(condition, body)
+fun while_(condition: FluentExpression): FluentWhileStatement.DoPartial {
+    return FluentWhileStatement.DoPartial(condition)
 }
 
 fun cast(type: FluentType, expression: FluentExpression): FluentCastExpression {
     return FluentCastExpression(type, expression)
+}
+
+fun postfix(operator: String): FluentPostfixExpression.PostfixPartial {
+    return FluentPostfixExpression.PostfixPartial(operator)
 }

@@ -23,6 +23,3 @@ class FluentPrimitiveType(private val primitiveType: String) : FluentType() {
     }
 }
 
-fun p(type: String): FluentPrimitiveType {
-    return FluentPrimitiveType(type)
-}

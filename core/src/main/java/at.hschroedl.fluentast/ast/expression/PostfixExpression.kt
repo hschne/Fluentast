@@ -4,8 +4,8 @@ import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.PostfixExpression
 
-class FluentPostfixExpression(private val expression: FluentExpression,
-                              private val operator: String) : FluentExpression() {
+class FluentPostfixExpression internal constructor(private val expression: FluentExpression,
+                                                   private val operator: String) : FluentExpression() {
     override fun build(ast: AST): PostfixExpression {
         val exp = ast.newPostfixExpression()
         exp.operand = expression.build(ast)
@@ -21,8 +21,12 @@ class FluentPostfixExpression(private val expression: FluentExpression,
                     "Invalid postfix operator '$operator.'")
         }
     }
+
+    class PostfixPartial(private val operator: String) {
+
+        fun operand(expression: FluentExpression): FluentPostfixExpression {
+            return FluentPostfixExpression(expression, operator)
+        }
+    }
 }
 
-fun postfix(expression: FluentExpression, operator: String): FluentPostfixExpression {
-    return FluentPostfixExpression(expression, operator)
-}
