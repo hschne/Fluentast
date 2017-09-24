@@ -27,11 +27,11 @@ class FluentVariableDeclarationFragmentImpl(private val name: String,
         name, initializer) {
 
 
-    fun `is`(value: String): FluentVariableDeclarationFragmentImpl {
+    fun init(value: String): FluentVariableDeclarationFragmentImpl {
         return FluentVariableDeclarationFragmentImpl(name, s(value))
     }
 
-    fun `is`(value: Int): FluentVariableDeclarationFragmentImpl {
+    fun init(value: Int): FluentVariableDeclarationFragmentImpl {
         return FluentVariableDeclarationFragmentImpl(name, i(value))
     }
 

@@ -24,7 +24,7 @@ abstract class FluentExpression : FluentASTNode(), FluentStandaloneNode<Expressi
 }
 
 
-// TODO: Implement class instance creation when method stuff is done
+// TODO: Implement class instance creation when method stuff init done
 class FluentClassInstanceCreation() : FluentExpression() {
     override fun build(ast: AST): Expression {
         throw NotImplementedError()

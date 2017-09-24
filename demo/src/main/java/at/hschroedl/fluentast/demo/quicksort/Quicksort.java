@@ -1,4 +1,4 @@
-package at.hschroedl.fluentast.demo;
+package at.hschroedl.fluentast.demo.quicksort;
 
 import at.hschroedl.fluentast.demo.quicksort.QuicksortWithFluentast;
 import at.hschroedl.fluentast.demo.quicksort.QuicksortWithJDT;
