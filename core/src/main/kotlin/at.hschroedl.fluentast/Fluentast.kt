@@ -15,7 +15,8 @@ fun annotation(name: String): FluentMarkerAnnotation {
 }
 
 fun annotation(name: String, expression: FluentExpression): FluentSingleMemberAnnotation {
-    return FluentSingleMemberAnnotation(name, expression)
+    return FluentSingleMemberAnnotation(name,
+                                        expression)
 }
 
 fun annotation(name: String, vararg members: FluentMemberValuePair): FluentNormalAnnotation {
