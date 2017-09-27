@@ -3,14 +3,20 @@ $(function() {
     // $('.collapse').collapse('hide');
     $('.list-group-item.active').parent().parent('.collapse').collapse('show');
 
+    $.ajaxSetup({cache: true});
 
-    var pages = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
-        // datumTokenizer: Bloodhound.tokenizers.whitespace,
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
+    var fuzzyhound = new FuzzySearch();
 
-        prefetch: baseurl + '/search.json'
-    });
+    function setsource(url, keys) {
+        $.getJSON(url).then(function (response) {
+            fuzzyhound.setOptions({
+                source: response,
+                keys: keys
+            })
+        });
+    }
+
+    setsource(baseurl + '/search.json', ["title"]);
 
     $('#search-box').typeahead({
         minLength: 0,
@@ -18,7 +24,7 @@ $(function() {
     }, {
         name: 'pages',
         display: 'title',
-        source: pages
+        source: fuzzyhound
     });
 
     $('#search-box').bind('typeahead:select', function(ev, suggestion) {

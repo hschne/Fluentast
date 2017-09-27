@@ -16,6 +16,7 @@
     <kotlin.version>1.1.50</kotlin.version>
     <dokka.version>0.9.15</dokka.version>
     <junit.version>5.0.0</junit.version>
+    <maven-compiler.version>3.7.0</maven-compiler.version>
   </properties>
 
 
@@ -93,6 +94,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+         <version>${maven-compiler.version}</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -152,8 +154,6 @@
         <configuration>
           <outputFormat>jekyll</outputFormat>
 
-          <outputDir>../docs/_docs/</outputDir>
-
           <sourceDirectories>
             <dir>src/main/kotlin</dir>
           </sourceDirectories>
@@ -166,7 +166,7 @@
           <sourceLinks>
             <link>
               <dir>${project.basedir}/src/main/kotlin</dir>
-              <url>http://github.com/hschroedl/fluentast/tree/master/core</url>
+              <url>https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin/</url>
               <urlSuffix>#L</urlSuffix>
             </link>
           </sourceLinks>

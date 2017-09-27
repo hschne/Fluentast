@@ -8,22 +8,25 @@ import org.eclipse.jdt.core.dom.ArrayAccess
  *
  *
  * Using JDT:
- * ```java
+ * ~~~ java
  * val exp = ast.newArrayAccess()
  * exp.array = array.build(ast)
  * exp.index = index.build(ast)
- * ```
+ * ~~~
  *
  * Using Fluentast:
- * ```java
+ * ~~~ java
  * exp().build(ast);
- * ```
+ * ~~~
+ *
  * @constructor takes a [FluentExpression] as array and a [FluentExpression] as index
  *
  * @see ArrayAccess
  */
 class FluentArrayAccess internal constructor(private val array: FluentExpression,
                                              private val index: FluentExpression) : FluentExpression() {
+
+
     override fun build(ast: AST): ArrayAccess {
         val exp = ast.newArrayAccess()
         exp.array = array.build(ast)
