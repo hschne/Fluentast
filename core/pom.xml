@@ -57,40 +57,10 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jre8</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
-    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <version>5.0.0</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jre8</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jre8</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jre8</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jre8</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jre8</artifactId>
-      <version>${kotlin.version}</version>
     </dependency>
   </dependencies>
 
@@ -180,11 +150,23 @@
           </execution>
         </executions>
         <configuration>
+          <outputFormat>jekyll</outputFormat>
+
+          <outputDir>../docs/_docs/</outputDir>
+
+          <sourceDirectories>
+            <dir>src/main/kotlin</dir>
+          </sourceDirectories>
+
+
+          <includes>
+            <file>Fluentast.md</file>
+          </includes>
 
           <sourceLinks>
             <link>
               <dir>${project.basedir}/src/main/kotlin</dir>
-              <url>http://github.com/hschroedl/fluentast</url>
+              <url>http://github.com/hschroedl/fluentast/tree/master/core</url>
               <urlSuffix>#L</urlSuffix>
             </link>
           </sourceLinks>
@@ -192,7 +174,7 @@
           <!-- Allows linking to documentation of the project's dependencies (generated with Javadoc or Dokka) -->
           <externalDocumentationLinks>
             <link>
-              <url>https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/</url>
+              <url>https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/</url>
             </link>
           </externalDocumentationLinks>
 
