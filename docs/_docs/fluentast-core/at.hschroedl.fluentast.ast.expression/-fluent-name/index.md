@@ -8,10 +8,6 @@ title: FluentName - fluentast-core
 
 `class FluentName : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/Name.kt#L6)
 
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentName(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)` |
-
 ### Functions
 
 | [build](build.html) | `fun build(ast: `[`AST`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html)`): `[`Name`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/Name.html) |

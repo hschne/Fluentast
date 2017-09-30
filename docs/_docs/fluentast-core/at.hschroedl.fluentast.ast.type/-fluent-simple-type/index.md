@@ -8,10 +8,6 @@ title: FluentSimpleType - fluentast-core
 
 `class FluentSimpleType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L12)
 
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentSimpleType(type: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)` |
-
 ### Functions
 
 | [build](build.html) | `fun build(ast: `[`AST`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html)`): `[`SimpleType`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/SimpleType.html) |

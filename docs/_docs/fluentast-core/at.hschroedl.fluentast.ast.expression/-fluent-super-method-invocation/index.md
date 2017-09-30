@@ -8,10 +8,6 @@ title: FluentSuperMethodInvocation - fluentast-core
 
 `class FluentSuperMethodInvocation : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/SuperMethodInvocation.kt#L7)
 
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentSuperMethodInvocation(qualifier: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`? = null, typeParameter: `[`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)`<`[`FluentType`](../../at.hschroedl.fluentast.ast.type/-fluent-type/index.html)`>? = null, name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, vararg arguments: `[`FluentExpression`](../-fluent-expression/index.html)`)` |
-
 ### Functions
 
 | [build](build.html) | `fun build(ast: `[`AST`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html)`): `[`SuperMethodInvocation`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/SuperMethodInvocation.html) |

@@ -6,11 +6,7 @@ title: FluentMethodRef - fluentast-core
 
 # FluentMethodRef
 
-`class FluentMethodRef : `[`FluentASTNode`](../-fluent-a-s-t-node/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/ASTNode.kt#L99)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentMethodRef()` |
+`class FluentMethodRef : `[`FluentASTNode`](../-fluent-a-s-t-node/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/ASTNode.kt#L95)
 
 ### Functions
 

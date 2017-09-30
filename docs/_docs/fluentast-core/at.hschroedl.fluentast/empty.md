@@ -6,4 +6,4 @@ title: empty - fluentast-core
 
 # empty
 
-`fun empty(): `[`FluentStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L120)
+`fun empty(): `[`FluentStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L130)

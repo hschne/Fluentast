@@ -31,7 +31,3 @@ title: at.hschroedl.fluentast.ast - fluentast-core
 | [FluentVariableDeclarationFragment](-fluent-variable-declaration-fragment/index.html) | `abstract class FluentVariableDeclarationFragment : `[`FluentVariableDeclaration`](-fluent-variable-declaration/index.html) |
 | [FluentVariableDeclarationFragmentImpl](-fluent-variable-declaration-fragment-impl/index.html) | `class FluentVariableDeclarationFragmentImpl : `[`FluentVariableDeclarationFragment`](-fluent-variable-declaration-fragment/index.html) |
 
-### Functions
-
-| [pair](pair.html) | `fun pair(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, value: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentMemberValuePair`](-fluent-member-value-pair/index.html) |
-

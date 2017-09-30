@@ -8,10 +8,6 @@ title: FluentASTNode - fluentast-core
 
 `abstract class FluentASTNode : `[`FluentChildNode`](../-fluent-child-node/index.html)`<`[`ASTNode`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ASTNode.html)`>` [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/ASTNode.kt#L10)
 
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentASTNode()` |
-
 ### Functions
 
 | [build](build.html) | `abstract fun build(ast: `[`AST`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html)`): `[`ASTNode`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ASTNode.html) |

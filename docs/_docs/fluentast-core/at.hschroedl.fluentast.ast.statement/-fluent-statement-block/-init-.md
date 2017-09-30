@@ -7,4 +7,3 @@ title: FluentStatementBlock.<init> - fluentast-core
 # &lt;init&gt;
 
 `FluentStatementBlock(statements: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`FluentStatement`](../-fluent-statement/index.html)`>)`
-`FluentStatementBlock()`

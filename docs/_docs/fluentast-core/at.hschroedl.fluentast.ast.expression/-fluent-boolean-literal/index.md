@@ -6,7 +6,7 @@ title: FluentBooleanLiteral - fluentast-core
 
 # FluentBooleanLiteral
 
-`class FluentBooleanLiteral : `[`FluentLiteral`](../-fluent-literal/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/BooleanLiteral.kt#L6)
+`class FluentBooleanLiteral : `[`FluentLiteral`](../-fluent-literal.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/BooleanLiteral.kt#L6)
 
 ### Functions
 

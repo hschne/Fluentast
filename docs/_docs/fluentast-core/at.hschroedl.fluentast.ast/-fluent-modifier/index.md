@@ -6,11 +6,7 @@ title: FluentModifier - fluentast-core
 
 # FluentModifier
 
-`class FluentModifier : `[`FluentASTNode`](../-fluent-a-s-t-node/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/ASTNode.kt#L139)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentModifier()` |
+`class FluentModifier : `[`FluentASTNode`](../-fluent-a-s-t-node/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/ASTNode.kt#L135)
 
 ### Functions
 

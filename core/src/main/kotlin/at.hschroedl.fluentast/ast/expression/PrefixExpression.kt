@@ -4,7 +4,7 @@ import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.PrefixExpression
 
-class FluentPrefixExpression(private val operator: String,
+class FluentPrefixExpression internal constructor(private val operator: String,
                              private val expression: FluentExpression) : FluentExpression() {
     override fun build(ast: AST): PrefixExpression {
         val exp = ast.newPrefixExpression()

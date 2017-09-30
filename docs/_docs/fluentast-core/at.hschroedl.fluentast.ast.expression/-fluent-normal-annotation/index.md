@@ -6,11 +6,7 @@ title: FluentNormalAnnotation - fluentast-core
 
 # FluentNormalAnnotation
 
-`class FluentNormalAnnotation : `[`FluentAnnotation`](../-fluent-annotation/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/NormalAnnotation.kt#L10)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentNormalAnnotation(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, vararg members: `[`FluentMemberValuePair`](../../at.hschroedl.fluentast.ast/-fluent-member-value-pair/index.html)`)` |
+`class FluentNormalAnnotation : `[`FluentAnnotation`](../-fluent-annotation.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/NormalAnnotation.kt#L10)
 
 ### Functions
 

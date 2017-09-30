@@ -6,11 +6,7 @@ title: FluentNameQualifiedType - fluentast-core
 
 # FluentNameQualifiedType
 
-`class FluentNameQualifiedType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L29)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentNameQualifiedType()` |
+`class FluentNameQualifiedType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L24)
 
 ### Functions
 

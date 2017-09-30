@@ -8,10 +8,6 @@ title: FluentNullLiteral - fluentast-core
 
 `class FluentNullLiteral : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/NullLiteral.kt#L6)
 
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentNullLiteral()` |
-
 ### Functions
 
 | [build](build.html) | `fun build(ast: `[`AST`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html)`): `[`Expression`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/Expression.html) |

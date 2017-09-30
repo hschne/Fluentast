@@ -6,11 +6,7 @@ title: FluentUnionType - fluentast-core
 
 # FluentUnionType
 
-`class FluentUnionType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L49)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentUnionType()` |
+`class FluentUnionType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L44)
 
 ### Functions
 

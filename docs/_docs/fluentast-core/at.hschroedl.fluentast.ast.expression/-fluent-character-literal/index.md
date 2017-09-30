@@ -6,7 +6,7 @@ title: FluentCharacterLiteral - fluentast-core
 
 # FluentCharacterLiteral
 
-`class FluentCharacterLiteral : `[`FluentLiteral`](../-fluent-literal/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/CharacterLiteral.kt#L6)
+`class FluentCharacterLiteral : `[`FluentLiteral`](../-fluent-literal.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/CharacterLiteral.kt#L6)
 
 ### Functions
 

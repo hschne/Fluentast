@@ -9,50 +9,45 @@ abstract class FluentType : FluentASTNode() {
     abstract override fun build(ast: AST): Type
 }
 
-class FluentSimpleType(private val type: String) : FluentType() {
+class FluentSimpleType internal constructor(private val type: String) : FluentType() {
     override fun build(ast: AST): SimpleType {
         return ast.newSimpleType(name(type).build(ast))
     }
 }
 
-fun t(name: String): FluentType {
-    return FluentSimpleType(name)
-}
-
-
-class FluentQualifiedType() : FluentType() {
+class FluentQualifiedType internal constructor() : FluentType() {
     override fun build(ast: AST): QualifiedType {
         throw NotImplementedError()
     }
 }
 
-class FluentNameQualifiedType() : FluentType() {
+class FluentNameQualifiedType internal constructor(): FluentType() {
     override fun build(ast: AST): NameQualifiedType {
         throw NotImplementedError()
     }
 }
 
 
-class FluentWildcardType() : FluentType() {
+class FluentWildcardType internal constructor() : FluentType() {
     override fun build(ast: AST): WildcardType {
         throw NotImplementedError()
     }
 }
 
-class FluentParameterizedType() : FluentType() {
+class FluentParameterizedType internal constructor() : FluentType() {
     override fun build(ast: AST): ParameterizedType {
         throw NotImplementedError()
     }
 }
 
 
-class FluentUnionType() : FluentType() {
+class FluentUnionType internal constructor() : FluentType() {
     override fun build(ast: AST): Type {
         throw NotImplementedError()
     }
 }
 
-class FluentIntersectionType() : FluentType() {
+class FluentIntersectionType internal constructor() : FluentType() {
     override fun build(ast: AST): Type {
         throw NotImplementedError()
     }

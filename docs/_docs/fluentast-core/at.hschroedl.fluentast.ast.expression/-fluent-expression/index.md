@@ -8,10 +8,6 @@ title: FluentExpression - fluentast-core
 
 `abstract class FluentExpression : `[`FluentASTNode`](../../at.hschroedl.fluentast.ast/-fluent-a-s-t-node/index.html)`, `[`FluentStandaloneNode`](../../at.hschroedl.fluentast.ast/-fluent-standalone-node/index.html)`<`[`Expression`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/Expression.html)`>` [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/Expression.kt#L8)
 
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentExpression()` |
-
 ### Functions
 
 | [build](build.html) | `abstract fun build(ast: `[`AST`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html)`): `[`Expression`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/Expression.html)<br>`open fun build(): `[`Expression`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/Expression.html) |
@@ -20,8 +16,8 @@ title: FluentExpression - fluentast-core
 
 ### Inheritors
 
-| [FluentAnnotation](../-fluent-annotation/index.html) | `abstract class FluentAnnotation : FluentExpression` |
-| [FluentArrayAccess](../-fluent-array-access/index.html) | `class FluentArrayAccess : FluentExpression`<br>A wrapper class for [ArrayAccess](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayAccess.html). Subclass of FluentExpression |
+| [FluentAnnotation](../-fluent-annotation.html) | `abstract class FluentAnnotation : FluentExpression` |
+| [FluentArrayAccess](../-fluent-array-access/index.html) | `class FluentArrayAccess : FluentExpression`<br>Used to build an [ArrayAccess](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayAccess.html) on a given expression and a index. Both are a FluentExpression. |
 | [FluentArrayCreation](../-fluent-array-creation/index.html) | `class FluentArrayCreation : FluentExpression` |
 | [FluentArrayInitializer](../-fluent-array-initializer/index.html) | `class FluentArrayInitializer : FluentExpression` |
 | [FluentAssignment](../-fluent-assignment/index.html) | `class FluentAssignment : FluentExpression` |
@@ -31,7 +27,7 @@ title: FluentExpression - fluentast-core
 | [FluentFieldAccess](../-fluent-field-access/index.html) | `class FluentFieldAccess : FluentExpression` |
 | [FluentInfixExpression](../-fluent-infix-expression/index.html) | `open class FluentInfixExpression : FluentExpression`<br>Used to build an [InfixExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression.html) with a left operand, an operator and a right operand. |
 | [FluentInstanceOfExpression](../-fluent-instance-of-expression/index.html) | `class FluentInstanceOfExpression : FluentExpression` |
-| [FluentLiteral](../-fluent-literal/index.html) | `abstract class FluentLiteral : FluentExpression` |
+| [FluentLiteral](../-fluent-literal.html) | `abstract class FluentLiteral : FluentExpression`<br>Base class for other literals. See [NumberLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/NumberLiteral.html),[StringLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/StringLiteral.html),[BooleanLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/BooleanLiteral.html)... |
 | [FluentMethodInvocation](../-fluent-method-invocation/index.html) | `class FluentMethodInvocation : FluentExpression` |
 | [FluentName](../-fluent-name/index.html) | `class FluentName : FluentExpression` |
 | [FluentNullLiteral](../-fluent-null-literal/index.html) | `class FluentNullLiteral : FluentExpression` |

@@ -6,11 +6,7 @@ title: FluentParameterizedType - fluentast-core
 
 # FluentParameterizedType
 
-`class FluentParameterizedType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L42)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentParameterizedType()` |
+`class FluentParameterizedType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L37)
 
 ### Functions
 

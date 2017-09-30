@@ -17,7 +17,7 @@ Used to create a [Statement](https://help.eclipse.org/neon/topic/org.eclipse.jdt
 ### Inheritors
 
 | [FluentAssertStatement](../-fluent-assert-statement/index.html) | `class FluentAssertStatement : FluentStatement`<br>Used to build an [AssertStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AssertStatement.html) on the given expression with an optional message. |
-| [FluentBlock](../-fluent-block/index.html) | `abstract class FluentBlock : FluentStatement` |
+| [FluentBlock](../-fluent-block.html) | `abstract class FluentBlock : FluentStatement` |
 | [FluentBreakStatement](../-fluent-break-statement/index.html) | `class FluentBreakStatement : FluentStatement`<br>Used to build a [BreakStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/BreakStatement.html). |
 | [FluentConstructorInvocation](../-fluent-constructor-invocation/index.html) | `class FluentConstructorInvocation : FluentStatement` |
 | [FluentContinueStatement](../-fluent-continue-statement/index.html) | `class FluentContinueStatement : FluentStatement` |

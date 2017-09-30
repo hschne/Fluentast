@@ -12,10 +12,6 @@ Used to construct a [ReturnStatement](https://help.eclipse.org/neon/topic/org.ec
 
 For examples and usage see [return_](../../at.hschroedl.fluentast/return_.html).
 
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentReturnStatement(expression: `[`FluentExpression`](../../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`?)`<br>Used to construct a [ReturnStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ReturnStatement.html) with a given expression. |
-
 ### Functions
 
 | [build](build.html) | `fun build(ast: `[`AST`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html)`): `[`ReturnStatement`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ReturnStatement.html)<br>Creates an [Statement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/Statement.html) from the given [FluentStatement](../-fluent-statement/index.html) using the given [AST](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html). |

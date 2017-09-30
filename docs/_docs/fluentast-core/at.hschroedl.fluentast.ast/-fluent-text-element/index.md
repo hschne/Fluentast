@@ -6,11 +6,7 @@ title: FluentTextElement - fluentast-core
 
 # FluentTextElement
 
-`class FluentTextElement : `[`FluentASTNode`](../-fluent-a-s-t-node/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/ASTNode.kt#L125)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentTextElement()` |
+`class FluentTextElement : `[`FluentASTNode`](../-fluent-a-s-t-node/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/ASTNode.kt#L121)
 
 ### Functions
 

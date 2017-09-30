@@ -6,7 +6,7 @@ title: FluentNumberLiteral - fluentast-core
 
 # FluentNumberLiteral
 
-`class FluentNumberLiteral : `[`FluentLiteral`](../-fluent-literal/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/NumberLiteral.kt#L6)
+`class FluentNumberLiteral : `[`FluentLiteral`](../-fluent-literal.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/NumberLiteral.kt#L6)
 
 ### Functions
 

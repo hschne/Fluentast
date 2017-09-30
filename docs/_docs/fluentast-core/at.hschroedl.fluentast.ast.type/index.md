@@ -19,8 +19,3 @@ title: at.hschroedl.fluentast.ast.type - fluentast-core
 | [FluentUnionType](-fluent-union-type/index.html) | `class FluentUnionType : `[`FluentType`](-fluent-type/index.html) |
 | [FluentWildcardType](-fluent-wildcard-type/index.html) | `class FluentWildcardType : `[`FluentType`](-fluent-type/index.html) |
 
-### Functions
-
-| [arr](arr.html) | `fun arr(type: `[`FluentType`](-fluent-type/index.html)`): `[`FluentArrayType`](-fluent-array-type/index.html)<br>`fun arr(type: `[`FluentType`](-fluent-type/index.html)`, dimensions: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`FluentArrayType`](-fluent-array-type/index.html) |
-| [t](t.html) | `fun t(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`FluentType`](-fluent-type/index.html) |
-

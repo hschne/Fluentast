@@ -6,4 +6,4 @@ title: c - fluentast-core
 
 # c
 
-`fun c(value: `[`Char`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)`): `[`FluentCharacterLiteral`](../at.hschroedl.fluentast.ast.expression/-fluent-character-literal/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L35)
+`fun c(value: `[`Char`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html)`): `[`FluentCharacterLiteral`](../at.hschroedl.fluentast.ast.expression/-fluent-character-literal/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L36)

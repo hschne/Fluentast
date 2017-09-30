@@ -5,7 +5,7 @@ import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.PrimitiveType
 
 // TODO: Use static import parameters INT, BOOL etc.
-class FluentPrimitiveType(private val primitiveType: String) : FluentType() {
+class FluentPrimitiveType internal constructor(private val primitiveType: String) : FluentType() {
     override fun build(ast: AST): PrimitiveType {
         return when (primitiveType) {
             "byte" -> ast.newPrimitiveType(PrimitiveType.BYTE)

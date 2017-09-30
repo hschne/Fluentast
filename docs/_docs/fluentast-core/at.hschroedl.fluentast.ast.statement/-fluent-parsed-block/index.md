@@ -6,11 +6,7 @@ title: FluentParsedBlock - fluentast-core
 
 # FluentParsedBlock
 
-`class FluentParsedBlock : `[`FluentBlock`](../-fluent-block/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/Block.kt#L28)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentParsedBlock(content: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)` |
+`class FluentParsedBlock : `[`FluentBlock`](../-fluent-block.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/Block.kt#L28)
 
 ### Functions
 

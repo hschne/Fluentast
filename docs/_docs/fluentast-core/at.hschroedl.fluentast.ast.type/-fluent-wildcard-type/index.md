@@ -6,11 +6,7 @@ title: FluentWildcardType - fluentast-core
 
 # FluentWildcardType
 
-`class FluentWildcardType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L36)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentWildcardType()` |
+`class FluentWildcardType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L31)
 
 ### Functions
 

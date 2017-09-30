@@ -6,11 +6,7 @@ title: FluentPackageDeclaration - fluentast-core
 
 # FluentPackageDeclaration
 
-`class FluentPackageDeclaration : `[`FluentASTNode`](../-fluent-a-s-t-node/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/ASTNode.kt#L112)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentPackageDeclaration()` |
+`class FluentPackageDeclaration : `[`FluentASTNode`](../-fluent-a-s-t-node/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/ASTNode.kt#L108)
 
 ### Functions
 

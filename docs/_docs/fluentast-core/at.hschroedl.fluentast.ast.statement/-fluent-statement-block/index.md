@@ -6,11 +6,11 @@ title: FluentStatementBlock - fluentast-core
 
 # FluentStatementBlock
 
-`class FluentStatementBlock : `[`FluentBlock`](../-fluent-block/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/Block.kt#L10)
+`class FluentStatementBlock : `[`FluentBlock`](../-fluent-block.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/Block.kt#L10)
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `FluentStatementBlock(statements: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`FluentStatement`](../-fluent-statement/index.html)`>)`<br>`FluentStatementBlock()` |
+| [&lt;init&gt;](-init-.html) | `FluentStatementBlock(statements: `[`Array`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)`<`[`FluentStatement`](../-fluent-statement/index.html)`>)` |
 
 ### Functions
 

@@ -8,10 +8,6 @@ title: FluentSuperFieldAccess - fluentast-core
 
 `class FluentSuperFieldAccess : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/SuperFieldAccess.kt#L9)
 
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentSuperFieldAccess(className: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`?, field: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)` |
-
 ### Functions
 
 | [build](build.html) | `fun build(ast: `[`AST`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html)`): `[`SuperFieldAccess`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/SuperFieldAccess.html) |

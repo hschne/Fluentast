@@ -6,11 +6,7 @@ title: FluentQualifiedType - fluentast-core
 
 # FluentQualifiedType
 
-`class FluentQualifiedType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L23)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentQualifiedType()` |
+`class FluentQualifiedType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L18)
 
 ### Functions
 

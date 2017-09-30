@@ -4,11 +4,8 @@ import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ArrayAccess
 
 /**
- * A wrapper class for [ArrayAccess]. Subclass of [FluentExpression]
- *
- * @constructor takes a [FluentExpression] as array and a [FluentExpression] as index
- *
- * @see ArrayAccess
+ * Used to build an [ArrayAccess] on a given expression and a index. Both are a
+ * [FluentExpression].
  */
 class FluentArrayAccess internal constructor(private val array: FluentExpression,
                                              private val index: FluentExpression) : FluentExpression() {

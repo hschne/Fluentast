@@ -7,16 +7,16 @@ The module contains FluentAST
 ### All Types
 
 | [at.hschroedl.fluentast.ast.FluentASTNode](../at.hschroedl.fluentast.ast/-fluent-a-s-t-node/index.html) |  |
-| [at.hschroedl.fluentast.ast.expression.FluentAnnotation](../at.hschroedl.fluentast.ast.expression/-fluent-annotation/index.html) |  |
+| [at.hschroedl.fluentast.ast.expression.FluentAnnotation](../at.hschroedl.fluentast.ast.expression/-fluent-annotation.html) |  |
 | [at.hschroedl.fluentast.ast.FluentAnonymousClassDeclaration](../at.hschroedl.fluentast.ast/-fluent-anonymous-class-declaration/index.html) |  |
 | [at.hschroedl.fluentast.exception.FluentArgumentException](../at.hschroedl.fluentast.exception/-fluent-argument-exception/index.html) |  |
-| [at.hschroedl.fluentast.ast.expression.FluentArrayAccess](../at.hschroedl.fluentast.ast.expression/-fluent-array-access/index.html) | A wrapper class for [ArrayAccess](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayAccess.html). Subclass of [FluentExpression](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html) |
+| [at.hschroedl.fluentast.ast.expression.FluentArrayAccess](../at.hschroedl.fluentast.ast.expression/-fluent-array-access/index.html) | Used to build an [ArrayAccess](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayAccess.html) on a given expression and a index. Both are a [FluentExpression](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html). |
 | [at.hschroedl.fluentast.ast.expression.FluentArrayCreation](../at.hschroedl.fluentast.ast.expression/-fluent-array-creation/index.html) |  |
 | [at.hschroedl.fluentast.ast.expression.FluentArrayInitializer](../at.hschroedl.fluentast.ast.expression/-fluent-array-initializer/index.html) |  |
 | [at.hschroedl.fluentast.ast.type.FluentArrayType](../at.hschroedl.fluentast.ast.type/-fluent-array-type/index.html) |  |
 | [at.hschroedl.fluentast.ast.statement.FluentAssertStatement](../at.hschroedl.fluentast.ast.statement/-fluent-assert-statement/index.html) | Used to build an [AssertStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AssertStatement.html) on the given expression with an optional message. |
 | [at.hschroedl.fluentast.ast.expression.FluentAssignment](../at.hschroedl.fluentast.ast.expression/-fluent-assignment/index.html) |  |
-| [at.hschroedl.fluentast.ast.statement.FluentBlock](../at.hschroedl.fluentast.ast.statement/-fluent-block/index.html) |  |
+| [at.hschroedl.fluentast.ast.statement.FluentBlock](../at.hschroedl.fluentast.ast.statement/-fluent-block.html) |  |
 | [at.hschroedl.fluentast.ast.FluentBodyDeclaration](../at.hschroedl.fluentast.ast/-fluent-body-declaration/index.html) |  |
 | [at.hschroedl.fluentast.ast.expression.FluentBooleanLiteral](../at.hschroedl.fluentast.ast.expression/-fluent-boolean-literal/index.html) |  |
 | [at.hschroedl.fluentast.ast.statement.FluentBreakStatement](../at.hschroedl.fluentast.ast.statement/-fluent-break-statement/index.html) | Used to build a [BreakStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/BreakStatement.html). |
@@ -48,7 +48,7 @@ The module contains FluentAST
 | [at.hschroedl.fluentast.ast.expression.FluentInstanceOfExpression](../at.hschroedl.fluentast.ast.expression/-fluent-instance-of-expression/index.html) |  |
 | [at.hschroedl.fluentast.ast.type.FluentIntersectionType](../at.hschroedl.fluentast.ast.type/-fluent-intersection-type/index.html) |  |
 | [at.hschroedl.fluentast.ast.statement.FluentLabeledStatement](../at.hschroedl.fluentast.ast.statement/-fluent-labeled-statement/index.html) |  |
-| [at.hschroedl.fluentast.ast.expression.FluentLiteral](../at.hschroedl.fluentast.ast.expression/-fluent-literal/index.html) |  |
+| [at.hschroedl.fluentast.ast.expression.FluentLiteral](../at.hschroedl.fluentast.ast.expression/-fluent-literal.html) | Base class for other literals. See [NumberLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/NumberLiteral.html),[StringLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/StringLiteral.html),[BooleanLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/BooleanLiteral.html)... |
 | [at.hschroedl.fluentast.ast.expression.FluentMarkerAnnotation](../at.hschroedl.fluentast.ast.expression/-fluent-marker-annotation/index.html) |  |
 | [at.hschroedl.fluentast.ast.FluentMemberRef](../at.hschroedl.fluentast.ast/-fluent-member-ref/index.html) |  |
 | [at.hschroedl.fluentast.ast.FluentMemberValuePair](../at.hschroedl.fluentast.ast/-fluent-member-value-pair/index.html) |  |

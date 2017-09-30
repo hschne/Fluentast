@@ -6,9 +6,10 @@ title: FluentArrayAccess - fluentast-core
 
 # FluentArrayAccess
 
-`class FluentArrayAccess : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/ArrayAccess.kt#L13)
+`class FluentArrayAccess : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/ArrayAccess.kt#L10)
 
-A wrapper class for [ArrayAccess](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayAccess.html). Subclass of [FluentExpression](../-fluent-expression/index.html)
+Used to build an [ArrayAccess](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayAccess.html) on a given expression and a index. Both are a
+[FluentExpression](../-fluent-expression/index.html).
 
 ### Functions
 

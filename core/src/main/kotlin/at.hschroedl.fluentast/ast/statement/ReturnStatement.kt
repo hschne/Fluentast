@@ -14,7 +14,8 @@ import org.eclipse.jdt.core.dom.Statement
  * For examples and usage see [return_].
  *
  */
-class FluentReturnStatement(private val expression: FluentExpression?) : FluentStatement() {
+class FluentReturnStatement internal constructor(
+        private val expression: FluentExpression?) : FluentStatement() {
 
     override fun build(ast: AST): ReturnStatement {
         val ret = ast.newReturnStatement()

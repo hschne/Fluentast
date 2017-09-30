@@ -6,9 +6,9 @@ title: return_ - fluentast-core
 
 # return_
 
-`fun return_(): `[`FluentStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L105)
+`fun return_(): `[`FluentStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L115)
 
-Creates a new [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html).
+Creates a new [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html), used for building a [ReturnStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ReturnStatement.html).
 
 **Return**
 a new [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html).
@@ -17,9 +17,9 @@ a new [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-re
 
 [ReturnStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ReturnStatement.html)
 
-`fun return_(expression: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentReturnStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L116)
+`fun return_(expression: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentReturnStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L126)
 
-Creates a [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html).
+Creates a [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html), used for building a [ReturnStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ReturnStatement.html).
 
 ### Parameters
 

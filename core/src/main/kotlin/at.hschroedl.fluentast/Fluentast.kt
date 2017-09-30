@@ -7,6 +7,7 @@ import at.hschroedl.fluentast.ast.expression.*
 import at.hschroedl.fluentast.ast.statement.*
 import at.hschroedl.fluentast.ast.type.FluentArrayType
 import at.hschroedl.fluentast.ast.type.FluentPrimitiveType
+import at.hschroedl.fluentast.ast.type.FluentSimpleType
 import at.hschroedl.fluentast.ast.type.FluentType
 import org.eclipse.jdt.core.dom.*
 import org.eclipse.jdt.core.dom.IfStatement
@@ -85,8 +86,17 @@ fun stmnt(content: String): FluentStatement {
 }
 
 
+fun t(name: String): FluentType {
+    return FluentSimpleType(name)
+}
+
+fun pair(name: String, value: FluentExpression): FluentMemberValuePair {
+    return FluentMemberValuePair(name, value)
+}
+
+
 /**
- * Creates a [FluentBreakStatement].
+ * Creates a [FluentBreakStatement] which is used for building a [BreakStatement]
  *
  * @return a new [FluentBreakStatement].
  * @see [BreakStatement], [FluentBreakStatement]
@@ -96,7 +106,7 @@ fun break_(): FluentStatement {
 }
 
 /**
- * Creates a new [FluentReturnStatement].
+ * Creates a new [FluentReturnStatement], used for building a [ReturnStatement].
  *
  * @return a new [FluentReturnStatement].
  * @see [ReturnStatement], [FluentReturnStatement]
@@ -107,7 +117,7 @@ fun return_(): FluentStatement {
 }
 
 /**
- * Creates a [FluentReturnStatement].
+ * Creates a [FluentReturnStatement], used for building a [ReturnStatement].
  *
  * @param expression the expression behind the return.
  * @return a [FluentReturnStatement] with [FluentExpression] as expression.

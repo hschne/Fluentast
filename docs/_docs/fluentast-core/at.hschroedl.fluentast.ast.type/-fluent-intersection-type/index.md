@@ -6,11 +6,7 @@ title: FluentIntersectionType - fluentast-core
 
 # FluentIntersectionType
 
-`class FluentIntersectionType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L55)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentIntersectionType()` |
+`class FluentIntersectionType : `[`FluentType`](../-fluent-type/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/type/Type.kt#L50)
 
 ### Functions
 

@@ -6,11 +6,7 @@ title: FluentMarkerAnnotation - fluentast-core
 
 # FluentMarkerAnnotation
 
-`class FluentMarkerAnnotation : `[`FluentAnnotation`](../-fluent-annotation/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/MarkerAnnotation.kt#L6)
-
-### Constructors
-
-| [&lt;init&gt;](-init-.html) | `FluentMarkerAnnotation(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`)` |
+`class FluentMarkerAnnotation : `[`FluentAnnotation`](../-fluent-annotation.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/MarkerAnnotation.kt#L6)
 
 ### Functions
 

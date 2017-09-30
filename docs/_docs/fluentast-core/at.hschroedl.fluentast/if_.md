@@ -6,7 +6,7 @@ title: if_ - fluentast-core
 
 # if_
 
-`fun if_(condition: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentIfPartial`](../at.hschroedl.fluentast.ast.statement/-fluent-if-partial/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L279)
+`fun if_(condition: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentIfPartial`](../at.hschroedl.fluentast.ast.statement/-fluent-if-partial/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L289)
 
 Creates an [FluentIfPartial](../at.hschroedl.fluentast.ast.statement/-fluent-if-partial/index.html). A [FluentIfPartial](../at.hschroedl.fluentast.ast.statement/-fluent-if-partial/index.html) is used in creating an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html).
 
