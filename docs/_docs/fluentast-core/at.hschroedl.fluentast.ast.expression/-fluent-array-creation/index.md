@@ -6,7 +6,10 @@ title: FluentArrayCreation - fluentast-core
 
 # FluentArrayCreation
 
-`class FluentArrayCreation : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/ArrayCreation.kt#L7)
+`class FluentArrayCreation : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/ArrayCreation.kt#L11)
+
+Used to create a [ArrayCreation](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayCreation.html) with the given [FluentArrayType](../../at.hschroedl.fluentast.ast.type/-fluent-array-type/index.html)
+and a [FluentArrayInitializer](../-fluent-array-initializer/index.html).
 
 ### Functions
 

@@ -6,6 +6,8 @@ title: at.hschroedl.fluentast.ast - fluentast-core
 
 ## Package at.hschroedl.fluentast.ast
 
+This package contains Fluentast representations of [ASTNode](#).
+
 ### Types
 
 | [FluentASTNode](-fluent-a-s-t-node/index.html) | `abstract class FluentASTNode : `[`FluentChildNode`](-fluent-child-node/index.html)`<`[`ASTNode`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ASTNode.html)`>` |

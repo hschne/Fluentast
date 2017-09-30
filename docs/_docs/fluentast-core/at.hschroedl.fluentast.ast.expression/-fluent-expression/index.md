@@ -18,7 +18,7 @@ title: FluentExpression - fluentast-core
 
 | [FluentAnnotation](../-fluent-annotation.html) | `abstract class FluentAnnotation : FluentExpression` |
 | [FluentArrayAccess](../-fluent-array-access/index.html) | `class FluentArrayAccess : FluentExpression`<br>Used to build an [ArrayAccess](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayAccess.html) on a given expression and a index. Both are a FluentExpression. |
-| [FluentArrayCreation](../-fluent-array-creation/index.html) | `class FluentArrayCreation : FluentExpression` |
+| [FluentArrayCreation](../-fluent-array-creation/index.html) | `class FluentArrayCreation : FluentExpression`<br>Used to create a [ArrayCreation](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayCreation.html) with the given [FluentArrayType](../../at.hschroedl.fluentast.ast.type/-fluent-array-type/index.html) and a [FluentArrayInitializer](../-fluent-array-initializer/index.html). |
 | [FluentArrayInitializer](../-fluent-array-initializer/index.html) | `class FluentArrayInitializer : FluentExpression` |
 | [FluentAssignment](../-fluent-assignment/index.html) | `class FluentAssignment : FluentExpression` |
 | [FluentCastExpression](../-fluent-cast-expression/index.html) | `class FluentCastExpression : FluentExpression` |

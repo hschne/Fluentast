@@ -6,7 +6,7 @@ title: at.hschroedl.fluentast.ast.statement - fluentast-core
 
 ## Package at.hschroedl.fluentast.ast.statement
 
-Useful stuff in another package.
+Contains Fluentast representations of [Statement](#).
 
 ### Types
 

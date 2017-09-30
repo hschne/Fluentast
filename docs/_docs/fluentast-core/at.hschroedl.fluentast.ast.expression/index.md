@@ -6,20 +6,16 @@ title: at.hschroedl.fluentast.ast.expression - fluentast-core
 
 ## Package at.hschroedl.fluentast.ast.expression
 
-Contains Expressions.
-
-## Level 2 heading
-
-Text after this heading is also part of documentation for `org.jetbrains.kotlin.demo`
+Contains Fluentast representations of [Expression](#).
 
 ### Types
 
 | [FluentAnnotation](-fluent-annotation.html) | `abstract class FluentAnnotation : `[`FluentExpression`](-fluent-expression/index.html) |
 | [FluentArrayAccess](-fluent-array-access/index.html) | `class FluentArrayAccess : `[`FluentExpression`](-fluent-expression/index.html)<br>Used to build an [ArrayAccess](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayAccess.html) on a given expression and a index. Both are a [FluentExpression](-fluent-expression/index.html). |
-| [FluentArrayCreation](-fluent-array-creation/index.html) | `class FluentArrayCreation : `[`FluentExpression`](-fluent-expression/index.html) |
+| [FluentArrayCreation](-fluent-array-creation/index.html) | `class FluentArrayCreation : `[`FluentExpression`](-fluent-expression/index.html)<br>Used to create a [ArrayCreation](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ArrayCreation.html) with the given [FluentArrayType](../at.hschroedl.fluentast.ast.type/-fluent-array-type/index.html) and a [FluentArrayInitializer](-fluent-array-initializer/index.html). |
 | [FluentArrayInitializer](-fluent-array-initializer/index.html) | `class FluentArrayInitializer : `[`FluentExpression`](-fluent-expression/index.html) |
 | [FluentAssignment](-fluent-assignment/index.html) | `class FluentAssignment : `[`FluentExpression`](-fluent-expression/index.html) |
-| [FluentBooleanLiteral](-fluent-boolean-literal/index.html) | `class FluentBooleanLiteral : `[`FluentLiteral`](-fluent-literal.html) |
+| [FluentBooleanLiteral](-fluent-boolean-literal/index.html) | `class FluentBooleanLiteral : `[`FluentLiteral`](-fluent-literal.html)<br>Used to build a [BooleanLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/BooleanLiteral.html) with a given value. |
 | [FluentCastExpression](-fluent-cast-expression/index.html) | `class FluentCastExpression : `[`FluentExpression`](-fluent-expression/index.html) |
 | [FluentCharacterLiteral](-fluent-character-literal/index.html) | `class FluentCharacterLiteral : `[`FluentLiteral`](-fluent-literal.html) |
 | [FluentClassInstanceCreation](-fluent-class-instance-creation/index.html) | `class FluentClassInstanceCreation : `[`FluentExpression`](-fluent-expression/index.html) |

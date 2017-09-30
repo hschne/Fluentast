@@ -6,7 +6,7 @@ title: at.hschroedl.fluentast - fluentast-core
 
 ## Package at.hschroedl.fluentast
 
-Contains all base stuff
+Base package of the Fluentast API.
 
 ### Functions
 

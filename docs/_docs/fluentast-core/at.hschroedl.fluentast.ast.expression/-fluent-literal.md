@@ -18,7 +18,7 @@ Base class for other literals. See [NumberLiteral](https://help.eclipse.org/neon
 
 ### Inheritors
 
-| [FluentBooleanLiteral](-fluent-boolean-literal/index.html) | `class FluentBooleanLiteral : FluentLiteral` |
+| [FluentBooleanLiteral](-fluent-boolean-literal/index.html) | `class FluentBooleanLiteral : FluentLiteral`<br>Used to build a [BooleanLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/BooleanLiteral.html) with a given value. |
 | [FluentCharacterLiteral](-fluent-character-literal/index.html) | `class FluentCharacterLiteral : FluentLiteral` |
 | [FluentNumberLiteral](-fluent-number-literal/index.html) | `class FluentNumberLiteral : FluentLiteral` |
 
