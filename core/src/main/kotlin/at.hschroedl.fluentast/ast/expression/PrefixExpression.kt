@@ -27,6 +27,3 @@ class FluentPrefixExpression(private val operator: String,
     }
 }
 
-fun prefix(operator: String, expression: FluentExpression): FluentPrefixExpression {
-    return FluentPrefixExpression(operator, expression)
-}

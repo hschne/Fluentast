@@ -1,6 +1,7 @@
 package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.exception.FluentArgumentException
+import at.hschroedl.fluentast.prefix
 import at.hschroedl.fluentast.test.dummyExpression
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.PrefixExpression

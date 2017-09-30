@@ -8,6 +8,8 @@ import at.hschroedl.fluentast.ast.statement.*
 import at.hschroedl.fluentast.ast.type.FluentArrayType
 import at.hschroedl.fluentast.ast.type.FluentPrimitiveType
 import at.hschroedl.fluentast.ast.type.FluentType
+import org.eclipse.jdt.core.dom.IfStatement
+import org.eclipse.jdt.core.dom.ReturnStatement
 
 
 fun annotation(name: String): FluentMarkerAnnotation {
@@ -84,10 +86,68 @@ fun break_(): FluentStatement {
     return FluentBreakStatement()
 }
 
+/**
+ * Creates a [ReturnStatement] using [FluentReturnStatement].
+ *
+ * ## Comparison of Fluentast and JDT:
+ *
+ * ### Fluentast:
+ *
+ * ~~~ java
+ * return_(expression).build()
+ * ~~~
+ *
+ * ### JDT:
+ *
+ * ~~~ java
+ * ReturnStatement returnStatement = ast.newReturnStatement();
+ * returnStatement.setExpression(expression)
+ * ~~~
+ *
+ * ### Result:
+ *
+ * ~~~ java
+ * return expression;
+ * ~~~
+ *
+ * For more examples see the [Demo Project](https://github.com/hschroedl/FluentAST/tree/master/demo).
+ *
+ * @see [FluentReturnStatement]
+ *
+ */
 fun return_(): FluentStatement {
     return FluentReturnStatement(null)
 }
 
+/**
+ * Creates a [ReturnStatement] using [FluentReturnStatement].
+ *
+ * ## Comparison of Fluentast and JDT:
+ *
+ * ### Fluentast:
+ *
+ * ~~~ java
+ * return_(expression).build()
+ * ~~~
+ *
+ * ### JDT:
+ *
+ * ~~~ java
+ * ReturnStatement returnStatement = ast.newReturnStatement();
+ * returnStatement.setExpression(expression)
+ * ~~~
+ *
+ * ### Result:
+ *
+ * ~~~ java
+ * return expression;
+ * ~~~
+ *
+ * For more examples see the [Demo Project](https://github.com/hschroedl/FluentAST/tree/master/demo).
+ *
+ * @see [FluentReturnStatement]
+ *
+ */
 fun return_(expression: FluentExpression): FluentReturnStatement {
     return FluentReturnStatement(expression)
 }
@@ -228,8 +288,48 @@ fun stmnt(expression: FluentExpression): FluentExpressionStatement {
     return FluentExpressionStatement(expression)
 }
 
-fun if_(condition: FluentExpression): FluentIfStatement.IfPartial {
-    return FluentIfStatement.IfPartial(condition)
+
+/**
+ * Creates an [IfStatement] using [FluentIfStatement] or [FluentIfElseStatement].
+ *
+ * ## Usage and Result:
+ *
+ * ### Fluentast:
+ *
+ * ~~~ java
+ * if_(condition)
+ *    .then(thenStatement)
+ *    .else_(elseStatement)
+ *    .build();
+ * ~~~
+ *
+ * ### JDT:
+ *
+ * ~~~ java
+ * IfStatement ifStatement = ast.newIfStatement();
+ * ifStatement.setExpression(condition);
+ * ifStatement.setThenStatement(thenStatement);
+ * ifStatement.setElseStatement(elseStatement);
+ * ~~~
+ *
+ * ### Result:
+ *
+ * ~~~ java
+ * if(condition)
+ *   thenStatement
+ * else
+ *   elseStatement
+ * ~~~
+ *
+ * For more examples see the [Demo Project](https://github.com/hschroedl/FluentAST/tree/master/demo).
+ *
+ * @see [IfPartial]
+ * @see [FluentIfStatement]
+ * @see [FluentIfElseStatement]
+ *
+ */
+fun if_(condition: FluentExpression): IfPartial {
+    return IfPartial(condition)
 }
 
 fun for_(): FluentForStatement.ForPartial {
@@ -251,4 +351,8 @@ fun cast(type: FluentType, expression: FluentExpression): FluentCastExpression {
 
 fun postfix(operator: String): FluentPostfixExpression.PostfixPartial {
     return FluentPostfixExpression.PostfixPartial(operator)
+}
+
+fun prefix(operator: String, expression: FluentExpression): FluentPrefixExpression {
+    return FluentPrefixExpression(operator, expression)
 }

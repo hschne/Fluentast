@@ -7,10 +7,26 @@ import at.hschroedl.fluentast.ast.FluentStandaloneNode
 import org.eclipse.jdt.core.dom.*
 
 
+/**
+ * Used to create a [Statement].
+ *
+ */
 abstract class FluentStatement internal constructor() : FluentASTNode(), FluentStandaloneNode<Statement> {
 
+    /**
+     * Creates an [Statement] from the given [FluentStatement] using the given [AST].
+     *
+     * @param ast used for creating the [Statement]
+     * @return a new [Statement]
+     *
+     */
     abstract override fun build(ast: AST): Statement
 
+    /**
+     * Creates a [Statement] using a new [AST].
+     *
+     * @return a new [Statement]
+     */
     override fun build(): Statement {
         val ast: AST = AST.newAST(AST.JLS8)
         return build(ast)
