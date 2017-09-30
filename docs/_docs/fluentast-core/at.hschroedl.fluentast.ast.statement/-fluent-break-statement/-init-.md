@@ -7,3 +7,8 @@ title: FluentBreakStatement.<init> - fluentast-core
 # &lt;init&gt;
 
 `FluentBreakStatement()`
+
+Test
+
+For usage see [Fluentast](../../at.hschroedl.fluentast/-fluentast/index.html).
+

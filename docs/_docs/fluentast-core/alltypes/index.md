@@ -14,12 +14,12 @@ The module contains FluentAST
 | [at.hschroedl.fluentast.ast.expression.FluentArrayCreation](../at.hschroedl.fluentast.ast.expression/-fluent-array-creation/index.html) |  |
 | [at.hschroedl.fluentast.ast.expression.FluentArrayInitializer](../at.hschroedl.fluentast.ast.expression/-fluent-array-initializer/index.html) |  |
 | [at.hschroedl.fluentast.ast.type.FluentArrayType](../at.hschroedl.fluentast.ast.type/-fluent-array-type/index.html) |  |
-| [at.hschroedl.fluentast.ast.statement.FluentAssertStatement](../at.hschroedl.fluentast.ast.statement/-fluent-assert-statement/index.html) |  |
+| [at.hschroedl.fluentast.ast.statement.FluentAssertStatement](../at.hschroedl.fluentast.ast.statement/-fluent-assert-statement/index.html) | Used to build an [AssertStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AssertStatement.html) on the given expression with an optional message. |
 | [at.hschroedl.fluentast.ast.expression.FluentAssignment](../at.hschroedl.fluentast.ast.expression/-fluent-assignment/index.html) |  |
 | [at.hschroedl.fluentast.ast.statement.FluentBlock](../at.hschroedl.fluentast.ast.statement/-fluent-block/index.html) |  |
 | [at.hschroedl.fluentast.ast.FluentBodyDeclaration](../at.hschroedl.fluentast.ast/-fluent-body-declaration/index.html) |  |
 | [at.hschroedl.fluentast.ast.expression.FluentBooleanLiteral](../at.hschroedl.fluentast.ast.expression/-fluent-boolean-literal/index.html) |  |
-| [at.hschroedl.fluentast.ast.statement.FluentBreakStatement](../at.hschroedl.fluentast.ast.statement/-fluent-break-statement/index.html) |  |
+| [at.hschroedl.fluentast.ast.statement.FluentBreakStatement](../at.hschroedl.fluentast.ast.statement/-fluent-break-statement/index.html) | Used to build a [BreakStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/BreakStatement.html). |
 | [at.hschroedl.fluentast.exception.FluentCastException](../at.hschroedl.fluentast.exception/-fluent-cast-exception/index.html) |  |
 | [at.hschroedl.fluentast.ast.expression.FluentCastExpression](../at.hschroedl.fluentast.ast.expression/-fluent-cast-expression/index.html) |  |
 | [at.hschroedl.fluentast.ast.FluentCatchClause](../at.hschroedl.fluentast.ast/-fluent-catch-clause/index.html) |  |
@@ -38,10 +38,13 @@ The module contains FluentAST
 | [at.hschroedl.fluentast.ast.statement.FluentExpressionStatement](../at.hschroedl.fluentast.ast.statement/-fluent-expression-statement/index.html) |  |
 | [at.hschroedl.fluentast.ast.expression.FluentFieldAccess](../at.hschroedl.fluentast.ast.expression/-fluent-field-access/index.html) |  |
 | [at.hschroedl.fluentast.ast.statement.FluentForStatement](../at.hschroedl.fluentast.ast.statement/-fluent-for-statement/index.html) |  |
-| [at.hschroedl.fluentast.ast.statement.FluentIfElseStatement](../at.hschroedl.fluentast.ast.statement/-fluent-if-else-statement/index.html) | Used to construct an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition, a then statement and an else-statement. |
-| [at.hschroedl.fluentast.ast.statement.FluentIfStatement](../at.hschroedl.fluentast.ast.statement/-fluent-if-statement/index.html) | Used to construct an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition and a then-statement, but without a else-statement. |
+| [at.hschroedl.fluentast.ast.statement.FluentIfElseStatement](../at.hschroedl.fluentast.ast.statement/-fluent-if-else-statement/index.html) | Used to construct an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition, a then statement and an else-statement. This class is a terminal expression, as not more than one else-statement can be added. |
+| [at.hschroedl.fluentast.ast.statement.FluentIfPartial](../at.hschroedl.fluentast.ast.statement/-fluent-if-partial/index.html) | Used to build an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) where a condition has been set, but a then-statement or else-statement have yet to be added. |
+| [at.hschroedl.fluentast.ast.statement.FluentIfStatement](../at.hschroedl.fluentast.ast.statement/-fluent-if-statement/index.html) | Used to build an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition and a then-statement, but without a else-statement. |
 | [at.hschroedl.fluentast.ast.FluentImportDeclaration](../at.hschroedl.fluentast.ast/-fluent-import-declaration/index.html) |  |
-| [at.hschroedl.fluentast.ast.expression.FluentInfixExpression](../at.hschroedl.fluentast.ast.expression/-fluent-infix-expression/index.html) |  |
+| [at.hschroedl.fluentast.ast.expression.FluentInfixExpression](../at.hschroedl.fluentast.ast.expression/-fluent-infix-expression/index.html) | Used to build an [InfixExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression.html) with a left operand, an operator and a right operand. |
+| [at.hschroedl.fluentast.ast.expression.FluentInfixLeftPartial](../at.hschroedl.fluentast.ast.expression/-fluent-infix-left-partial/index.html) | Used to build an [InfixExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression.html). This partial represents an intermediate representation where an operator and left-hand-side operand has been set but a right-hand side operand is missing. |
+| [at.hschroedl.fluentast.ast.expression.FluentInfixOperatorPartial](../at.hschroedl.fluentast.ast.expression/-fluent-infix-operator-partial/index.html) | Used to build an [InfixExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression.html). This partial represents an intermediate representation where the operator has been set but a right-hand side and left-hand-side operand are missing. |
 | [at.hschroedl.fluentast.ast.expression.FluentInstanceOfExpression](../at.hschroedl.fluentast.ast.expression/-fluent-instance-of-expression/index.html) |  |
 | [at.hschroedl.fluentast.ast.type.FluentIntersectionType](../at.hschroedl.fluentast.ast.type/-fluent-intersection-type/index.html) |  |
 | [at.hschroedl.fluentast.ast.statement.FluentLabeledStatement](../at.hschroedl.fluentast.ast.statement/-fluent-labeled-statement/index.html) |  |
@@ -98,5 +101,4 @@ The module contains FluentAST
 | [at.hschroedl.fluentast.ast.statement.FluentVariableDeclarationStatement](../at.hschroedl.fluentast.ast.statement/-fluent-variable-declaration-statement/index.html) |  |
 | [at.hschroedl.fluentast.ast.statement.FluentWhileStatement](../at.hschroedl.fluentast.ast.statement/-fluent-while-statement/index.html) |  |
 | [at.hschroedl.fluentast.ast.type.FluentWildcardType](../at.hschroedl.fluentast.ast.type/-fluent-wildcard-type/index.html) |  |
-| [at.hschroedl.fluentast.ast.statement.IfPartial](../at.hschroedl.fluentast.ast.statement/-if-partial/index.html) | Represents an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) where a condition has been set, but a then-statement or else-statement have yet to be added. |
 

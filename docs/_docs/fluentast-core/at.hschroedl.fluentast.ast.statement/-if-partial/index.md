@@ -6,14 +6,12 @@ title: IfPartial - fluentast-core
 
 # IfPartial
 
-`class IfPartial` [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/IfStatement.kt#L64)
+`class IfPartial` [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/IfStatement.kt#L56)
 
-Represents an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) where a condition has
+Used to build an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) where a condition has
 been set, but a then-statement or else-statement have yet to be added.
-
-For examples and usage see [if_](../../at.hschroedl.fluentast/if_.html).
 
 ### Functions
 
-| [then](then.html) | `fun then(statement: `[`FluentStatement`](../-fluent-statement/index.html)`): `[`FluentIfStatement`](../-fluent-if-statement/index.html)<br>Create a [FluentIfStatement](../-fluent-if-statement/index.html). |
+| [then](then.html) | `fun then(statement: `[`FluentStatement`](../-fluent-statement/index.html)`): `[`FluentIfStatement`](../-fluent-if-statement/index.html)<br>Creates a [FluentIfStatement](../-fluent-if-statement/index.html). |
 

@@ -6,4 +6,4 @@ title: instanceof - fluentast-core
 
 # instanceof
 
-`fun instanceof(left: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`, right: `[`FluentType`](../at.hschroedl.fluentast.ast.type/-fluent-type/index.html)`): `[`FluentInstanceOfExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-instance-of-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L41)
+`fun instanceof(left: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`, right: `[`FluentType`](../at.hschroedl.fluentast.ast.type/-fluent-type/index.html)`): `[`FluentInstanceOfExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-instance-of-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L44)

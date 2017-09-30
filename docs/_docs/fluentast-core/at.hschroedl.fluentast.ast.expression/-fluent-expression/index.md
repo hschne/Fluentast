@@ -29,7 +29,7 @@ title: FluentExpression - fluentast-core
 | [FluentClassInstanceCreation](../-fluent-class-instance-creation/index.html) | `class FluentClassInstanceCreation : FluentExpression` |
 | [FluentConditionalExpression](../-fluent-conditional-expression/index.html) | `class FluentConditionalExpression : FluentExpression` |
 | [FluentFieldAccess](../-fluent-field-access/index.html) | `class FluentFieldAccess : FluentExpression` |
-| [FluentInfixExpression](../-fluent-infix-expression/index.html) | `open class FluentInfixExpression : FluentExpression` |
+| [FluentInfixExpression](../-fluent-infix-expression/index.html) | `open class FluentInfixExpression : FluentExpression`<br>Used to build an [InfixExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression.html) with a left operand, an operator and a right operand. |
 | [FluentInstanceOfExpression](../-fluent-instance-of-expression/index.html) | `class FluentInstanceOfExpression : FluentExpression` |
 | [FluentLiteral](../-fluent-literal/index.html) | `abstract class FluentLiteral : FluentExpression` |
 | [FluentMethodInvocation](../-fluent-method-invocation/index.html) | `class FluentMethodInvocation : FluentExpression` |

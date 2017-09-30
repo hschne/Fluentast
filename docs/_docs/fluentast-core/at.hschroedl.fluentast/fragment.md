@@ -6,4 +6,4 @@ title: fragment - fluentast-core
 
 # fragment
 
-`fun fragment(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`FluentVariableDeclarationFragmentImpl`](../at.hschroedl.fluentast.ast/-fluent-variable-declaration-fragment-impl/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L60)
+`fun fragment(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`FluentVariableDeclarationFragmentImpl`](../at.hschroedl.fluentast.ast/-fluent-variable-declaration-fragment-impl/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L63)

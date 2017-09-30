@@ -6,4 +6,22 @@ title: infix - fluentast-core
 
 # infix
 
-`fun infix(operator: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`OperatorPartial`](../at.hschroedl.fluentast.ast.expression/-fluent-infix-expression/-operator-partial/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L225)
+`fun infix(operator: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`FluentInfixOperatorPartial`](../at.hschroedl.fluentast.ast.expression/-fluent-infix-operator-partial/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L201)
+
+Creates an [FluentInfixOperatorPartial](../at.hschroedl.fluentast.ast.expression/-fluent-infix-operator-partial/index.html), which is used for building an [InfixExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression.html).
+
+### Parameters
+
+`operator` - the operator used [InfixExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression.html). See [InfixExpression.Operator](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression/Operator.html).
+
+**Return**
+a new [FluentInfixOperatorPartial](../at.hschroedl.fluentast.ast.expression/-fluent-infix-operator-partial/index.html).
+
+**See Also**
+
+[FluentInfixOperatorPartial](../at.hschroedl.fluentast.ast.expression/-fluent-infix-operator-partial/index.html)
+
+[FluentInfixLeftPartial](../at.hschroedl.fluentast.ast.expression/-fluent-infix-left-partial/index.html)
+
+[FluentInfixExpression](../at.hschroedl.fluentast.ast.expression/-fluent-infix-expression/index.html)
+

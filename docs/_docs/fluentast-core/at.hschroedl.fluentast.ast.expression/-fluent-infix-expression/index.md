@@ -6,12 +6,9 @@ title: FluentInfixExpression - fluentast-core
 
 # FluentInfixExpression
 
-`open class FluentInfixExpression : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/InfixExpression.kt#L8)
+`open class FluentInfixExpression : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/InfixExpression.kt#L11)
 
-### Types
-
-| [LeftPartial](-left-partial/index.html) | `class LeftPartial` |
-| [OperatorPartial](-operator-partial/index.html) | `class OperatorPartial` |
+Used to build an [InfixExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression.html) with a left operand, an operator and a right operand.
 
 ### Properties
 
@@ -20,7 +17,7 @@ title: FluentInfixExpression - fluentast-core
 ### Functions
 
 | [build](build.html) | `open fun build(ast: `[`AST`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AST.html)`): `[`InfixExpression`](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/InfixExpression.html) |
-| [right](right.html) | `fun right(anotherExpression: `[`FluentExpression`](../-fluent-expression/index.html)`): FluentInfixExpression` |
+| [right](right.html) | `fun right(anotherExpression: `[`FluentExpression`](../-fluent-expression/index.html)`): FluentInfixExpression`<br>Adds a [FluentExpression](../-fluent-expression/index.html) to the list of extended operands on the right hand side of the operator. |
 
 ### Inherited Functions
 

@@ -16,9 +16,9 @@ Used to create a [Statement](https://help.eclipse.org/neon/topic/org.eclipse.jdt
 
 ### Inheritors
 
-| [FluentAssertStatement](../-fluent-assert-statement/index.html) | `class FluentAssertStatement : FluentStatement` |
+| [FluentAssertStatement](../-fluent-assert-statement/index.html) | `class FluentAssertStatement : FluentStatement`<br>Used to build an [AssertStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/AssertStatement.html) on the given expression with an optional message. |
 | [FluentBlock](../-fluent-block/index.html) | `abstract class FluentBlock : FluentStatement` |
-| [FluentBreakStatement](../-fluent-break-statement/index.html) | `class FluentBreakStatement : FluentStatement` |
+| [FluentBreakStatement](../-fluent-break-statement/index.html) | `class FluentBreakStatement : FluentStatement`<br>Used to build a [BreakStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/BreakStatement.html). |
 | [FluentConstructorInvocation](../-fluent-constructor-invocation/index.html) | `class FluentConstructorInvocation : FluentStatement` |
 | [FluentContinueStatement](../-fluent-continue-statement/index.html) | `class FluentContinueStatement : FluentStatement` |
 | [FluentDoStatement](../-fluent-do-statement/index.html) | `class FluentDoStatement : FluentStatement` |
@@ -26,8 +26,8 @@ Used to create a [Statement](https://help.eclipse.org/neon/topic/org.eclipse.jdt
 | [FluentEnhancedForStatement](../-fluent-enhanced-for-statement/index.html) | `class FluentEnhancedForStatement : FluentStatement` |
 | [FluentExpressionStatement](../-fluent-expression-statement/index.html) | `class FluentExpressionStatement : FluentStatement` |
 | [FluentForStatement](../-fluent-for-statement/index.html) | `class FluentForStatement : FluentStatement` |
-| [FluentIfElseStatement](../-fluent-if-else-statement/index.html) | `class FluentIfElseStatement : FluentStatement`<br>Used to construct an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition, a then statement and an else-statement. |
-| [FluentIfStatement](../-fluent-if-statement/index.html) | `class FluentIfStatement : FluentStatement`<br>Used to construct an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition and a then-statement, but without a else-statement. |
+| [FluentIfElseStatement](../-fluent-if-else-statement/index.html) | `class FluentIfElseStatement : FluentStatement`<br>Used to construct an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition, a then statement and an else-statement. This class is a terminal expression, as not more than one else-statement can be added. |
+| [FluentIfStatement](../-fluent-if-statement/index.html) | `class FluentIfStatement : FluentStatement`<br>Used to build an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition and a then-statement, but without a else-statement. |
 | [FluentLabeledStatement](../-fluent-labeled-statement/index.html) | `class FluentLabeledStatement : FluentStatement` |
 | [FluentParsedStatement](../-fluent-parsed-statement/index.html) | `class FluentParsedStatement : FluentStatement` |
 | [FluentReturnStatement](../-fluent-return-statement/index.html) | `class FluentReturnStatement : FluentStatement`<br>Used to construct a [ReturnStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ReturnStatement.html) with a given expression. |

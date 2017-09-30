@@ -6,12 +6,10 @@ title: FluentIfStatement - fluentast-core
 
 # FluentIfStatement
 
-`class FluentIfStatement : `[`FluentStatement`](../-fluent-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/IfStatement.kt#L15)
+`class FluentIfStatement : `[`FluentStatement`](../-fluent-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/IfStatement.kt#L11)
 
-Used to construct an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition and a then-statement,
+Used to build an [IfStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/IfStatement.html) with a condition and a then-statement,
 but without a else-statement.
-
-For examples and usage see [if_](../../at.hschroedl.fluentast/if_.html).
 
 ### Functions
 

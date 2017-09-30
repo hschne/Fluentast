@@ -1,16 +1,12 @@
 package at.hschroedl.fluentast.ast.statement
 
 import at.hschroedl.fluentast.ast.expression.FluentExpression
-import at.hschroedl.fluentast.if_
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.IfStatement
 
 /**
- * Used to construct an [IfStatement] with a condition and a then-statement,
+ * Used to build an [IfStatement] with a condition and a then-statement,
  * but without a else-statement.
- *
- * For examples and usage see [if_].
- *
  */
 class FluentIfStatement internal constructor(private val condition: FluentExpression,
                                              private val body: FluentStatement) : FluentStatement() {
@@ -37,9 +33,8 @@ class FluentIfStatement internal constructor(private val condition: FluentExpres
 
 /**
  * Used to construct an [IfStatement] with a condition, a then statement and an
- * else-statement.
- *
- * For examples and usage see [if_].
+ * else-statement. This class is a terminal expression, as not more than one
+ * else-statement can be added.
  */
 class FluentIfElseStatement internal constructor(private val condition: FluentExpression,
                                                  private val body: FluentStatement,
@@ -56,15 +51,13 @@ class FluentIfElseStatement internal constructor(private val condition: FluentEx
 }
 
 /**
- * Represents an [IfStatement] where a condition has
+ * Used to build an [IfStatement] where a condition has
  * been set, but a then-statement or else-statement have yet to be added.
- *
- * For examples and usage see [if_].
  */
-class IfPartial internal constructor(private val condition: FluentExpression) {
+class FluentIfPartial internal constructor(private val condition: FluentExpression) {
 
     /**
-     * Create a [FluentIfStatement].
+     * Creates a new [FluentIfStatement].
      *
      * @param statement the statement in the then-part of the [IfStatement].
      * @return the FluentIfStatement with the given statement as then-body.

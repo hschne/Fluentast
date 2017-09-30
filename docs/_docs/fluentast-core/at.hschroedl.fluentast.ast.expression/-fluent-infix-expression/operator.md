@@ -6,4 +6,4 @@ title: FluentInfixExpression.operator - fluentast-core
 
 # operator
 
-`protected val operator: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/InfixExpression.kt#L8)
+`protected val operator: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/expression/InfixExpression.kt#L11)

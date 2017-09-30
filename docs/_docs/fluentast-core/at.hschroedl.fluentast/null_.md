@@ -6,4 +6,4 @@ title: null_ - fluentast-core
 
 # null_
 
-`fun null_(): `[`FluentNullLiteral`](../at.hschroedl.fluentast.ast.expression/-fluent-null-literal/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L72)
+`fun null_(): `[`FluentNullLiteral`](../at.hschroedl.fluentast.ast.expression/-fluent-null-literal/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L75)

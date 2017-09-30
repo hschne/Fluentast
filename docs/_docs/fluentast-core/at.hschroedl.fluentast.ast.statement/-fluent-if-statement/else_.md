@@ -6,7 +6,7 @@ title: FluentIfStatement.else_ - fluentast-core
 
 # else_
 
-`fun else_(statement: `[`FluentStatement`](../-fluent-statement/index.html)`): `[`FluentIfElseStatement`](../-fluent-if-else-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/IfStatement.kt#L33)
+`fun else_(statement: `[`FluentStatement`](../-fluent-statement/index.html)`): `[`FluentIfElseStatement`](../-fluent-if-else-statement/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/ast/statement/IfStatement.kt#L29)
 
 Creates a new [FluentIfElseStatement](../-fluent-if-else-statement/index.html).
 

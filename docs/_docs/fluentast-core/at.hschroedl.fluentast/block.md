@@ -6,5 +6,5 @@ title: block - fluentast-core
 
 # block
 
-`fun block(): `[`FluentBlock`](../at.hschroedl.fluentast.ast.statement/-fluent-block/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L279)
-`fun block(vararg statements: `[`FluentStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-statement/index.html)`): `[`FluentBlock`](../at.hschroedl.fluentast.ast.statement/-fluent-block/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L283)
+`fun block(): `[`FluentBlock`](../at.hschroedl.fluentast.ast.statement/-fluent-block/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L255)
+`fun block(vararg statements: `[`FluentStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-statement/index.html)`): `[`FluentBlock`](../at.hschroedl.fluentast.ast.statement/-fluent-block/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L259)

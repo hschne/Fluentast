@@ -6,4 +6,4 @@ title: arrayInit - fluentast-core
 
 # arrayInit
 
-`fun arrayInit(vararg expression: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentArrayInitializer`](../at.hschroedl.fluentast.ast.expression/-fluent-array-initializer/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L250)
+`fun arrayInit(vararg expression: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentArrayInitializer`](../at.hschroedl.fluentast.ast.expression/-fluent-array-initializer/index.html) [(source)](http://github.com/hschroedl/fluentast/tree/master/core/at.hschroedl.fluentast/Fluentast.kt#L226)
