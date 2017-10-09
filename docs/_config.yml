@@ -2,16 +2,16 @@
 title: Fluentast
 email: hansjrgschroedl@gmail.com
 description: >
-  Fluentast is a fluent API to create Java code.
+  The fluent way to create Java code 
 
 baseurl: ""
-url: https://github.com/hschroedl/FluentAST # the base hostname & protocol for your site
+url: https://github.com/hschroedl/FluentAST 
 git_address: https://github.com/hschroedl/FluentAST
 git_edit_address: https://github.com/hschroedl/FluentAST/blob/gh-pages
 
 # theme options from https://bootswatch.com/
 # comment out this to use default Bootstrap
-bootwatch: paper
+# bootwatch: paper
 
 # Build settings
 markdown: kramdown

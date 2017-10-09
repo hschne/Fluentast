@@ -4,31 +4,22 @@ layout: default
 
 
 <div class="container">
-
-    <div class="row">
-        <div class="col-md-6">
-            <h2 class="header-light regular-pad">Fluentast</h2>
-            <blockquote>
-              <p>Jekyll is a simple, blog-aware, static site generator. It takes a template
-              directory containing raw text files in various formats, runs it through
-              a converter (like <a href="https://daringfireball.net/projects/markdown/">Markdown</a>)
-              and our <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> renderer, and
-              spits out a complete, ready-to-publish static website suitable
-              for serving with your favorite web server. Jekyll also happens to be the engine
-              behind <a href="https://pages.github.com">GitHub Pages</a>, which means you can use Jekyll
-              to host your project’s page, blog, or website from GitHub’s servers <strong>for
-              free</strong>.</p>
-            </blockquote>
-        </div>
-        <div class="col-md-6 text-center">
-            <img src="img/jekyll-dark.png" alt="" class="img-responsive">
-        </div>
+<div class="jumbotron bg-white text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Album example</h1>
+        <p class="lead ">Fluentast is a fluent API to programmatically create Java source code. It provides a natural, simple and easy-to-understand interface to using JDT Core.
+        <p>
+          <a href="#" class="btn btn-primary">Download</a>
+        </p>
+      </p>
+      </div>
     </div>
 
-    <hr>
 
-
+  
 <div id="exTab2" class="container">	
+  <p>
+Fluentast is capable of generating abstract syntax tress for Java using a fluent interface. It relies on JDT Core to do the heavy lifting and provides a cleaner and simpler interface to using JDT's functionality. Below is a comparison of JDT and Fluenast when creating the AST for a simple code snippet.</p>  
 <ul class="nav nav-tabs">
 			<li class="active">
         <a  href="#1" data-toggle="tab">Plain Java</a>
