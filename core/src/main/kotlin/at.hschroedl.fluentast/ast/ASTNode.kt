@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.dom.ASTNode
 import org.eclipse.jdt.core.dom.ASTParser
 import org.eclipse.jdt.core.dom.MemberValuePair
 
-abstract class FluentASTNode : FluentChildNode<ASTNode> {
+abstract class FluentASTNode internal constructor(): FluentChildNode<ASTNode> {
 
     abstract override fun build(ast: AST): ASTNode
 
@@ -24,7 +24,7 @@ interface FluentChildNode<out T : ASTNode> {
 }
 
 
-class FluentParsedNode(private val content: String, private val kind: Int) : FluentStandaloneNode<ASTNode> {
+class FluentParsedNode internal constructor(private val content: String, private val kind: Int) : FluentStandaloneNode<ASTNode> {
 
     override fun build(): ASTNode {
         val parser = ASTParser.newParser(AST.JLS8)
@@ -40,50 +40,50 @@ class FluentParsedNode(private val content: String, private val kind: Int) : Flu
     }
 }
 
-class FluentAnonymousClassDeclaration : FluentASTNode() {
+class FluentAnonymousClassDeclaration internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
-class FluentBodyDeclaration : FluentASTNode() {
+class FluentBodyDeclaration internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
-class FluentCatchClause : FluentASTNode() {
+class FluentCatchClause internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
-class FluentComment : FluentASTNode() {
+class FluentComment internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
 
-class FluentCompilationUnit : FluentASTNode() {
+class FluentCompilationUnit internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
-class FluentImportDeclaration : FluentASTNode() {
+class FluentImportDeclaration internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
-class FluentMemberRef : FluentASTNode() {
+class FluentMemberRef internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
-class FluentMemberValuePair(private val name: String, private val value: FluentExpression) : FluentASTNode() {
+class FluentMemberValuePair internal constructor(private val name: String, private val value: FluentExpression) : FluentASTNode() {
     override fun build(ast: AST): MemberValuePair {
         val memberPair = ast.newMemberValuePair()
         memberPair.name = ast.newSimpleName(name)
@@ -92,51 +92,47 @@ class FluentMemberValuePair(private val name: String, private val value: FluentE
     }
 }
 
-fun pair(name: String, value: FluentExpression): FluentMemberValuePair {
-    return FluentMemberValuePair(name, value)
-}
-
-class FluentMethodRef : FluentASTNode() {
+class FluentMethodRef internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
-class FluentMethodRefParameter : FluentASTNode() {
-    override fun build(ast: AST): ASTNode {
-        throw NotImplementedError()
-    }
-}
-
-
-class FluentPackageDeclaration : FluentASTNode() {
-    override fun build(ast: AST): ASTNode {
-        throw NotImplementedError()
-    }
-}
-
-class FluentTagElement : FluentASTNode() {
+class FluentMethodRefParameter internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
 
-class FluentTextElement : FluentASTNode() {
+class FluentPackageDeclaration internal constructor(): FluentASTNode() {
+    override fun build(ast: AST): ASTNode {
+        throw NotImplementedError()
+    }
+}
+
+class FluentTagElement internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
 
-class FluentTypeParameter : FluentASTNode() {
+class FluentTextElement internal constructor() : FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }
 }
 
 
-class FluentModifier : FluentASTNode() {
+class FluentTypeParameter internal constructor() : FluentASTNode() {
+    override fun build(ast: AST): ASTNode {
+        throw NotImplementedError()
+    }
+}
+
+
+class FluentModifier internal constructor(): FluentASTNode() {
     override fun build(ast: AST): ASTNode {
         throw NotImplementedError()
     }

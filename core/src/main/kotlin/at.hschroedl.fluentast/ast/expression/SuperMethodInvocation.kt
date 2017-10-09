@@ -4,7 +4,7 @@ import at.hschroedl.fluentast.ast.type.FluentType
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.SuperMethodInvocation
 
-class FluentSuperMethodInvocation(private val qualifier: String? = null,
+class FluentSuperMethodInvocation internal constructor(private val qualifier: String? = null,
                                   private val typeParameter: List<FluentType>? = null,
                                   private val name: String,
                                   private vararg val arguments: FluentExpression) : FluentExpression() {

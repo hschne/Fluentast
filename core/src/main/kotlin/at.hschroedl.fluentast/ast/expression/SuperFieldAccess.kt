@@ -6,7 +6,7 @@ import org.eclipse.jdt.core.dom.Expression
 import org.eclipse.jdt.core.dom.SuperFieldAccess
 
 
-class FluentSuperFieldAccess(private val className: String?, private val field: String) : FluentExpression() {
+class FluentSuperFieldAccess internal constructor(private val className: String?, private val field: String) : FluentExpression() {
     override fun build(ast: AST): SuperFieldAccess {
         val exp = ast.newSuperFieldAccess()
         exp.name = ast.newSimpleName(field)

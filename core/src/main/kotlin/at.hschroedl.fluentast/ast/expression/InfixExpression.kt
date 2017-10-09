@@ -5,6 +5,9 @@ import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.InfixExpression
 
 // TODO: Use static import parameters GEQ, LEQ etc.
+/**
+ * Used to build an [InfixExpression] with a left operand, an operator and a right operand.
+ */
 open class FluentInfixExpression internal constructor(protected val operator: String,
                                                       private val left: FluentExpression,
                                                       private val right: MutableCollection<FluentExpression>) : FluentExpression() {
@@ -21,6 +24,13 @@ open class FluentInfixExpression internal constructor(protected val operator: St
         return exp
     }
 
+    /**
+     * Adds a [FluentExpression] to the list of extended operands on the right hand side
+     * of the operator.
+     *
+     * @param anotherExpression expression on the right side of operator.
+     * @return this [FluentInfixExpression] with another right hand side operand.
+     */
     fun right(anotherExpression: FluentExpression): FluentInfixExpression {
         right.add(anotherExpression)
         return this
@@ -52,25 +62,47 @@ open class FluentInfixExpression internal constructor(protected val operator: St
         }
     }
 
-    class OperatorPartial internal constructor(private val operator: String) {
+}
 
-        fun left(expression: FluentExpression): LeftPartial {
-            return LeftPartial(operator, expression)
+/**
+ * Used to build an [InfixExpression]. This partial represents an intermediate
+ * representation where an operator and left-hand-side operand has been set
+ * but a right-hand side operand is missing.
+ */
+class FluentInfixLeftPartial internal constructor(private val operator: String,
+                                                  private val leftExpression: FluentExpression) {
 
-        }
+    /**
+     * Creates a [FluentInfixExpression] by adding an expression to the right-hand side
+     * of this partial.
+     *
+     * @param rightExpression expression on the right-hand side.
+     * @return a new [FluentInfixExpression].
+     */
+    fun right(rightExpression: FluentExpression): FluentInfixExpression {
+        return FluentInfixExpression(operator, leftExpression,
+                                     mutableListOf(rightExpression))
     }
 
-    class LeftPartial internal constructor(private val operator: String,
-                                           private val leftExpression: FluentExpression) {
+}
 
-        fun right(rightExpression: FluentExpression): FluentInfixExpression {
-            return FluentInfixExpression(operator, leftExpression,
-                                         mutableListOf(rightExpression))
-        }
+/**
+ * Used to build an [InfixExpression]. This partial represents an intermediate
+ * representation where the operator has been set
+ * but a right-hand side and left-hand-side operand are missing.
+ */
+class FluentInfixOperatorPartial internal constructor(private val operator: String) {
+
+    /**
+     * Creates a [FluentInfixLeftPartial] by adding a left-hand-side operand to the infix.
+     *
+     * @param expression expression on the left-hand side.
+     * @return a new [FluentInfixLeftPartial].
+     */
+    fun left(expression: FluentExpression): FluentInfixLeftPartial {
+        return FluentInfixLeftPartial(operator, expression)
 
     }
-
-
 }
 
 

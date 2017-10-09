@@ -1,0 +1,9 @@
+$dokka.format:jekyll
+$dokka.linkExtension:html
+
+at.hschroedl.fluentast
+at.hschroedl.fluentast.ast
+at.hschroedl.fluentast.ast.expression
+at.hschroedl.fluentast.ast.statement
+at.hschroedl.fluentast.ast.type
+at.hschroedl.fluentast.exception

@@ -3,6 +3,9 @@ package at.hschroedl.fluentast.demo.quicksort;
 import at.hschroedl.fluentast.demo.quicksort.QuicksortWithFluentast;
 import at.hschroedl.fluentast.demo.quicksort.QuicksortWithJDT;
 
+import static at.hschroedl.fluentast.FluentastKt.break_;
+import static at.hschroedl.fluentast.FluentastKt.exp;
+import static at.hschroedl.fluentast.FluentastKt.if_;
 import static java.lang.System.out;
 
 /**
@@ -16,6 +19,7 @@ public class Quicksort {
   public static void main(String[] args) {
     out.println(QuicksortWithJDT.quickSortJDT());
     out.println(QuicksortWithFluentast.quickSortFluentast());
+    break_();
   }
 
 

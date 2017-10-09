@@ -7,7 +7,12 @@ import at.hschroedl.fluentast.ast.expression.*
 import at.hschroedl.fluentast.ast.statement.*
 import at.hschroedl.fluentast.ast.type.FluentArrayType
 import at.hschroedl.fluentast.ast.type.FluentPrimitiveType
+import at.hschroedl.fluentast.ast.type.FluentSimpleType
 import at.hschroedl.fluentast.ast.type.FluentType
+import org.eclipse.jdt.core.dom.*
+import org.eclipse.jdt.core.dom.IfStatement
+import org.eclipse.jdt.core.dom.InfixExpression
+import org.eclipse.jdt.core.dom.ReturnStatement
 
 
 fun annotation(name: String): FluentMarkerAnnotation {
@@ -22,6 +27,7 @@ fun annotation(name: String, expression: FluentExpression): FluentSingleMemberAn
 fun annotation(name: String, vararg members: FluentMemberValuePair): FluentNormalAnnotation {
     return FluentNormalAnnotation(name, *members)
 }
+
 
 fun b(value: Boolean): FluentBooleanLiteral {
     return FluentBooleanLiteral(value)
@@ -80,14 +86,43 @@ fun stmnt(content: String): FluentStatement {
 }
 
 
+fun t(name: String): FluentType {
+    return FluentSimpleType(name)
+}
+
+fun pair(name: String, value: FluentExpression): FluentMemberValuePair {
+    return FluentMemberValuePair(name, value)
+}
+
+
+/**
+ * Creates a [FluentBreakStatement] which is used for building a [BreakStatement]
+ *
+ * @return a new [FluentBreakStatement].
+ * @see [BreakStatement], [FluentBreakStatement]
+ */
 fun break_(): FluentStatement {
     return FluentBreakStatement()
 }
 
+/**
+ * Creates a new [FluentReturnStatement], used for building a [ReturnStatement].
+ *
+ * @return a new [FluentReturnStatement].
+ * @see [ReturnStatement], [FluentReturnStatement]
+ *
+ */
 fun return_(): FluentStatement {
     return FluentReturnStatement(null)
 }
 
+/**
+ * Creates a [FluentReturnStatement], used for building a [ReturnStatement].
+ *
+ * @param expression the expression behind the return.
+ * @return a [FluentReturnStatement] with [FluentExpression] as expression.
+ * @see [ReturnStatement], [FluentReturnStatement]
+ */
 fun return_(expression: FluentExpression): FluentReturnStatement {
     return FluentReturnStatement(expression)
 }
@@ -162,8 +197,19 @@ fun decl(type: FluentType, name: String): FluentExpression {
                                                        name, initializer = null))
 }
 
-fun infix(operator: String): FluentInfixExpression.OperatorPartial {
-    return FluentInfixExpression.OperatorPartial(operator)
+/**
+ * Creates an [FluentInfixOperatorPartial], which is used for building an [InfixExpression].
+ *
+ * @param operator operator used in [InfixExpression]. See [InfixExpression.Operator].
+ * @return a new [FluentInfixOperatorPartial].
+ *
+ * @see [FluentInfixOperatorPartial]
+ * @see [FluentInfixLeftPartial]
+ * @see [FluentInfixExpression]
+ *
+ */
+fun infix(operator: String): FluentInfixOperatorPartial {
+    return FluentInfixOperatorPartial(operator)
 }
 
 
@@ -228,8 +274,20 @@ fun stmnt(expression: FluentExpression): FluentExpressionStatement {
     return FluentExpressionStatement(expression)
 }
 
-fun if_(condition: FluentExpression): FluentIfStatement.IfPartial {
-    return FluentIfStatement.IfPartial(condition)
+
+/**
+ * Creates an [FluentIfPartial]. A [FluentIfPartial] is used in creating an [IfStatement].
+ *
+ * @param condition a [FluentExpression] to be used as condition in the [IfStatement].
+ * @return a new [FluentIfPartial].
+ *
+ * @see [FluentIfPartial]
+ * @see [FluentIfStatement]
+ * @see [FluentIfElseStatement]
+ *
+ */
+fun if_(condition: FluentExpression): FluentIfPartial {
+    return FluentIfPartial(condition)
 }
 
 fun for_(): FluentForStatement.ForPartial {
@@ -251,4 +309,8 @@ fun cast(type: FluentType, expression: FluentExpression): FluentCastExpression {
 
 fun postfix(operator: String): FluentPostfixExpression.PostfixPartial {
     return FluentPostfixExpression.PostfixPartial(operator)
+}
+
+fun prefix(operator: String, expression: FluentExpression): FluentPrefixExpression {
+    return FluentPrefixExpression(operator, expression)
 }

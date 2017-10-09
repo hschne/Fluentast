@@ -4,6 +4,10 @@ import at.hschroedl.fluentast.ast.type.FluentArrayType
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ArrayCreation
 
+/**
+ * Used to create a [ArrayCreation] with the given [FluentArrayType]
+ * and a [FluentArrayInitializer].
+ */
 class FluentArrayCreation internal constructor(private val type: FluentArrayType,
                                                private val initializer: FluentArrayInitializer?) : FluentExpression() {
     override fun build(ast: AST): ArrayCreation {

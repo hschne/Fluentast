@@ -5,7 +5,7 @@ import at.hschroedl.fluentast.ast.FluentStandaloneNode
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.Expression
 
-abstract class FluentExpression : FluentASTNode(), FluentStandaloneNode<Expression> {
+abstract class FluentExpression internal constructor(): FluentASTNode(), FluentStandaloneNode<Expression> {
 
     abstract override fun build(ast: AST): Expression
 

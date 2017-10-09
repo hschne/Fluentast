@@ -1,19 +1,19 @@
 # Module Fluentast
 
-The module contains FluentAST
+This module contains the public API of Fluentast.
 
 # Package at.hschroedl.fluentast
 
-Contains all base stuff
+Base package of the Fluentast API.
+
+# Package at.hschroedl.fluentast.ast 
+
+This package contains Fluentast representations of [ASTNode]. 
 
 # Package at.hschroedl.fluentast.ast.expression
 
-Contains Expressions.
-
-## Level 2 heading
-
-Text after this heading is also part of documentation for `org.jetbrains.kotlin.demo`
+Contains Fluentast representations of [Expression].
 
 # Package at.hschroedl.fluentast.ast.statement
 
-Useful stuff in another package.
+Contains Fluentast representations of [Statement].

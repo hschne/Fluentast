@@ -1,8 +1,8 @@
 package at.hschroedl.fluentast.ast.expression
 
 import at.hschroedl.fluentast.annotation
-import at.hschroedl.fluentast.ast.pair
 import at.hschroedl.fluentast.i
+import at.hschroedl.fluentast.pair
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.NormalAnnotation
 import org.junit.jupiter.api.Assertions

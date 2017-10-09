@@ -4,6 +4,9 @@ import at.hschroedl.fluentast.ast.expression.FluentExpression
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.AssertStatement
 
+/**
+ * Used to build an [AssertStatement] on the given expression with an optional message.
+ */
 class FluentAssertStatement internal constructor(private val expression: FluentExpression,
                                                  private val message: FluentExpression? = null) : FluentStatement() {
     override fun build(ast: AST): AssertStatement {

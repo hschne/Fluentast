@@ -3,7 +3,7 @@ package at.hschroedl.fluentast.ast.expression
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.SingleMemberAnnotation
 
-class FluentSingleMemberAnnotation(private val name: String,
+class FluentSingleMemberAnnotation internal constructor(private val name: String,
                                    private val expression: FluentExpression) : FluentAnnotation() {
     override fun build(ast: AST): SingleMemberAnnotation {
         val annotation = ast.newSingleMemberAnnotation()

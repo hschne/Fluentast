@@ -7,17 +7,33 @@ import at.hschroedl.fluentast.ast.FluentStandaloneNode
 import org.eclipse.jdt.core.dom.*
 
 
+/**
+ * Used to create a [Statement].
+ *
+ */
 abstract class FluentStatement internal constructor() : FluentASTNode(), FluentStandaloneNode<Statement> {
 
+    /**
+     * Creates an [Statement] from the given [FluentStatement] using the given [AST].
+     *
+     * @param ast used for creating the [Statement]
+     * @return a new [Statement]
+     *
+     */
     abstract override fun build(ast: AST): Statement
 
+    /**
+     * Creates a [Statement] using a new [AST].
+     *
+     * @return a new [Statement]
+     */
     override fun build(): Statement {
         val ast: AST = AST.newAST(AST.JLS8)
         return build(ast)
     }
 }
 
-class FluentParsedStatement(private val content: String) : FluentStatement() {
+class FluentParsedStatement internal constructor(private val content: String) : FluentStatement() {
 
     override fun build(): Statement {
         val block = FluentParsedNode(content, ASTParser.K_STATEMENTS).build() as Block
@@ -33,80 +49,80 @@ class FluentParsedStatement(private val content: String) : FluentStatement() {
     }
 }
 
-class FluentConstructorInvocation : FluentStatement() {
+class FluentConstructorInvocation internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newBreakStatement()
     }
 }
 
-class FluentContinueStatement : FluentStatement() {
+class FluentContinueStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newBreakStatement()
     }
 }
 
-class FluentDoStatement : FluentStatement() {
+class FluentDoStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newBreakStatement()
     }
 }
 
-class FluentEmptyStatement : FluentStatement() {
+class FluentEmptyStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEmptyStatement()
     }
 }
 
 
-class FluentEnhancedForStatement : FluentStatement() {
+class FluentEnhancedForStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }
 }
 
-class FluentLabeledStatement : FluentStatement() {
+class FluentLabeledStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }
 }
 
-class FluentSuperConstructorInvocation : FluentStatement() {
+class FluentSuperConstructorInvocation internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }
 }
 
-class FluentSwitchCase : FluentStatement() {
+class FluentSwitchCase internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }
 }
 
-class FluentSwitchStatement : FluentStatement() {
+class FluentSwitchStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }
 }
 
-class FluentSynchronizedStatement : FluentStatement() {
+class FluentSynchronizedStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }
 }
 
-class FluentThrowStatement : FluentStatement() {
+class FluentThrowStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }
 }
 
-class FluentTryStatement : FluentStatement() {
+class FluentTryStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }
 }
 
-class FluentTypeDeclarationStatement : FluentStatement() {
+class FluentTypeDeclarationStatement internal constructor() : FluentStatement() {
     override fun build(ast: AST): Statement {
         return ast.newEnhancedForStatement()
     }

@@ -1,6 +1,7 @@
 package at.hschroedl.fluentast.ast.type
 
 import at.hschroedl.fluentast.exception.FluentArgumentException
+import at.hschroedl.fluentast.t
 import at.hschroedl.fluentast.test.toInlineString
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ArrayType

@@ -5,9 +5,9 @@ import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.*
 
 
-abstract class FluentBlock : FluentStatement()
+abstract class FluentBlock internal constructor(): FluentStatement()
 
-class FluentStatementBlock() : FluentBlock() {
+class FluentStatementBlock internal constructor() : FluentBlock() {
 
     private val statements: MutableCollection<FluentStatement> = mutableListOf()
 
@@ -25,7 +25,7 @@ class FluentStatementBlock() : FluentBlock() {
     }
 }
 
-class FluentParsedBlock(private val content: String) : FluentBlock() {
+class FluentParsedBlock internal constructor(private val content: String) : FluentBlock() {
 
     override fun build(): Statement {
 

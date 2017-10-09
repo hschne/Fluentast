@@ -4,7 +4,7 @@ import at.hschroedl.fluentast.exception.FluentArgumentException
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ArrayType
 
-class FluentArrayType(private val type: FluentType,
+class FluentArrayType internal constructor(private val type: FluentType,
                       private val dimensions: Int = 1) : FluentType() {
 
 
@@ -19,12 +19,4 @@ class FluentArrayType(private val type: FluentType,
         }
         return type as ArrayType
     }
-}
-
-fun arr(type: FluentType): FluentArrayType {
-    return FluentArrayType(type)
-}
-
-fun arr(type: FluentType, dimensions: Int): FluentArrayType {
-    return FluentArrayType(type, dimensions)
 }
