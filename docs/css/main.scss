@@ -5,7 +5,12 @@
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 
+@font-face {
+	font-family: "Streetwear";
+	src: url("fonts/Streetwear.otf?") format("opentype");
+}
 
+@import url("https://fonts.googleapis.com/css?family=Cabin");
 
 @import
   {% if site.bootwatch %}
@@ -22,6 +27,8 @@
   "typeahead"
 ;
 
+
+
 html {
   position: relative;
   min-height: 100%;
@@ -29,6 +36,7 @@ html {
 body {
   padding-top: $navbar-height + $navbar-margin-bottom;
   margin-bottom: 46px;
+  font-family: 'Cabin', sans-serif;
 }
 
 .navbar-brand{
@@ -90,4 +98,8 @@ body {
 }
 .bg-white {
   background: white;
+}
+
+.display {
+   font-family: "Streetwear";
 }

@@ -4,3 +4,6 @@ _site
 *.gem
 .bundle
 vendor/bundle
+
+### API docs are built using maven, thus ignored
+_docs/fluentast-core/

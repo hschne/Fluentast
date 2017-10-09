@@ -155,6 +155,7 @@
         </executions>
         <configuration>
           <outputFormat>jekyll</outputFormat>
+          <outputDir>../docs/_docs</outputDir>
 
           <sourceDirectories>
             <dir>src/main/kotlin</dir>
