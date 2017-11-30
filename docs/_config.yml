@@ -5,9 +5,9 @@ description: >
   The fluent way to create Java code 
 
 baseurl: ""
-url: https://github.com/hschroedl/FluentAST 
+url: https://hschroedl.at/FluentAST/
 git_address: https://github.com/hschroedl/FluentAST
-git_edit_address: https://github.com/hschroedl/FluentAST/blob/gh-pages
+git_edit_address: https://github.com/hschroedl/FluentAST/blob
 
 # theme options from https://bootswatch.com/
 # comment out this to use default Bootstrap
