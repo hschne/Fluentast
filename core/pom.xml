@@ -17,6 +17,7 @@
     <dokka.version>0.9.15</dokka.version>
     <junit.version>5.0.0</junit.version>
     <maven-compiler.version>3.7.0</maven-compiler.version>
+    <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
   </properties>
 
 
@@ -96,7 +97,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-         <version>${maven-compiler.version}</version>
+        <version>${maven-compiler.version}</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -155,7 +156,6 @@
         </executions>
         <configuration>
           <outputFormat>jekyll</outputFormat>
-          <outputDir>../docs/_docs</outputDir>
 
           <sourceDirectories>
             <dir>src/main/kotlin</dir>
@@ -182,6 +182,26 @@
           </externalDocumentationLinks>
 
         </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>${maven-antrun-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>copy-docs</id>
+            <configuration>
+              <tasks>
+                <copy todir="../docs/_docs/fluentast-core">
+                  <fileset dir="${basedir}/target/dokka/fluentast-core/" includes="**/*"/>
+                </copy>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
 
