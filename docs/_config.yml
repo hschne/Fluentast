@@ -5,7 +5,7 @@ description: >
   The fluent way to create Java code 
 
 baseurl: ""
-url: https://hschroedl.at/
+url: https://hschroedl.at/FluentAST
 git_address: https://github.com/hschroedl/FluentAST
 git_edit_address: https://github.com/hschroedl/FluentAST/blob
 
