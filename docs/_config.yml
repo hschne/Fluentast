@@ -11,7 +11,7 @@ git_edit_address: https://github.com/hschroedl/FluentAST/blob/gh-pages
 
 # theme options from https://bootswatch.com/
 # comment out this to use default Bootstrap
-# bootwatch: paper
+bootwatch: paper
 
 # Build settings
 markdown: kramdown
@@ -43,6 +43,15 @@ defaults:
   values:
     layout: docs
     sectionid: docs
+    seo:
+      type: "WebPage"
+
+- scope:
+    path: _docs/fluentast-core
+    type: docs
+  values:
+    layout: docs_generated
+    sectionid: docs/fluentast-core
     seo:
       type: "WebPage"
 
