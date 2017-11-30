@@ -2,10 +2,14 @@
 A fluent API to create abstract syntax trees using JDT
 
 ## Todo: 
-    
-- Also: Adding existing ast elements into the builder structure
 
-- Website: Compare with normal jdt interface
+## V1
 
-- After that: Compilation unit, reading from files
-- Searching, modifiying ast     
+- Add most useful expressions and statements (loop!)
+
+- Finish website (with docs)
+
+- CI (travis, coverall)
+
+- Maven
+

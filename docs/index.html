@@ -2,70 +2,78 @@
 layout: default
 ---
 
-
 <div class="container">
 <div class="jumbotron bg-white text-center">
       <div class="container">
         <img src="img/header.svg" width="70%">
-        <p class="lead ">Fluentast is a fluent API to programmatically create Java source code. It
-          provides a natural, simple and easy-to-understand interface to using JDT Core.
+        <p class="lead ">A fluent API to create abstract syntax trees for Java
       </p>
       </div>
     </div>
 
-  <hr>
-
 
 <div id="exTab2" class="container">
 
-  <h2 class="display text-center">Installation</h2>
+  <h2 class="display text-left">Installation</h2>
   <p>You may install Fluentast using Maven or Gradle. You may also simply download the latest
-    release from <a href="#">Github</a>.</p>
+    release <a href="https://github.com/hschroedl/FluentAST">here</a>.</p>
   <ul class="nav nav-tabs">
     <li class="active">
       <a href="#1" data-toggle="tab">Maven</a>
     </li>
     <li><a href="#2" data-toggle="tab">Gradle</a>
     </li>
-    <li><a href="#3" data-toggle="tab">Download</a>
-    </li>
   </ul>
-  <div class="tab-content ">
+  <div class="tab-content" id="installation" >
     <div class="tab-pane active" id="1">
+{% highlight xml %}
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+{% endhighlight %}
     </div>
+        <div class="tab-pane" id="2">
+{% highlight gradle %}
+testCompile group: 'junit', name: 'junit', version: '4.12'
+{% endhighlight %}
+    </div>
+
   </div>
 
-  <p>
-
-  </p>
 
   <hr>
-  <h2 class="display text-center">Usage</h2>
+  <h2 class="display text-left">Usage</h2>
   <p>The example below demonstrates how a simple code snippet can be built using JDT Core. It also
-    demonstrates how to create the same snippet using Fluentast. You can find additional examples in
-    the <a href="#">docs </a>or on <a href="#">Github</a>.</p>
+    demonstrates how to create the same snippet using Fluentast. </p>
+  <p>You can find additional examples in
+    the <a href="/docs/home/">docs </a>or in the demo project on <a href="https://github.com/hschroedl/FluentAST/tree/master/demo/src/main/java/at/hschroedl/fluentast/demo">Github</a>.</p>
   <ul class="nav nav-tabs">
     <li class="active">
-      <a href="#1" data-toggle="tab">Plain Java</a>
+      <a href="#4" data-toggle="tab">Plain Java</a>
     </li>
-    <li><a href="#2" data-toggle="tab">Using JDT</a>
+    <li><a href="#5" data-toggle="tab">Using JDT</a>
     </li>
-    <li><a href="#3" data-toggle="tab">Using Fluentast</a>
+    <li><a href="#6" data-toggle="tab">Using Fluentast</a>
     </li>
   </ul>
-  <div class="tab-content ">
-    <div class="tab-pane active" id="1">
+  <div id="usage"  class="tab-content ">
+    <div class="tab-pane active" id="4">
 {% highlight java %}
+// Just a bit of code, how bad could it be?
 int i=1;
 while (true) {
   System.out.println(i);
-  if (i > 99)     break;
+  if (i > 99) break;
   i++;
 }
 {% endhighlight %}
 				</div>
-				<div class="tab-pane" id="2">
+				<div class="tab-pane" id="5">
 {% highlight java %}
+// As it turns out, very.
 AST ast = AST.newAST(AST.JLS8);
 Block block = ast.newBlock();
 VariableDeclarationFragment fragment = ast.newVariableDeclarationFragment();
@@ -107,8 +115,9 @@ block.statements().add(whileStatement);
 {% endhighlight %}
 				</div>
 
-        <div class="tab-pane" id="3">
+        <div class="tab-pane" id="6">
 {% highlight java %}
+// That's certainly better!
 FluentStatement variableDeclaration = stmnt(decl("int",1));
 FluentStatement methodInvocation = stmnt(invocation(name("System.out"),
                                                     new ArrayList<FluentType>(),
@@ -129,25 +138,35 @@ block(variableDeclaration,
   </div>
 
 
+  <hr>
+<div class="container">
+
+  <h2 class="display text-left">Why Fluentast?</h2>
+  <p>There are a number of options out there to programmatically create Java code. Most notably, there is <a href="https://github.com/square/javapoet">Javapoet</a>.</p><p>
+  However, sometimes you just can't help using JDT. Maybe you are developing an Eclipse plugin? Maybe you want to leverage one of the numerous features of JDT?</p>
+  Either way, if you are stuck with JDT, you will have to be prepared to do lots of typing. Or, you know, just use Fluentast and save you some hassle. I mean, have you looked at the example above? 
+</div>
+
+<hr>
     <div class="row">
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-pencil" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Easy to install and publish</h3>
-            <p>Get started by clonening source into GitHub account of your project. Thanks to <a href="https://pages.github.com">GitHub Pages</a>,
-              it will be automatically compiled and publsihed under your project's subdomain on `github.io`.
+            <h1 class="text-center"><i class="fa fa-code" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Supported Elements</h3>
+            <p>The most common syntax elements, such as if-statements, loops, variable assignments and so forth are supported. However, there might still be some missing.
+              For an overview of supported syntax elements please see the <a href="#">supported syntax elements documentation</a>.
             </p>
         </div>
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Modular Styling and Templating</h3>
-            <p>This template uses <a href="https://github.com/twbs/bootstrap-sass">bootstrap-sass</a> along with <a href="https://bootswatch.com/">Bootwatch themes</a>.
-            You can change the theme or write your custom by overwriting bootstrap sass variables for different color set, font options, etc.</p>
+            <h1 class="text-center"><i class="fa fa-check-circle" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Additional Features</h3>
+            <p>Creating an abstract syntax tree is still to cumbersome? You may simple add blocks and statements as strings and mix them with other fluent elements. For more information
+            regarding this feature see <a href="#">here</a> </p>
         </div>
         <div class="col-sm-4">
             <h1 class="text-center"><i class="fa fa-code-fork" aria-hidden="true"></i></h1>
-            <h3 class="text-center">Git based source control</h3>
-            <p>Leverege from Git version control system by
-              maintaining your documentation along with the source code; publish the page when you merge to the master branch.</p>
+            <h3 class="text-center">Contributions Welcome</h3>
+            <p>There is still a lot of work to do. Add fluent interfaces for not-yet supported types or even add entirely new capabilities: Your contributions are
+            certainly welcome! Have a look at the <a href="https://github.com/hschroedl/FluentAST">repository</a>.</p>
         </div>
     </div>
 </div>
