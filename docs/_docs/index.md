@@ -1,50 +1,135 @@
 ---
-title: Welcome
+title: Basics
 permalink: /docs/home/
 redirect_from: /docs/index.html
 ---
 
-## Getting started
+## Getting Started
 
-[GitHub Pages](https://pages.github.com) can automatically generate and serve the website for you.
-Let's say you have a username/organisation `my-org` and project `my-proj`; if you locate Jekyll source under `docs` folder of master branch in your repo `github.com/my-org/my-proj`, the website will be served on `my-org.github.io/my-proj`.
-The good thing about coupling your documentation with the source repo is, whenever you merge features with regarding content to master branch, it will also be published in the webpage instantly.
+Fluentast is a fluent API to create abstract syntax trees for Java. Getting started is simple. 
 
-1. Just download the source from [github.com/aksakalli/jekyll-doc-theme](https://github.com/aksakalli/jekyll-doc-theme/master) into your repo under `docs` folder.
-2. Edit site settings in  `_config.yml` file according to your project.
-3. Replace `favicon.ico` and `img/logonav.png` with your own logo.
+Install Fluentast using either Maven or Gradle. 
 
-## Writing content
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#1" data-toggle="tab">Maven</a>
+    </li>
+    <li><a href="#2" data-toggle="tab">Gradle</a>
+    </li>
+  </ul>
+  <div class="tab-content"  >
+    <div class="tab-pane active" id="1">
+{% highlight xml %}
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+{% endhighlight %}
+    </div>
+        <div class="tab-pane" id="2">
+{% highlight gradle %}
+testCompile group: 'junit', name: 'junit', version: '4.12'
 
-### Docs
+{% endhighlight %}
+    </div>
 
-Docs are [collections](https://jekyllrb.com/docs/collections/) of pages stored under `_docs` folder. To create a new page:
+ </div>
+ 
+You may then use Fluentast to create a syntax tree. 
 
-**1.** Create a new Markdown as `_docs/my-page.md` and write [front matter](https://jekyllrb.com/docs/frontmatter/) & content such as:
 
-```
----
-title: My Page
-permalink: /docs/my-page/
----
+## Examples
 
-Hello World!
-```
+The example below demonstrates how to build a simple code snippet can be built using JDT Core or Fluentast.
 
-**2.** Add the pagename to `_data/docs.yml` file in order to list in docs navigation panel:
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#4" data-toggle="tab">Plain Java</a>
+    </li>
+    <li><a href="#5" data-toggle="tab">Using JDT</a>
+    </li>
+    <li><a href="#6" data-toggle="tab">Using Fluentast</a>
+    </li>
+  </ul>
+  <div  class="tab-content ">
+    <div class="tab-pane active" id="4">
+{% highlight java %}
+int i=1;
+while (true) {
+  System.out.println(i);
+  if (i > 99) break;
+  i++;
+}
+{% endhighlight %}
+				</div>
+				<div class="tab-pane" id="5">
+{% highlight java %}
+AST ast = AST.newAST(AST.JLS8);
+Block block = ast.newBlock();
+VariableDeclarationFragment fragment = ast.newVariableDeclarationFragment();
+fragment.setName(ast.newSimpleName("i"));
+fragment.setInitializer(ast.newNumberLiteral("1"));
+VariableDeclarationStatement statement = ast.newVariableDeclarationStatement(fragment);
+statement.setType(ast.newPrimitiveType(PrimitiveType.INT));
+block.statements().add(statement);
+WhileStatement whileStatement = ast.newWhileStatement();
+whileStatement.setExpression(ast.newBooleanLiteral(true));
+Block whileBody = ast.newBlock();
+MethodInvocation methodInvocation = ast.newMethodInvocation();
+methodInvocation.setName(ast.newSimpleName("println"));
+methodInvocation.setExpression(ast.newName("System.out"));
+methodInvocation
+    .arguments()
+    .add(ast.newSimpleName("i"));
+whileBody
+    .statements()
+    .add(ast.newExpressionStatement(methodInvocation));
+IfStatement ifStatement = ast.newIfStatement();
+InfixExpression infixExpression = ast.newInfixExpression();
+infixExpression.setLeftOperand(ast.newSimpleName("i"));
+infixExpression.setOperator(Operator.GREATER);
+infixExpression.setRightOperand(ast.newNumberLiteral("99"));
+ifStatement.setExpression(infixExpression);
+ifStatement.setThenStatement(ast.newBreakStatement());
+whileBody
+    .statements()
+    .add(ifStatement);
+PostfixExpression postfixExpression = ast.newPostfixExpression();
+postfixExpression.setOperator(PostfixExpression.Operator.INCREMENT);
+postfixExpression.setOperand(ast.newSimpleName("i"));
+whileBody
+    .statements()
+    .add(ast.newExpressionStatement(postfixExpression));
+whileStatement.setBody(whileBody);
+block.statements().add(whileStatement);
+{% endhighlight %}
+				</div>
 
-```
-- title: My Group Title
-  docs:
-  - my-page
-```
+        <div class="tab-pane" id="6">
+{% highlight java %}
+FluentStatement variableDeclaration = stmnt(decl("int",1));
+FluentStatement methodInvocation = stmnt(invocation(name("System.out"),
+                                                    new ArrayList<FluentType>(),
+                                                    "println",
+                                                    n("i")));
+FluentBlock whileBody = block(methodInvocation,
+                              if_(infix(">")
+                                      .left(n("i"))
+                                      .right(i(99))).then(break_()),
+                              stmnt(postfix("++").operand(n("i"))));
+block(variableDeclaration,
+      while_(b(true))
+          .do_(whileBody))
+    .build();
+{% endhighlight %}
+				</div>
+			</div>
 
-### Blog posts
 
-Add a new Markdown file such as `2017-05-09-my-post.md` and write the content similar to other post examples.
+You can find additional examples in the in the demo project on [Github](https://github.com/hschroedl/FluentAST/tree/master/demo/src/main/java/at/hschroedl/fluentast/demo). 
 
-### Pages
+For more information regarding the Fluentast syntax have a look at the [syntax page](#) or at the [API](/docs/fluentast-core/)
 
-The home page is located under `index.html` file. You can change the content or design completely different welcome page for your taste. (You can use [bootstrap componenets](http://getbootstrap.com/components/))
 
-In order to add a new page, create a new html or markdown file under root directory and link it in `_includes/topnav.html`.
