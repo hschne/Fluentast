@@ -37,6 +37,14 @@ fun c(value: Char): FluentCharacterLiteral {
     return FluentCharacterLiteral(value)
 }
 
+fun i(value: Int): FluentNumberLiteral {
+    return FluentNumberLiteral(value)
+}
+
+fun s(literal: String): FluentStringLiteral {
+    return FluentStringLiteral(literal)
+}
+
 fun ternary(condition: FluentExpression, then: FluentExpression,
             `else`: FluentExpression): FluentConditionalExpression {
     return FluentConditionalExpression(condition, then, `else`)
@@ -65,6 +73,10 @@ fun fragment(name: String): FluentVariableDeclarationFragmentImpl {
     return FluentVariableDeclarationFragmentImpl(name)
 }
 
+fun fragment(name: String, initializer: FluentExpression): FluentVariableDeclarationFragmentImpl {
+    return FluentVariableDeclarationFragmentImpl(name, initializer = initializer)
+}
+
 fun p(type: String): FluentPrimitiveType {
     return FluentPrimitiveType(type)
 }
@@ -77,9 +89,7 @@ fun null_(): FluentNullLiteral {
     return FluentNullLiteral()
 }
 
-fun i(value: Int): FluentNumberLiteral {
-    return FluentNumberLiteral(value)
-}
+
 
 fun stmnt(content: String): FluentStatement {
     return FluentParsedStatement(content)
@@ -117,7 +127,7 @@ fun return_(): FluentStatement {
 }
 
 /**
- * Creates a [FluentReturnStatement], used for building a [ReturnStatement].
+ * Creates a [FluentReturnStatement].
  *
  * @param expression the expression behind the return.
  * @return a [FluentReturnStatement] with [FluentExpression] as expression.
@@ -140,9 +150,7 @@ fun paranthesis(expression: FluentExpression): FluentParenthesizedExpression {
     return FluentParenthesizedExpression(expression)
 }
 
-fun s(literal: String): FluentStringLiteral {
-    return FluentStringLiteral(literal)
-}
+
 
 fun superField(field: String): FluentSuperFieldAccess {
     return FluentSuperFieldAccess(null, field)
@@ -165,18 +173,32 @@ fun superMethod(qualifier: String,
 }
 
 
-fun decl(name: String, initializer: Int): FluentExpression {
+/**
+ * Creates an integer [FluentVariableDeclarationExpression].
+ *
+ * See the documentation of [FluentVariableDeclarationExpression] for information on how to use this method.
+ *
+ * @param initializer the initial integer value.
+ * @return a [FluentVariableDeclarationExpression] of type int and value [initializer]
+ * @see [VariableDeclarationExpression], [FluentVariableDeclarationExpression]
+ */
+fun decl(name: String, initializer: Int): FluentVariableDeclarationExpression {
     return FluentVariableDeclarationExpression(p("int"),
                                                FluentVariableDeclarationFragmentImpl(
                                                        name, initializer =
                                                i(initializer)))
 }
 
-fun decl(type: FluentType,
-         vararg fragment: FluentVariableDeclarationFragment): FluentVariableDeclarationExpression {
-    return FluentVariableDeclarationExpression(type, *fragment)
-}
 
+/**
+ * <p>Creates a boolean [FluentVariableDeclarationExpression].</p>
+ *
+ * See the documentation of [FluentVariableDeclarationExpression] for information on how to use this method.
+ *
+ * @param initializer the initial boolean value.
+ * @return a [FluentVariableDeclarationExpression] of type boolean and value [initializer]
+ * @see [VariableDeclarationExpression], [FluentVariableDeclarationExpression]
+ */
 fun decl(name: String, initializer: Boolean): FluentVariableDeclarationExpression {
     return FluentVariableDeclarationExpression(p("boolean"),
                                                FluentVariableDeclarationFragmentImpl(
@@ -184,6 +206,15 @@ fun decl(name: String, initializer: Boolean): FluentVariableDeclarationExpressio
                                                        initializer = b(initializer)))
 }
 
+/**
+ * Creates a char [FluentVariableDeclarationExpression]. <br>
+ *
+ * See the documentation of [FluentVariableDeclarationExpression] for information on how to use this method.
+ *
+ * @param initializer the initial char value.
+ * @return a [FluentVariableDeclarationExpression] of type char and value [initializer]
+ * @see [VariableDeclarationExpression], [FluentVariableDeclarationExpression]
+ */
 fun decl(name: String, initializer: Char): FluentVariableDeclarationExpression {
     return FluentVariableDeclarationExpression(p("char"),
                                                FluentVariableDeclarationFragmentImpl(
@@ -191,10 +222,24 @@ fun decl(name: String, initializer: Char): FluentVariableDeclarationExpression {
                                                        initializer = c(initializer)))
 }
 
-fun decl(type: FluentType, name: String): FluentExpression {
+/**
+ * Creates a string [FluentVariableDeclarationExpression].
+ *
+ * See the documentation of [FluentVariableDeclarationExpression] for information on how to use this method.
+ *
+ * @param initializer the initial string value.
+ * @return a [FluentVariableDeclarationExpression] of type string and value [initializer]
+ * @see [VariableDeclarationExpression], [FluentVariableDeclarationExpression]
+ */
+fun decl(type: FluentType, initializer: String): FluentExpression {
     return FluentVariableDeclarationExpression(type,
                                                FluentVariableDeclarationFragmentImpl(
-                                                       name, initializer = null))
+                                                       initializer, initializer = null))
+}
+
+fun decl(type: FluentType,
+         vararg fragment: FluentVariableDeclarationFragment): FluentVariableDeclarationExpression {
+    return FluentVariableDeclarationExpression(type, *fragment)
 }
 
 /**

@@ -18,5 +18,5 @@ title: FluentVariableDeclaration - fluentast-core
 
 ### Inheritors
 
-| [FluentVariableDeclarationFragment](../-fluent-variable-declaration-fragment/index.html) | `abstract class FluentVariableDeclarationFragment : FluentVariableDeclaration` |
+| [FluentVariableDeclarationFragment](../-fluent-variable-declaration-fragment/index.html) | `abstract class FluentVariableDeclarationFragment : FluentVariableDeclaration`<br>A wrapper class for [VariableDeclarationFragment](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/VariableDeclarationFragment.html). Fragements are used to declare or initialize values. |
 

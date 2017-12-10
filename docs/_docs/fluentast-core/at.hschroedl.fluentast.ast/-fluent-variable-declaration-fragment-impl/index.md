@@ -6,7 +6,7 @@ title: FluentVariableDeclarationFragmentImpl - fluentast-core
 
 # FluentVariableDeclarationFragmentImpl
 
-`class FluentVariableDeclarationFragmentImpl : `[`FluentVariableDeclarationFragment`](../-fluent-variable-declaration-fragment/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L25)
+`class FluentVariableDeclarationFragmentImpl : `[`FluentVariableDeclarationFragment`](../-fluent-variable-declaration-fragment/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L50)
 
 ### Constructors
 

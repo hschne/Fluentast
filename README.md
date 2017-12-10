@@ -17,11 +17,13 @@ I use [a license](LICENSE). Don't you?
 
 ## V1
 
+- Restructure convenience function location
+
 - Add most useful expressions and statements (loop!)
 
 - Finish website (with docs)
 
 - CI (travis, coverall)
 
-- Maven
+- Maven, or release at least
 

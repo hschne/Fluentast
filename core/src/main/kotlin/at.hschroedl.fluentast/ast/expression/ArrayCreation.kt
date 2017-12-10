@@ -5,7 +5,7 @@ import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ArrayCreation
 
 /**
- * Used to create a [ArrayCreation] with the given [FluentArrayType]
+ * Used to create an [ArrayCreation] with the given [FluentArrayType]
  * and a [FluentArrayInitializer].
  */
 class FluentArrayCreation internal constructor(private val type: FluentArrayType,

@@ -6,7 +6,33 @@ title: FluentVariableDeclarationExpression - fluentast-core
 
 # FluentVariableDeclarationExpression
 
-`class FluentVariableDeclarationExpression : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/expression/VariableDeclarationExpression.kt#L8)
+`class FluentVariableDeclarationExpression : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/expression/VariableDeclarationExpression.kt#L38)
+
+A wrapper class for [VariableDeclarationExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/VariableDeclarationExpression.html).
+
+Use convenience methods from [at.hschroedl.fluentast](../../at.hschroedl.fluentast/index.html) to create instances of this class.
+
+Java Code:
+
+``` java
+boolean i = true
+```
+
+Using JDT:
+
+``` java
+VariableDeclarationFragment fragment = ast.newVariableDeclarationFragment();
+fragment.setName(ast.newSimpleName("i"));
+fragment.setInitializer(ast.newBooleanLiteral(true));
+VariableDeclarationExpression statement = ast.newVariableDeclarationExpression(fragment);
+statement.setType(ast.newPrimitiveType(PrimitiveType.BOOLEAN));
+```
+
+Using Fluentast:
+
+``` java
+VariableDeclarationExpression exp = decl("i", true).build(ast);
+```
 
 ### Functions
 

@@ -6,4 +6,4 @@ title: s - fluentast-core
 
 # s
 
-`fun s(literal: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`FluentStringLiteral`](../at.hschroedl.fluentast.ast.expression/-fluent-string-literal/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L143)
+`fun s(literal: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`FluentStringLiteral`](../at.hschroedl.fluentast.ast.expression/-fluent-string-literal/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L44)

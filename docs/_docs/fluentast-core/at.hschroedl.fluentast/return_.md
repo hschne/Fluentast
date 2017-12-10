@@ -6,7 +6,7 @@ title: return_ - fluentast-core
 
 # return_
 
-`fun return_(): `[`FluentStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-statement/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L115)
+`fun return_(): `[`FluentStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-statement/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L125)
 
 Creates a new [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html), used for building a [ReturnStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ReturnStatement.html).
 
@@ -17,9 +17,9 @@ a new [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-re
 
 [ReturnStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ReturnStatement.html)
 
-`fun return_(expression: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentReturnStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L126)
+`fun return_(expression: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentReturnStatement`](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L136)
 
-Creates a [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html), used for building a [ReturnStatement](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ReturnStatement.html).
+Creates a [FluentReturnStatement](../at.hschroedl.fluentast.ast.statement/-fluent-return-statement/index.html).
 
 ### Parameters
 

@@ -6,6 +6,6 @@ title: FluentVariableDeclarationFragmentImpl.init - fluentast-core
 
 # init
 
-`fun init(value: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`FluentVariableDeclarationFragmentImpl`](index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L30)
-`fun init(value: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`FluentVariableDeclarationFragmentImpl`](index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L34)
-`fun init(value: `[`FluentExpression`](../../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentVariableDeclarationFragmentImpl`](index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L38)
+`fun init(value: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`): `[`FluentVariableDeclarationFragmentImpl`](index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L55)
+`fun init(value: `[`Int`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)`): `[`FluentVariableDeclarationFragmentImpl`](index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L59)
+`fun init(value: `[`FluentExpression`](../../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentVariableDeclarationFragmentImpl`](index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L63)
