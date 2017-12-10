@@ -15,33 +15,34 @@ layout: default
 <div id="exTab2" class="container">
 
   <h2 class="display text-left">Installation</h2>
-  <p>You may install Fluentast using Maven or Gradle. You may also simply download the latest
-    release <a href="https://github.com/hschroedl/FluentAST">here</a>.</p>
-  <ul class="nav nav-tabs">
-    <li class="active">
-      <a href="#1" data-toggle="tab">Maven</a>
-    </li>
-    <li><a href="#2" data-toggle="tab">Gradle</a>
-    </li>
-  </ul>
-  <div class="tab-content" id="installation" >
-    <div class="tab-pane active" id="1">
-{% highlight xml %}
-<dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.12</version>
-    <scope>test</scope>
-</dependency>
-{% endhighlight %}
-    </div>
-        <div class="tab-pane" id="2">
-{% highlight gradle %}
-testCompile group: 'junit', name: 'junit', version: '4.12'
-{% endhighlight %}
-    </div>
+  <p>Fluentast is available for download on <a href="https://github.com/hschroedl/FluentAST/releases/tag/v0.1" >Github</a></p>
+  <!--<p>You may install Fluentast using Maven or Gradle. You may also simply download the latest-->
+    <!--release <a href="https://github.com/hschroedl/FluentAST">here</a>.</p>-->
+  <!--<ul class="nav nav-tabs">-->
+    <!--<li class="active">-->
+      <!--<a href="#1" data-toggle="tab">Maven</a>-->
+    <!--</li>-->
+    <!--<li><a href="#2" data-toggle="tab">Gradle</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+  <!--<div class="tab-content" id="installation" >-->
+    <!--<div class="tab-pane active" id="1">-->
+<!--{% highlight xml %}-->
+<!--<dependency>-->
+    <!--<groupId>junit</groupId>-->
+    <!--<artifactId>junit</artifactId>-->
+    <!--<version>4.12</version>-->
+    <!--<scope>test</scope>-->
+<!--</dependency>-->
+<!--{% endhighlight %}-->
+    <!--</div>-->
+        <!--<div class="tab-pane" id="2">-->
+<!--{% highlight gradle %}-->
+<!--testCompile group: 'junit', name: 'junit', version: '4.12'-->
+<!--{% endhighlight %}-->
+    <!--</div>-->
 
-  </div>
+  <!--</div>-->
 
 
   <hr>
@@ -153,14 +154,14 @@ block(variableDeclaration,
             <h1 class="text-center"><i class="fa fa-code" aria-hidden="true"></i></h1>
             <h3 class="text-center">Supported Elements</h3>
             <p>The most common syntax elements, such as if-statements, loops, variable assignments and so forth are supported. However, there might still be some missing.
-              For an overview of supported syntax elements please see the <a href="#">supported syntax elements documentation</a>.
+              For an overview of supported syntax elements please see the <a href="/docs/syntax">supported syntax elements documentation</a>.
             </p>
         </div>
         <div class="col-sm-4">
             <h1 class="text-center"><i class="fa fa-check-circle" aria-hidden="true"></i></h1>
             <h3 class="text-center">Additional Features</h3>
-            <p>Creating an abstract syntax tree is still to cumbersome? You may simple add blocks and statements as strings and mix them with other fluent elements. For more information
-            regarding this feature see <a href="#">here</a> </p>
+            <p>Creating an abstract syntax tree is still to cumbersome? You may simple add blocks and statements as strings and mix them with other fluent elements.
+              Have a look at the <a href="https://github.com/hschroedl/FluentAST/tree/master/demo/src/main/java/at/hschroedl/fluentast/demo">demo project</a>.</p>
         </div>
         <div class="col-sm-4">
             <h1 class="text-center"><i class="fa fa-code-fork" aria-hidden="true"></i></h1>
