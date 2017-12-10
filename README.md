@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hschroedl/FluentAST.svg?branch=master)](https://travis-ci.org/hschroedl/FluentAST)
+
 # Fluentast
 
 A fluent API to create abstract syntax trees for Java. Written in Kotlin.
@@ -22,8 +24,6 @@ I use [a license](LICENSE). Don't you?
 - Add most useful expressions and statements (loop!)
 
 - Finish website (with docs)
-
-- CI (travis, coverall)
 
 - Maven, or release at least
 
