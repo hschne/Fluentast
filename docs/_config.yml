@@ -4,7 +4,7 @@ email: hansjrgschroedl@gmail.com
 description: >
   The fluent way to create Java code 
 
-baseurl: "/FluentAST"
+baseurl: "/Fluentast"
 url: https://hschroedl.at
 git_address: https://github.com/hschroedl/Fluentast
 git_edit_address: https://github.com/hschroedl/Fluentast/blob/master/docs/
