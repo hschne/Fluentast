@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/hschroedl/FluentAST.svg?branch=master)](https://travis-ci.org/hschroedl/FluentAST)
-
 # Fluentast
+
+[![Build Status](https://travis-ci.org/hschroedl/FluentAST.svg?branch=master)](https://travis-ci.org/hschroedl/FluentAST)
 
 A fluent API to create abstract syntax trees for Java. Written in Kotlin.
 
