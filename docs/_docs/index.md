@@ -128,8 +128,8 @@ block(variableDeclaration,
 			</div>
 
 
-For more information regarding the Fluentast syntax have a look at the [syntax page](#) or at the [API](/docs/fluentast-core/). 
 You can find additional examples in the in the demo project on [Github](https://github.com/hschroedl/FluentAST/tree/master/demo/src/main/java/at/hschroedl/fluentast/demo). 
 
+For more information regarding the Fluentast syntax have a look at the [syntax page](#) or at the [API](/docs/fluentast-core/)
 
 

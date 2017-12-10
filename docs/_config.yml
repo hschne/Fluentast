@@ -54,3 +54,10 @@ defaults:
     sectionid: docs/fluentast-core
     seo:
       type: "WebPage"
+
+collections:
+  docs:
+    output: true
+  posts:
+    permalink: /blog/:year/:month/:day/:title/
+    output: true
