@@ -6,7 +6,28 @@ title: FluentSuperMethodInvocation - fluentast-core
 
 # FluentSuperMethodInvocation
 
-`class FluentSuperMethodInvocation : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/expression/SuperMethodInvocation.kt#L7)
+`class FluentSuperMethodInvocation : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/expression/SuperMethodInvocation.kt#L32)
+
+Used to build a [SuperMethodInvocation](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/SuperMethodInvocation.html).
+
+Java:
+
+``` java
+super.someMethod();
+```
+
+JDT:
+
+``` java
+SuperMethodInvocation methodInvocation = ast.newSuperMethodInvocation();
+methodInvocation.setName(ast.newSimpleName("myMethod"));
+```
+
+Fluentast:
+
+``` java
+SuperMethodInvocation methodInvocation = superMethod("myMethod").build(ast);
+```
 
 ### Functions
 

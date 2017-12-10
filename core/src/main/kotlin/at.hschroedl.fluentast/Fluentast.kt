@@ -105,34 +105,14 @@ fun pair(name: String, value: FluentExpression): FluentMemberValuePair {
 }
 
 
-/**
- * Creates a [FluentBreakStatement] which is used for building a [BreakStatement]
- *
- * @return a new [FluentBreakStatement].
- * @see [BreakStatement], [FluentBreakStatement]
- */
 fun break_(): FluentStatement {
     return FluentBreakStatement()
 }
 
-/**
- * Creates a new [FluentReturnStatement], used for building a [ReturnStatement].
- *
- * @return a new [FluentReturnStatement].
- * @see [ReturnStatement], [FluentReturnStatement]
- *
- */
 fun return_(): FluentStatement {
     return FluentReturnStatement(null)
 }
 
-/**
- * Creates a [FluentReturnStatement].
- *
- * @param expression the expression behind the return.
- * @return a [FluentReturnStatement] with [FluentExpression] as expression.
- * @see [ReturnStatement], [FluentReturnStatement]
- */
 fun return_(expression: FluentExpression): FluentReturnStatement {
     return FluentReturnStatement(expression)
 }
@@ -173,15 +153,6 @@ fun superMethod(qualifier: String,
 }
 
 
-/**
- * Creates an integer [FluentVariableDeclarationExpression].
- *
- * See the documentation of [FluentVariableDeclarationExpression] for information on how to use this method.
- *
- * @param initializer the initial integer value.
- * @return a [FluentVariableDeclarationExpression] of type int and value [initializer]
- * @see [VariableDeclarationExpression], [FluentVariableDeclarationExpression]
- */
 fun decl(name: String, initializer: Int): FluentVariableDeclarationExpression {
     return FluentVariableDeclarationExpression(p("int"),
                                                FluentVariableDeclarationFragmentImpl(
@@ -189,16 +160,6 @@ fun decl(name: String, initializer: Int): FluentVariableDeclarationExpression {
                                                i(initializer)))
 }
 
-
-/**
- * <p>Creates a boolean [FluentVariableDeclarationExpression].</p>
- *
- * See the documentation of [FluentVariableDeclarationExpression] for information on how to use this method.
- *
- * @param initializer the initial boolean value.
- * @return a [FluentVariableDeclarationExpression] of type boolean and value [initializer]
- * @see [VariableDeclarationExpression], [FluentVariableDeclarationExpression]
- */
 fun decl(name: String, initializer: Boolean): FluentVariableDeclarationExpression {
     return FluentVariableDeclarationExpression(p("boolean"),
                                                FluentVariableDeclarationFragmentImpl(
@@ -206,15 +167,6 @@ fun decl(name: String, initializer: Boolean): FluentVariableDeclarationExpressio
                                                        initializer = b(initializer)))
 }
 
-/**
- * Creates a char [FluentVariableDeclarationExpression]. <br>
- *
- * See the documentation of [FluentVariableDeclarationExpression] for information on how to use this method.
- *
- * @param initializer the initial char value.
- * @return a [FluentVariableDeclarationExpression] of type char and value [initializer]
- * @see [VariableDeclarationExpression], [FluentVariableDeclarationExpression]
- */
 fun decl(name: String, initializer: Char): FluentVariableDeclarationExpression {
     return FluentVariableDeclarationExpression(p("char"),
                                                FluentVariableDeclarationFragmentImpl(
@@ -222,15 +174,6 @@ fun decl(name: String, initializer: Char): FluentVariableDeclarationExpression {
                                                        initializer = c(initializer)))
 }
 
-/**
- * Creates a string [FluentVariableDeclarationExpression].
- *
- * See the documentation of [FluentVariableDeclarationExpression] for information on how to use this method.
- *
- * @param initializer the initial string value.
- * @return a [FluentVariableDeclarationExpression] of type string and value [initializer]
- * @see [VariableDeclarationExpression], [FluentVariableDeclarationExpression]
- */
 fun decl(type: FluentType, initializer: String): FluentExpression {
     return FluentVariableDeclarationExpression(type,
                                                FluentVariableDeclarationFragmentImpl(
@@ -242,17 +185,6 @@ fun decl(type: FluentType,
     return FluentVariableDeclarationExpression(type, *fragment)
 }
 
-/**
- * Creates an [FluentInfixOperatorPartial], which is used for building an [InfixExpression].
- *
- * @param operator operator used in [InfixExpression]. See [InfixExpression.Operator].
- * @return a new [FluentInfixOperatorPartial].
- *
- * @see [FluentInfixOperatorPartial]
- * @see [FluentInfixLeftPartial]
- * @see [FluentInfixExpression]
- *
- */
 fun infix(operator: String): FluentInfixOperatorPartial {
     return FluentInfixOperatorPartial(operator)
 }
@@ -320,17 +252,6 @@ fun stmnt(expression: FluentExpression): FluentExpressionStatement {
 }
 
 
-/**
- * Creates an [FluentIfPartial]. A [FluentIfPartial] is used in creating an [IfStatement].
- *
- * @param condition a [FluentExpression] to be used as condition in the [IfStatement].
- * @return a new [FluentIfPartial].
- *
- * @see [FluentIfPartial]
- * @see [FluentIfStatement]
- * @see [FluentIfElseStatement]
- *
- */
 fun if_(condition: FluentExpression): FluentIfPartial {
     return FluentIfPartial(condition)
 }

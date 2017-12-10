@@ -6,7 +6,7 @@ title: FluentVariableDeclarationFragment - fluentast-core
 
 # FluentVariableDeclarationFragment
 
-`abstract class FluentVariableDeclarationFragment : `[`FluentVariableDeclaration`](../-fluent-variable-declaration/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L38)
+`abstract class FluentVariableDeclarationFragment : `[`FluentVariableDeclaration`](../-fluent-variable-declaration/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/VariableDeclarationFragment.kt#L37)
 
 A wrapper class for [VariableDeclarationFragment](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/VariableDeclarationFragment.html). Fragements are used to declare or initialize values.
 
@@ -27,12 +27,12 @@ fragment.setInitializer(ast.newNumberLiteral("1"));
 Using Fluentast:
 
 ``` java
-decl(t("int"), fragment("i", i(1)));
+VariableDeclarationFragment fragment = fragment("i", i(1))).build(ast);
 ```
 
 ### Constructors
 
-| [&lt;init&gt;](-init-.html) | `FluentVariableDeclarationFragment(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, initializer: `[`FluentExpression`](../../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`? = null)`<br>takes a [FluentType](#) and a list of FluentVariableDeclarationFragment to be initialized. |
+| [&lt;init&gt;](-init-.html) | `FluentVariableDeclarationFragment(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, initializer: `[`FluentExpression`](../../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`? = null)`<br>takes a string representing the name and a [FluentExpression](../../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html) as initializer. |
 
 ### Functions
 

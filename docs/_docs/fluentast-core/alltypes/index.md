@@ -80,7 +80,7 @@ This module contains the public API of Fluentast.
 | [at.hschroedl.fluentast.ast.expression.FluentStringLiteral](../at.hschroedl.fluentast.ast.expression/-fluent-string-literal/index.html) | Used to build a [StringLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/StringLiteral.html) with a given value. |
 | [at.hschroedl.fluentast.ast.statement.FluentSuperConstructorInvocation](../at.hschroedl.fluentast.ast.statement/-fluent-super-constructor-invocation/index.html) |  |
 | [at.hschroedl.fluentast.ast.expression.FluentSuperFieldAccess](../at.hschroedl.fluentast.ast.expression/-fluent-super-field-access/index.html) |  |
-| [at.hschroedl.fluentast.ast.expression.FluentSuperMethodInvocation](../at.hschroedl.fluentast.ast.expression/-fluent-super-method-invocation/index.html) |  |
+| [at.hschroedl.fluentast.ast.expression.FluentSuperMethodInvocation](../at.hschroedl.fluentast.ast.expression/-fluent-super-method-invocation/index.html) | Used to build a [SuperMethodInvocation](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/SuperMethodInvocation.html). |
 | [at.hschroedl.fluentast.ast.statement.FluentSwitchCase](../at.hschroedl.fluentast.ast.statement/-fluent-switch-case/index.html) |  |
 | [at.hschroedl.fluentast.ast.statement.FluentSwitchStatement](../at.hschroedl.fluentast.ast.statement/-fluent-switch-statement/index.html) |  |
 | [at.hschroedl.fluentast.ast.statement.FluentSynchronizedStatement](../at.hschroedl.fluentast.ast.statement/-fluent-synchronized-statement/index.html) |  |

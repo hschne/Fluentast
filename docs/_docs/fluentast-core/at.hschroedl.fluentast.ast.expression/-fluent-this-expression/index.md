@@ -6,9 +6,27 @@ title: FluentThisExpression - fluentast-core
 
 # FluentThisExpression
 
-`class FluentThisExpression : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/expression/ThisExpression.kt#L9)
+`class FluentThisExpression : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/expression/ThisExpression.kt#L29)
 
 Used to build a [ThisExpression](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/ThisExpression.html).
+
+Java:
+
+``` java
+this
+```
+
+JDT:
+
+``` java
+ThisExpression exp = ast.newThisExpression();
+```
+
+Fluentast:
+
+``` java
+ThisExpression exp = this_().build(ast);
+```
 
 ### Functions
 

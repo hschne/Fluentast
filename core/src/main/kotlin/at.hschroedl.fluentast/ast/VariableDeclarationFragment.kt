@@ -10,7 +10,6 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment
 abstract class FluentVariableDeclaration : FluentChildNode<VariableDeclaration>
 
 
-
 /**
  * A wrapper class for [VariableDeclarationFragment]. Fragements are used to declare or initialize values.
  *
@@ -28,12 +27,12 @@ abstract class FluentVariableDeclaration : FluentChildNode<VariableDeclaration>
  *
  * Using Fluentast:
  * ~~~ java
- * decl(t("int"), fragment("i", i(1)));
+ * VariableDeclarationFragment fragment = fragment("i", i(1))).build(ast);
  * ~~~
  *
- * @constructor takes a [FluentType] and a list of [FluentVariableDeclarationFragment] to be initialized.
+ * @constructor takes a string representing the name and a [FluentExpression] as initializer.
  *
- * @see ArrayAccess
+ * @see [VariableDeclarationFragment]
  */
 abstract class FluentVariableDeclarationFragment(private val name: String,
                                                  private val initializer: FluentExpression? = null) : FluentVariableDeclaration() {

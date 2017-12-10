@@ -6,4 +6,4 @@ title: while_ - fluentast-core
 
 # while_
 
-`fun while_(condition: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`DoPartial`](../at.hschroedl.fluentast.ast.statement/-fluent-while-statement/-do-partial/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L347)
+`fun while_(condition: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`DoPartial`](../at.hschroedl.fluentast.ast.statement/-fluent-while-statement/-do-partial/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L268)

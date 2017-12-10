@@ -6,4 +6,4 @@ title: paranthesis - fluentast-core
 
 # paranthesis
 
-`fun paranthesis(expression: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentParenthesizedExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-parenthesized-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L149)
+`fun paranthesis(expression: `[`FluentExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`): `[`FluentParenthesizedExpression`](../at.hschroedl.fluentast.ast.expression/-fluent-parenthesized-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/Fluentast.kt#L129)

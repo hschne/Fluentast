@@ -6,9 +6,28 @@ title: FluentTypeLiteral - fluentast-core
 
 # FluentTypeLiteral
 
-`class FluentTypeLiteral : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/expression/TypeLiteral.kt#L11)
+`class FluentTypeLiteral : `[`FluentExpression`](../-fluent-expression/index.html) [(source)](https://github.com/hschroedl/FluentAST/tree/master/core/src/main/kotlin//at.hschroedl.fluentast/ast/expression/TypeLiteral.kt#L31)
 
 Used to build a [TypeLiteral](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/TypeLiteral.html) from a [FluentType](../../at.hschroedl.fluentast.ast.type/-fluent-type/index.html).
+
+Java:
+
+``` java
+MyType.class
+```
+
+JDT:
+
+``` java
+TypeLiteral literal = ast.newTypeLiteral();
+literal.setType(ast.newSimpleType(ast.newSimpleName("MyType")));
+```
+
+Fluentast:
+
+``` java
+TypeLiteral literal = clazz(t("MyType")).build(ast);
+```
 
 ### Functions
 

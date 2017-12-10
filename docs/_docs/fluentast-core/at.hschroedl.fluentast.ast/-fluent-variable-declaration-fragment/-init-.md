@@ -8,12 +8,12 @@ title: FluentVariableDeclarationFragment.<init> - fluentast-core
 
 `FluentVariableDeclarationFragment(name: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`, initializer: `[`FluentExpression`](../../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html)`? = null)`
 
-takes a [FluentType](#) and a list of [FluentVariableDeclarationFragment](index.html) to be initialized.
+takes a string representing the name and a [FluentExpression](../../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html) as initializer.
 
 **Constructor**
-takes a [FluentType](#) and a list of [FluentVariableDeclarationFragment](index.html) to be initialized.
+takes a string representing the name and a [FluentExpression](../../at.hschroedl.fluentast.ast.expression/-fluent-expression/index.html) as initializer.
 
 **See Also**
 
-[ArrayAccess](#)
+[VariableDeclarationFragment](https://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/VariableDeclarationFragment.html)
 
