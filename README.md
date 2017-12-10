@@ -1,10 +1,10 @@
 # Fluentast
 
-[![Build Status](https://travis-ci.org/hschroedl/FluentAST.svg?branch=master)](https://travis-ci.org/hschroedl/FluentAST)
+[![Build Status](https://travis-ci.org/hschroedl/Fluentast.svg?branch=master)](https://travis-ci.org/hschroedl/Fluentast)
 
 A fluent API to create abstract syntax trees for Java. Written in Kotlin.
 
-For more information and documentation please see [the website](#).
+For more information and documentation please see [the website](https://hschroedl.at/Fluentast).
 
 ## Contributing
 
@@ -15,15 +15,4 @@ Just have a look at the existing code, I guess? :)
 
 I use [a license](LICENSE). Don't you? 
 
-## Todo: 
-
-## V1
-
-- Restructure convenience function location
-
-- Add most useful expressions and statements (loop!)
-
-- Finish website (with docs)
-
-- Maven, or release at least
 
