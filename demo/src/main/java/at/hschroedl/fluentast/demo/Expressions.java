@@ -10,6 +10,7 @@ import at.hschroedl.fluentast.ast.expression.FluentTypeLiteral;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.PrimitiveType;
+import org.eclipse.jdt.core.dom.SuperFieldAccess;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 import org.eclipse.jdt.core.dom.ThisExpression;
 import org.eclipse.jdt.core.dom.TypeLiteral;
@@ -22,8 +23,9 @@ public class Expressions {
 
   public static String literals(){
     AST ast = AST.newAST(AST.JLS9);
-    SuperMethodInvocation methodInvocation = superMethod("myMethod").build(ast);
-    return methodInvocation.toString();
+    SuperFieldAccess fieldAccess = ast.newSuperFieldAccess();
+    fieldAccess.setName(ast.newSimpleName("myField"));
+    return fieldAccess.toString();
   }
 
 }

@@ -10,7 +10,7 @@ import org.eclipse.jdt.core.dom.SuperMethodInvocation
  *
  * Java:
  * ~~~ java
- * super.someMethod();
+ * super.myMethod()
  * ~~~
  *
  * JDT:
